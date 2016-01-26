@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes } from 'react';
 
-const Codes = React.createClass({
-  render () {
-    return (
-      <h1>Codes!!!!</h1>
-    )
-  }
-})
+class Codes extends React.Component {
+    render() {
+        return (
+            <div>Codes</div>
+        );
+    }
+}
 
-export default Codes
+export default Codes;
