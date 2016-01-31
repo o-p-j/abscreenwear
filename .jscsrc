@@ -1,0 +1,19 @@
+{
+	"preset": "yandex",
+    "esnext": true,
+	"disallowMultipleLineBreaks": null,
+	"disallowMultipleVarDecl": null,
+	"disallowImplicitTypeConversion": null,
+	"requireCurlyBraces": null,
+	"disallowSpacesInsideObjectBrackets": null,
+	"requireSpacesInsideObjectBrackets": {
+		"allExcept": [ "}", ")" ]
+	},
+	"requireSpaceAfterLineComment": null,
+	"disallowMultipleSpaces": true,
+    "validateQuoteMarks": { "mark": "'", "escape": true, "ignoreJSX": true },
+    "disallowSpacesInAnonymousFunctionExpression": {
+        "beforeOpeningRoundBrace": true
+    },
+    "requireSpacesInAnonymousFunctionExpression": null
+}
