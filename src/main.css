@@ -79,6 +79,7 @@ nav {
 
 .releases img {
     width: 100%;
+    display: block;
 }
 
 .form {
