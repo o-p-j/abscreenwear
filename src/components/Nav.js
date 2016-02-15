@@ -5,7 +5,7 @@ var Nav = (props) => {
     return (
         <nav className="leftbar">
           <h1 className="logo">
-            <IndexLink to="/">
+            <IndexLink to="/" activeClassName="active">
             Ab[Screen-<br/>
                wear]<br/><br/>
             </IndexLink>
@@ -16,8 +16,8 @@ var Nav = (props) => {
               <Link to="/releases" activeClassName="active">
                 Ab[Releas-<br/>
                 es:<br/>
-                   Ab_Marfa/<br/>
-                   SS_2016;<br/>
+                  A1/16/_<br/>
+                  Marfa/b1.1;<br/>
                   ]<br/><br/>
               </Link>
             </li>
@@ -44,6 +44,6 @@ var Nav = (props) => {
           </ul>
         </nav>
     );
-}
+};
 
 export default Nav;
