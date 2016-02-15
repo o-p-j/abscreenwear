@@ -17,8 +17,9 @@ var RightPanel = () => {
                     <a href="https://www.facebook.com/AbScreenwear-1656694317934158/" target="_blank">fb;   </a>
                 </li>
                 <li>
-                    <a href="https://abscreenwear.tumblr.com" target="_blank">Tumblr<br/>]   </a>
+                    <a href="https://abscreenwear.tumblr.com" target="_blank">Tumblr</a>
                 </li>
+                <li>]   </li>
             </ul>
         </aside>
     );

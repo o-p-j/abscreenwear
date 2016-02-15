@@ -41,7 +41,11 @@ main {
     flex: 4;
 }
 
-.menu a {
+a:hover {
+    background: #B1D7FA;
+}
+
+a {
     text-decoration: none;
 }
 
