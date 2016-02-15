@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 
 const items = [require('../images/Ab_codes.png')];
 
 class Codes extends React.Component {
     componentDidMount() {
-        const domNode = findDOMNode(this);
-        const scrollableContainer = domNode.parentNode;
+        const scrollableContainer = findDOMNode(this);
 
         scrollableContainer.scrollTop = 1;
 

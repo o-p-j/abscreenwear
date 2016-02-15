@@ -22,6 +22,11 @@ class SubscribeForm extends React.Component {
 
         var data = new FormData();
 
+        if (!this.state.email || !this.state.name) {
+            alert('Please fill both email and name');
+            return;
+        }
+
         data.append('EMAIL', this.state.email);
         data.append('FNAME', this.state.name);
 
@@ -49,27 +54,37 @@ class SubscribeForm extends React.Component {
     render() {
         if (this.state.closed) return null;
 
-        if (this.state.completed) return <div className="form">Thank you!</div>;
+        if (this.state.completed) return (
+            <div className="form">
+                <div className="form-message">Thank you!</div>
+            </div>
+        );
 
         return (
             <form className="form" onSubmit={this.onSubmit}>
                 <div className="form-header">
-                    <div className="form-close-container"><button type="button" className="form-close" onClick={this.close}>X</button></div>
+                    <div className="form-close-container">
+                        <button type="button" className="form-close" onClick={this.close}>X</button>
+                    </div>
                     <div style={{ display: 'inline-block', textAlign: 'left' }}>
                         Keep<br/>
-                        in touch [
+                        in touch
                     </div>
                 </div>
+
                 <div className="form-field">
                     <label htmlFor="name">Name</label>
                     <input type="text" name="name" onChange={this.handleChange.bind(this, 'name')} />
                 </div>
+
                 <div className="form-field">
                     <label htmlFor="email">Email</label>
                     <input type="email" name="email" onChange={this.handleChange.bind(this, 'email')} />
                 </div>
-                <button type="submit">Subscribe</button>
-                <div className="form-footer">]</div>
+
+                <div className="form-footer">
+                    <button type="submit">Join!</button>
+                </div>
             </form>
         );
 

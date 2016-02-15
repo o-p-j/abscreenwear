@@ -9,8 +9,7 @@ for (let num = 0; num < 10; num++) {
 
 class Releases extends React.Component {
     componentDidMount() {
-        const domNode = findDOMNode(this);
-        const scrollableContainer = domNode.parentNode;
+        const scrollableContainer = findDOMNode(this);
 
         scrollableContainer.scrollTop = 1;
 
