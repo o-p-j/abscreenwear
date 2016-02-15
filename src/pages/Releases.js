@@ -7,7 +7,7 @@ for (let num = 0; num < 10; num++) {
     items.push(require(`../images/Ab_marfa${num}.jpg`));
 }
 
-const Releases = React.createClass({
+class Releases extends React.Component {
     componentDidMount() {
         const domNode = findDOMNode(this);
         const scrollableContainer = domNode.parentNode;
@@ -30,7 +30,7 @@ const Releases = React.createClass({
                 }
             });
         }
-    },
+    }
 
     render() {
         const images = items.concat(items).map((src, idx) => <img key={idx} src={src}/>);
@@ -41,6 +41,6 @@ const Releases = React.createClass({
             </div>
         );
     }
-});
+}
 
 export default Releases;
