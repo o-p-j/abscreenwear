@@ -6,7 +6,7 @@ class Screewear extends React.Component {
         return (
             <div style={{ position: 'relative' }}>
                 <SubscribeForm/>
-                <img style={{ width: '100%' }} src={require('../images/index_fixed.gif')}/>
+                <img style={{ width: '100%' }} src={require('../images/spencer.gif')}/>
             </div>
         );
     }
