@@ -6,8 +6,7 @@ var Nav = (props) => {
         <nav className="leftbar">
           <h1 className="logo">
             <IndexLink to="/" activeClassName="active">
-            Ab[Screen-<br/>
-               wear]<br/><br/>
+                <img width="180" src={require('../images/logo.svg')}/>
             </IndexLink>
           </h1>
 

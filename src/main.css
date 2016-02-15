@@ -12,6 +12,10 @@ body {
     width: 0;
 }
 
+.logo a:hover {
+    background: none;
+}
+
 a {
     text-decoration: none;
     color: black;

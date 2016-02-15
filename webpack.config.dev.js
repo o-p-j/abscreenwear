@@ -17,9 +17,9 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.ProvidePlugin({
-            'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-          })
-    ],
+            fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        })
+  ],
     module: {
         loaders: [{
             test: /\.jsx?/,
@@ -30,7 +30,7 @@ module.exports = {
             loader: 'style!css',
             include: path.join(__dirname, 'src')
         }, {
-            test: /\.(png|jpg|gif)$/,
+            test: /\.(png|jpg|gif|svg)$/,
             loader: 'url?limit=8192'
         }]
     },

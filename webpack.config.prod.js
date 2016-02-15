@@ -37,7 +37,7 @@ module.exports = {
             loader: 'style!css',
             include: path.join(__dirname, 'src')
         }, {
-            test: /\.(png|jpg|gif)$/,
+            test: /\.(png|jpg|gif|svg)$/,
             loader: 'url?limit=8192'
         }]
     }
