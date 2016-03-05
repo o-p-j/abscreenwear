@@ -80,16 +80,16 @@ nav,
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 20px;
+  margin: 20px;
   font-size: 30px;
 }
 
 nav {
-    min-width: 260px;
+    min-width: 240px;
 }
 
 .rightpanel {
-    min-width: 180px;
+    min-width: 240px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;

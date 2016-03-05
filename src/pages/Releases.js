@@ -3,7 +3,6 @@ import { findDOMNode } from 'react-dom';
 
 const items = [];
 for (let num = 0; num < 10; num++) {
-    if (num === 1) continue;
     items.push(require(`../images/Ab_marfa${num}.jpg`));
 }
 
