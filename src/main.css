@@ -59,6 +59,7 @@ a:hover .text {
 nav li {
     margin-top: 33px;
     margin-bottom: 33px;
+    position: relative;
 }
 
 nav a.active .text {
@@ -80,7 +81,6 @@ nav,
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin: 20px;
   font-size: 30px;
 }
 
@@ -104,6 +104,25 @@ nav {
         -ms-flex-pack: justify;
             justify-content: space-between;
     text-align: right;
+}
+
+.menu {
+    margin-left: 20px;
+}
+
+.logo {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.rightpanel-title {
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.links {
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .releases {

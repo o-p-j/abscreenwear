@@ -30,7 +30,7 @@ const links = [{
     text: (
 `Ab[Releas-
 es:
-  A1/16/_
+  A1/16_
   Marfa/b1.1;
   ]`
     )
