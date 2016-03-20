@@ -8,6 +8,10 @@ body {
   height: 100vh;
 }
 
+pre {
+    font-family: 'menlo', monospace;
+}
+
 ::-webkit-scrollbar {
     width: 0;
 }
