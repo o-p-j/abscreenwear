@@ -4,7 +4,7 @@ import React from 'react';
 var RightPanel = () => {
     return (
         <aside className="rightpanel">
-            <div className="rightpanel-title">Ab[Pre_<br/>Screen;</div>
+            <div className="rightpanel-title">Ab[Labs</div>
 
             <ul className="links">
                 <li>
