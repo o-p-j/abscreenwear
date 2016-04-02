@@ -89,10 +89,10 @@ nav
 }
 .rightpanel 
 {
-  -webkit-box-flex: 3;
-  -webkit-flex: 3;
-      -ms-flex: 3;
-          flex: 3;
+  -webkit-box-flex: 4;
+  -webkit-flex: 4;
+      -ms-flex: 4;
+          flex: 4;
   font-size: 30px;
 }
 
@@ -101,7 +101,7 @@ nav {
 }
 
 .rightpanel {
-    min-width: 120px;
+    min-width: 200px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
