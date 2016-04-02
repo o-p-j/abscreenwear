@@ -4,7 +4,10 @@ import React from 'react';
 var RightPanel = () => {
     return (
         <aside className="rightpanel">
-            <div className="rightpanel-title">Ab[Labs</div>
+
+            <h1 className="labsLogo">
+                <img width="90" src={require('../images/ab_lab_logo.png')}/>
+            </h1>
 
             <ul className="links">
                 <li>
