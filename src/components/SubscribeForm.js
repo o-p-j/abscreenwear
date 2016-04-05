@@ -40,11 +40,12 @@ class SubscribeForm extends React.Component {
             } else {
                 let error = new Error(response.statusText);
                 error.response = response;
-                throw error;
             }
         }).catch(err => {
             //TODO: do smth
-        });
+            this.setState({completed: true });
+            console.log('your error is: ' + err)
+       });
     }
 
     close() {
