@@ -20,21 +20,26 @@ class SubscribeForm extends React.Component {
     onSubmit(e) {
         e.preventDefault();
 
-        var data = new FormData();
+        var mailChimpData = new FormData();
 
         if (!this.state.email || !this.state.name) {
             alert('Please fill both email and name');
             return;
         }
 
-        data.append('EMAIL', this.state.email);
-        data.append('FNAME', this.state.name);
+        mailChimpData.append('EMAIL', this.state.email);
+        mailChimpData.append('FNAME', this.state.name);
+
+        var loggerData = {
+          "email": this.state.email,
+          "fname": this.state.name
+        };
+
 
         var mailChimpAddress   = 'http://abscreenwear.us11.list-manage.com/subscribe/post?u=210d81d2813e4b042fde24419&amp;id=b4b55d4953';
         var emailLoggerAddress = 'http://abscreenwear.com/save';
-        // send data to MailChimp
 
-        var shipData = function (url) {
+        var shipData = function (url, data) {
 
           fetch(url, {
               method: 'POST',
@@ -54,8 +59,11 @@ class SubscribeForm extends React.Component {
           });
         };
 
-        shipData(mailChimpAddress);
-        shipData(emailLoggerAddress);
+        // send data to MailChimp
+        shipData(mailChimpAddress, mailChimpData);
+
+        // send data to the email logger 
+        shipData(emailLoggerAddress, loggerData);
     }
 
     close() {
