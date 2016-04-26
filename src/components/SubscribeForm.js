@@ -52,10 +52,11 @@ class SubscribeForm extends React.Component {
               this.setState({completed: true });
               console.log('your error is: ' + err)
           });
-        }
+        };
 
         shipData(mailChimpAddress);
         shipData(emailLoggerAddress);
+    }
 
     close() {
         this.setState({ closed: true });
