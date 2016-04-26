@@ -1,10 +1,8 @@
 module.exports = createMailChimpServer
 
 var http = require('http');
-var request = require('request');
 var fs = require('fs');
 
-var sendToMailChimp = require('./sendToMailChimp.js');
 
 var port = 4000 // this is the port nginx will forward to for connectedkingdom.com/save requests
 var host = '127.0.0.1' //this is the local server nginx forwards to 
