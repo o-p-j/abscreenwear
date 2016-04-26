@@ -30,23 +30,32 @@ class SubscribeForm extends React.Component {
         data.append('EMAIL', this.state.email);
         data.append('FNAME', this.state.name);
 
-        fetch('http://abscreenwear.us11.list-manage.com/subscribe/post?u=210d81d2813e4b042fde24419&amp;id=b4b55d4953', {
-            method: 'POST',
-            mode: 'no-cors',
-            body: data
-        }).then(response => {
-            if (!response.status || (response.status >= 200 && response.status < 300)) {
-                this.setState({ completed: true });
-            } else {
-                let error = new Error(response.statusText);
-                error.response = response;
-            }
-        }).catch(err => {
-            //TODO: do smth
-            this.setState({completed: true });
-            console.log('your error is: ' + err)
-       });
-    }
+        var mailChimpAddress   = 'http://abscreenwear.us11.list-manage.com/subscribe/post?u=210d81d2813e4b042fde24419&amp;id=b4b55d4953';
+        var emailLoggerAddress = 'http://abscreenwear.com/save';
+        // send data to MailChimp
+
+        var shipData = function (url) {
+
+          fetch(url, {
+              method: 'POST',
+              mode: 'no-cors',
+              body: data
+          }).then(response => {
+              if (!response.status || (response.status >= 200 && response.status < 300)) {
+                  this.setState({ completed: true });
+              } else {
+                  let error = new Error(response.statusText);
+                  error.response = response;
+              }
+          }).catch(err => {
+              //TODO: do smth
+              this.setState({completed: true });
+              console.log('your error is: ' + err)
+          });
+        }
+
+        shipData(mailChimpAddress);
+        shipData(emailLoggerAddress);
 
     close() {
         this.setState({ closed: true });

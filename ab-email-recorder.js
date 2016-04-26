@@ -16,7 +16,7 @@ function createMailChimpServer (port, host) {
     req.on('end', function () {
       // for command line testing with curl (see unit test area at bottom)
       userInfo = JSON.parse(userInfo) 
-      fs.appendFile('emails.log', '\n' +  userInfo.username + ' \t \t' + new Date() , function (err) {
+      fs.appendFile('emails.log', '\n' +  userInfo.FNAME + '\t' + userInfo.EMAIL + ' \t \t' + new Date() , function (err) {
         if (err) throw err
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.end()
