@@ -32,6 +32,6 @@ if (require.main === module)
   console.log('abscreenwear server running at  ' + host + ':' + port)
   createMailChimpServer (port, host)
       // for command-line testing, uncomment the below, run the server from CLI, and curl:
-      //curl -H "Content-Type: application/json" -X POST -d '{"username":"xyz","password":"xyz"}' http://127.0.0.1:3000 
+      //curl -H "Content-Type: application/json" -X POST -d '{"username":"xyz","password":"xyz"}' http://127.0.0.1:4000 
 
 }
