@@ -20,51 +20,47 @@ class SubscribeForm extends React.Component {
     onSubmit(e) {
         e.preventDefault();
 
-        var mailChimpData = new FormData();
-
         if (!this.state.email || !this.state.name) {
             alert('Please fill both email and name');
             return;
         }
 
-        mailChimpData.append('EMAIL', this.state.email);
-        mailChimpData.append('FNAME', this.state.name);
+        var data = {
+          "email_address": this.state.email,
+          "status": "subscribed",
+          "merge_fields": {
+            "FNAME": this.state.name, 
+            "LNAME": "Unknown",
+          },
+        }
 
-        var loggerData = {
-          "email": this.state.email,
-          "fname": this.state.name
-        };
+        var url = 'http://abscreenwear.com/save';
 
+        fetch(url, {
+            method: 'POST',
+            headers: {
+              "Content-type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => {
+          if (!response.status || (response.status >= 200 && response.status < 300)) {
+            this.setState({ completed: true });
+          } 
 
-        var mailChimpAddress   = 'http://abscreenwear.us11.list-manage.com/subscribe/post?u=210d81d2813e4b042fde24419&amp;id=b4b55d4953';
-        var emailLoggerAddress = 'http://abscreenwear.com/save';
+          else {
+            let error = new Error(response.statusText);
+            error.response = response;
+          }
+        })
 
-        var shipData = function (url, data) {
-
-          fetch(url, {
-              method: 'POST',
-              mode: 'no-cors',
-              body: data
-          }).then(response => {
-              if (!response.status || (response.status >= 200 && response.status < 300)) {
-                  this.setState({ completed: true });
-              } else {
-                  let error = new Error(response.statusText);
-                  error.response = response;
-              }
-          }).catch(err => {
-              //TODO: do smth
-              this.setState({completed: true });
-              console.log('your error is: ' + err)
-          });
-        };
-
-        // send data to MailChimp
-        shipData(mailChimpAddress, mailChimpData);
-
-        // send data to the email logger 
-        shipData(emailLoggerAddress, loggerData);
-    }
+        .catch (err => {
+          //TODO: do smth
+          this.setState({completed: true });
+          console.log('your error is: ' + err)
+        });
+      };
 
     close() {
         this.setState({ closed: true });
