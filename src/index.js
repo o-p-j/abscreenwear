@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute,} from 'react-router';
 import App from './App';
+import createBrowserHistory from 'history/lib/createBrowserHistory';    
 
 import Screenwear from './pages/Screenwear';
 import Releases from './pages/Releases';
@@ -12,7 +13,7 @@ import Editorial from './pages/Editorial';
 import './main.css';
 
 render((
-  <Router>
+  <Router history={createBrowserHistory()}>
     <Route path="/" component={App}>
       <IndexRoute component={Screenwear}/>
       <Route path="/releases" component={Releases}/>
