@@ -12,9 +12,16 @@ import Editorial from './pages/Editorial';
 
 import './main.css';
 
+var ga = require('react-ga');
+ga.initialize('UA-78475253-1');
+
+function logPageView() {
+  ga.pageview(window.location.pathname);
+}
+
 render((
   <Router history={createBrowserHistory()}>
-    <Route path="/" component={App}>
+    <Route path="/" component={App} onUpdate={logPageView}>
       <IndexRoute component={Screenwear}/>
       <Route path="/releases" component={Releases}/>
       <Route path="/codes" component={Codes}/>
