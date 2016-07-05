@@ -20,8 +20,8 @@ function logPageView() {
 }
 
 render((
-  <Router history={createBrowserHistory()}>
-    <Route path="/" component={App} onUpdate={logPageView}>
+  <Router history={createBrowserHistory()} onUpdate={logPageView}>
+    <Route path="/" component={App}>
       <IndexRoute component={Screenwear}/>
       <Route path="/releases" component={Releases}/>
       <Route path="/codes" component={Codes}/>
