@@ -34,7 +34,7 @@ class SubscribeForm extends React.Component {
           },
         }
 
-        var url = 'http://abscreenwear.com/save';
+        var url = 'https://abscreenwear.com/save';
 
         fetch(url, {
             method: 'POST',
