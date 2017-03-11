@@ -6,8 +6,16 @@ const links = [{
     text: (
 `Ab[Releas-
 es:
+
+  A2/17_
+  Post-
+    masters;
+
+  A1/17_
+    Kanh;
+
   A1/16_
-  Marfa/b1.1;
+    Marfa;
   ]`
     )
 }, {
@@ -18,15 +26,6 @@ es:
    S;c; r;
    ee; n
   ]`
-    )
-}, {
-    to: '/about',
-    text: `About;`
-}, {
-    to: '/editorial',
-    text: (
-`Ab[Edi-
-  torial]`
     )
 }];
 

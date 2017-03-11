@@ -1,13 +1,52 @@
 import React from 'react';
+// new
+import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
 
+const links = [{
+    to: '/about',
+    text: `About;`
+    }, {
+    to: '/editorial',
+    text: (
+    `Press;`
+    )
+    }, {
+    to: '/labs',
+    text: `Labs;`
+    }, {
+    to: '/loves',
+    text: `Loves;`
+    }, {
+    to: '/editorial',
+    text: (
+    `
+
+        News
+    sign up; 
+    `
+    )
+}];
+
+const rightPanelItems = links.map((link, idx) => (
+    <li key={idx}>
+        <Link activeClassName="active" to={link.to}>
+            <pre>{link.text}</pre>
+        </Link>
+    </li>
+));
 
 var RightPanel = () => {
     return (
         <aside className="rightpanel">
+            <ul className="menu">
 
-            <h1 className="labsLogo">
-                <img width="90" src={require('../images/ab_lab_logo.png')}/>
-            </h1>
+              <h1 className="shopButton">
+                  <img width="150" src={require('../images/Ab_shop_button.png')}/>
+              </h1>
+
+              {rightPanelItems}
+            </ul>
+
 
             <ul className="links">
                 <li>
