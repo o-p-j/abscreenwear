@@ -17,7 +17,7 @@ const links = [{
     to: '/loves',
     text: `Loves;`
     }, {
-    to: '/editorial',
+    to: '/signup',
     text: (
     `
 
@@ -35,7 +35,7 @@ const rightPanelItems = links.map((link, idx) => (
     </li>
 ));
 
-var RightPanel = () => {
+var RightPanel = (props) => {
     return (
         <aside className="rightpanel">
             <ul className="menu">
@@ -43,6 +43,10 @@ var RightPanel = () => {
               <h1 className="shopButton">
                   <img width="150" src={require('../images/Ab_shop_button.png')}/>
               </h1>
+
+              <li onClick={props.toggleSubscribeForm} >
+                      <pre>'sign up'</pre>
+              </li>
 
               {rightPanelItems}
             </ul>

@@ -67,7 +67,9 @@ class SubscribeForm extends React.Component {
     }
 
     render() {
+        console.log(this)
         if (this.state.closed) return null;
+        if (!this.props.subscribeFormVisible) return null;
 
         if (this.state.completed) return (
             <div className="form">

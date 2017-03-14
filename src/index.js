@@ -9,6 +9,7 @@ import Releases from './pages/Releases';
 import Codes from './pages/Codes';
 import About from './pages/About';
 import Editorial from './pages/Editorial';
+import SubscribeForm from './components/SubscribeForm';
 
 import './main.css';
 
@@ -23,6 +24,7 @@ render((
   <Router history={createBrowserHistory()} onUpdate={logPageView}>
     <Route path="/" component={App}>
       <IndexRoute component={Screenwear}/>
+      <Route path="/signup" component={SubscribeForm}/>
       <Route path="/releases" component={Releases}/>
       <Route path="/codes" component={Codes}/>
       <Route path="/about" component={About}/>
