@@ -45,6 +45,7 @@ ul {
 }
 
 main {
+    position: relative;
     -webkit-box-flex: 16;
     -webkit-flex: 16;
         -ms-flex: 16;
@@ -158,6 +159,10 @@ nav {
     right: 0;
     padding: 20px;
     height: 600px;
+}
+
+.SubscribeForm {
+  z-index: 99;
 }
 
 .form-message {
