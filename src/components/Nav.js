@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
 
 const links = [{
-    to: '/releases',
+    to: '/releases/postmasters',
     text: (
 `Ab[Releas-
 es:
@@ -10,15 +10,19 @@ es:
   A2/17_
   Post-
     masters;
-
-  A1/17_
-    Kanh;
-
-  A1/16_
-    Marfa;
-  ]`
-    )
 }, {
+    to: '/releases/kanh',
+    text: ( 
+` A1/17_
+    Kahn;`)
+}, {
+    to: '/releases/marfa',
+    text: (
+`  A1/16_
+    Marfa;`
+  )
+}, {
+
     to: '/codes',
     text: (
 `Ab[Codes:

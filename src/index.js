@@ -25,7 +25,7 @@ render((
     <Route path="/" component={App}>
       <IndexRoute component={Screenwear}/>
       <Route path="/signup" component={SubscribeForm}/>
-      <Route path="/releases" component={Releases}/>
+      <Route path="/releases/:release" component={Releases}/>
       <Route path="/codes" component={Codes}/>
       <Route path="/about" component={About}/>
       <Route path="/editorial" component={Editorial}/>

@@ -32,6 +32,12 @@ class Releases extends React.Component {
 
     render() {
         const images = items.concat(items).map((src, idx) => <img key={idx} src={src}/>);
+        if (this.props.params.release) {
+          console.log('my parameter is: ', this.props.params.release)
+        }
+        else {
+          console.log('param aint workin')
+        }
 
         return (
             <div className="releases">
