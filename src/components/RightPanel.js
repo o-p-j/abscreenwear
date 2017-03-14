@@ -16,15 +16,6 @@ const links = [{
     }, {
     to: '/loves',
     text: `Loves;`
-    }, {
-    to: '/signup',
-    text: (
-    `
-
-        News
-    sign up; 
-    `
-    )
 }];
 
 const rightPanelItems = links.map((link, idx) => (
@@ -44,15 +35,17 @@ var RightPanel = (props) => {
                   <img width="150" src={require('../images/Ab_shop_button.png')}/>
               </h1>
 
-              <li onClick={props.toggleSubscribeForm} >
-                      <pre>'sign up'</pre>
-              </li>
 
               {rightPanelItems}
             </ul>
 
 
             <ul className="links">
+
+                <li onClick={props.toggleSubscribeForm} >
+                        <pre>News <br/>sign up;</pre>
+                </li>
+
                 <li>
                     <a href="mailto:ab@abscreenwear.com"><span className="text">email;</span></a>
                 </li>
