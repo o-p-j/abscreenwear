@@ -72,16 +72,16 @@ class SubscribeForm extends React.Component {
         if (!this.props.subscribeFormVisible) return null;
 
         if (this.state.completed) return (
-            <div className="form">
+            <div className="form SubscribeForm">
                 <div className="form-message">Thank you!</div>
             </div>
         );
 
         return (
-            <form className="form" onSubmit={this.onSubmit}>
+            <form className="form SubscribeForm" onSubmit={this.onSubmit}>
                 <div className="form-header">
                     <div className="form-close-container">
-                        <button type="button" className="form-close" onClick={this.close}>X</button>
+                        <button type="button" className="form-close" onClick={this.props.toggleSubscribeForm}>X</button>
                     </div>
                     <div style={{ display: 'inline-block', textAlign: 'left' }}>
                         Keep<br/>

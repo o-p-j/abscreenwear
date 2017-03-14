@@ -22,8 +22,11 @@ class App extends Component {
         return (
           <div className="container">
               <Nav/>
-              <SubscribeForm subscribeFormVisible={this.state.subscribeFormVisible}/>
               <main>
+                  <SubscribeForm  
+                    toggleSubscribeForm={this.toggleSubscribeForm.bind(this)}
+                    subscribeFormVisible={this.state.subscribeFormVisible}
+                  />
                   {this.props.children}
               </main>
               <RightPanel toggleSubscribeForm={this.toggleSubscribeForm.bind(this)}/>
