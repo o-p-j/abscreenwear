@@ -9,9 +9,9 @@ es:
 
   A2/17_
   Post-
-    masters;
+    masters;`)
 }, {
-    to: '/releases/kanh',
+    to: '/releases/kahn',
     text: ( 
 ` A1/17_
     Kahn;`)

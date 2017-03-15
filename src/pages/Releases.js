@@ -1,10 +1,6 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
-const items = [];
-for (let num = 0; num < 10; num++) {
-    items.push(require(`../images/Ab_marfa${num}.jpg`));
-}
 
 class Releases extends React.Component {
     componentDidMount() {
@@ -31,6 +27,14 @@ class Releases extends React.Component {
     }
 
     render() {
+        const items = [];
+            if (this.props.params.release === 'marfa'){
+              for (let num = 0; num < 10; num++) {
+                items.push(require(`../images/Ab_marfa${num}.jpg`));
+              }
+            }
+            else console.log('I don\'t have images for the gallery you\'re looking for')
+
         const images = items.concat(items).map((src, idx) => <img key={idx} src={src}/>);
         if (this.props.params.release) {
           console.log('my parameter is: ', this.props.params.release)
