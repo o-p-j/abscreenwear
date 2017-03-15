@@ -28,12 +28,19 @@ class Releases extends React.Component {
 
     render() {
         const items = [];
-            if (this.props.params.release === 'marfa'){
-              for (let num = 0; num < 10; num++) {
-                items.push(require(`../images/Ab_marfa${num}.jpg`));
+            for (let num = 0; num < 10; num++) {
+
+              if (this.props.params.release === 'marfa'){
+                items.push(require(`../images/marfa/Ab_marfa${num}.jpg`));
               }
+
+              if (this.props.params.release === 'kahn'){
+                items.push(require(`../images/kahn/AbScreenwear_Kahn${num}.png`));
+              }
+
+              else console.log('I don\'t have images for the gallery you\'re looking for')
+
             }
-            else console.log('I don\'t have images for the gallery you\'re looking for')
 
         const images = items.concat(items).map((src, idx) => <img key={idx} src={src}/>);
         if (this.props.params.release) {
