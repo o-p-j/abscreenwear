@@ -1,4 +1,5 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 
 import '../images/postmasters/postmasters.css';
 import screenPaper from '../images/postmasters/screen.paper.js';
@@ -9,27 +10,30 @@ export class Postmasters extends React.Component {
             
             var scope = screenPaper('myCanvas');
             var canvas = document.getElementById('myCanvas');
-            var front = document.getElementById('front');
-
-            window.requestAnimationFrame = window.requestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
-            function (f) {
-              setTimeout(f, 1000 / 60);
-            }
+            var front1 = document.getElementById('front1');
+            var back1 = document.getElementById('back1');
+            var front2 = document.getElementById('front2');
+            var back2 = document.getElementById('back2');
 
             var canvasRect = canvas.getBoundingClientRect();
             canvas.style.left = -canvasRect.left+'px';
 
-            anim();
+            const scrollableContainer = document.getElementById('Postmasters');
+        
+            scrollableContainer.scrollTop = 1;
 
-            function anim() {
-              var frontRect = front.getBoundingClientRect();
-              canvas.style.transform = 'translate3d(0,'+(-frontRect.top)+'px,0)';
-              
-              window.requestAnimationFrame(function() {
-                  anim();
+            scrollableContainer.addEventListener('scroll', parallaxScroll, false);
+
+            function parallaxScroll() {
+                window.requestAnimationFrame(() => {
+                    var frontRect1 = front1.getBoundingClientRect();
+                    var frontRect2 = front2.getBoundingClientRect();
+
+                    back1.style.left = frontRect1.left+'px';
+                    back1.style.transform = 'translate3d(0,'+(Math.round(frontRect1.top/1.5))+'px,0)';
+
+                    back2.style.left = frontRect1.left+'px';
+                    back2.style.transform = 'translate3d(0,'+(Math.round(frontRect2.top/1.5))+'px,0)';
                 })
             }
         
@@ -46,19 +50,20 @@ export class Postmasters extends React.Component {
                 front.push(`front${num}`);
             }
 
-        const front_images = front.concat(front).map((src, idx) => <img id={src} key={idx} src={require(`../images/postmasters/${src}.jpg`)} />);
+        const front_images = front.map((src, idx) => <img id={'image-'+src} key={idx} src={require(`../images/postmasters/${src}.jpg`)} />);
 
         const back = [];
             for (let num = 0; num < 1; num++) {
                 back.push(`back${num}`);
             }
 
-        const back_images = back.concat(back).map((src, idx) => <img id={src} key={idx} src={require(`../images/postmasters/${src}.jpg`)} />);
+        const back_images = back.map((src, idx) => <img id={'image-'+src} key={idx} src={require(`../images/postmasters/${src}.jpg`)} />);
 
         return (
 
-            <div id="Postmasters" className="postmasters" style={cursor}>
+            <div className="postmasters" style={cursor}>
 
+                {/*
                 <div id="parallax-scroller" className="parallax">
                   <div className="parallax__group">
                     <div id="back" className="parallax__layer parallax__layer--back">
@@ -72,19 +77,28 @@ export class Postmasters extends React.Component {
 
                   </div>
                 </div>
+                */}
                 
-                {/*
-                <div id="front">
+
+                <div id="front1" className="front">
+                    {front_images}
                     {front_images}
                 </div>
                 
-                <div id="back">
+                <div id="back1" className="back">
                     {back_images}
                 </div>
 
-                */}
-            
+                <div id="front2" className="front">
+                    {front_images}
+                    {front_images}
+                </div>
                 
+                <div id="back2" className="back">
+                    {back_images}
+                </div>
+            
+                <canvas id="myCanvas" resize></canvas>
 
             </div>
 

@@ -54,7 +54,7 @@ document.addEventListener("mousemove", function(e) {
    lastmousey = mousey;
 });
 
-document.getElementById('parallax-scroller').addEventListener("mousedown", function(event) {
+document.getElementById('Postmasters').addEventListener("mousedown", function(event) {
   event.preventDefault();
   mouseDown = true;
 });
