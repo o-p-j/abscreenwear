@@ -35,7 +35,7 @@ class Releases extends React.Component {
               }
 
               if (this.props.params.release === 'kahn'){
-                items.push(require(`../images/kahn/AbScreenwear_Kahn${num}.png`));
+                items.push(require(`../images/kahn/AbScreenwear_Kahn${num}.jpg`));
               }
 
               else console.log('I don\'t have images for the gallery you\'re looking for')
