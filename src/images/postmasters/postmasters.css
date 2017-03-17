@@ -1,0 +1,82 @@
+
+
+#myCanvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  mix-blend-mode: difference;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#front {
+  z-index: 3;
+}
+
+#front img {
+  width: 50%;
+  height: auto;
+}
+
+#front0 {
+  height: 60vh;
+  width: auto;
+  margin: 20vh 10vw;
+}
+
+#front img:nth-child(1n) {
+
+  margin: 10vw;
+
+}
+
+#front img:nth-child(2n) {
+
+  margin: 25vw;
+
+}
+
+#back img:nth-child(1) {
+
+}
+
+#back {
+  z-index: 0;
+}
+
+#back img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(2);
+  margin-bottom: 100vh;
+}
+
+#back img:last-of-type {
+  margin-bottom: 0;
+}
+
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: white;
+}
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.parallax__layer--front {
+  transform: translateZ(0);
+}
+.parallax__layer--back {
+  transform: translateZ(-1px);
+}

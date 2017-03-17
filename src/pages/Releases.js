@@ -1,11 +1,17 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
+import { Postmasters } from './Postmasters.jsx';
 
 class Releases extends React.Component {
     componentDidMount() {
-        const scrollableContainer = findDOMNode(this);
 
+        if(this.props.params.release === 'postmasters') {
+            var scrollableContainer = document.getElementById('parallax-scroller');
+        } else {
+            var scrollableContainer = findDOMNode(this);
+        }
+        
         scrollableContainer.scrollTop = 1;
 
         scrollableContainer.addEventListener('scroll', updateScrollPosition, false);
@@ -27,6 +33,15 @@ class Releases extends React.Component {
     }
 
     render() {
+
+        if (this.props.params.release === 'postmasters'){
+            return(
+                <div className="releases">
+                    <Postmasters />
+                </div>
+            )
+        }
+
         const items = [];
             for (let num = 0; num < 10; num++) {
 

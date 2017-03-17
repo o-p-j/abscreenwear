@@ -32,6 +32,9 @@ module.exports = {
         }, {
             test: /\.(png|jpg|gif|svg)$/,
             loader: 'url?limit=8192'
+        }, {
+            test: /\.paper.js$/,
+            loader: "paper-loader"
         }]
     },
 };

@@ -6,6 +6,7 @@ body {
   background-color: white;
   margin: 0;
   height: 100vh;
+  overflow: hidden;
 }
 
 pre {
@@ -87,6 +88,8 @@ nav
       -ms-flex: 4;
           flex: 4;
   font-size: 30px;
+  z-index: 10;
+  background: white;
 }
 .rightpanel 
 {
@@ -95,6 +98,7 @@ nav
       -ms-flex: 3;
           flex: 3;
   font-size: 30px;
+  background: white;
 }
 
 nav {
@@ -117,6 +121,7 @@ nav {
         -ms-flex-pack: justify;
             justify-content: space-between;
     text-align: right;
+    z-index: 10;
 }
 
 .menu {
@@ -145,6 +150,7 @@ nav {
 .releases {
     height: 100vh;
     overflow-y: auto;
+    position: relative;
 }
 
 .releases img {
