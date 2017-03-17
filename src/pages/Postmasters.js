@@ -1,41 +1,41 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
 import '../images/postmasters/postmasters.css';
 import screenPaper from '../images/postmasters/screen.paper.js';
 
-export class Postmasters extends React.Component {
+class Postmasters extends React.Component {
 
     componentDidMount() {
+
+        const scrollableContainer = document.getElementById('Postmasters');
+    
+        scrollableContainer.scrollTop = 1;
+
+        scrollableContainer.addEventListener('scroll', parallaxScroll, false);
             
-            var scope = screenPaper('myCanvas');
-            var canvas = document.getElementById('myCanvas');
-            var front1 = document.getElementById('front1');
-            var back1 = document.getElementById('back1');
-            var front2 = document.getElementById('front2');
-            var back2 = document.getElementById('back2');
+        var scope = screenPaper('myCanvas');
+        var canvas = document.getElementById('myCanvas');
+        var front1 = document.getElementById('front1');
+        var back1 = document.getElementById('back1');
+        var front2 = document.getElementById('front2');
+        var back2 = document.getElementById('back2');
 
-            var canvasRect = canvas.getBoundingClientRect();
-            canvas.style.left = -canvasRect.left+'px';
+        var canvasRect = canvas.getBoundingClientRect();
+        canvas.style.left = -canvasRect.left+'px';
 
-            const scrollableContainer = document.getElementById('Postmasters');
-        
-            scrollableContainer.scrollTop = 1;
+        function parallaxScroll() {
+            window.requestAnimationFrame(() => {
+                var frontRect1 = front1.getBoundingClientRect();
+                var frontRect2 = front2.getBoundingClientRect();
 
-            scrollableContainer.addEventListener('scroll', parallaxScroll, false);
+                back1.style.left = frontRect1.left+'px';
+                back1.style.transform = 'translate3d(0,'+(Math.round(frontRect1.top/1.5))+'px,0)';
 
-            function parallaxScroll() {
-                window.requestAnimationFrame(() => {
-                    var frontRect1 = front1.getBoundingClientRect();
-                    var frontRect2 = front2.getBoundingClientRect();
-
-                    back1.style.left = frontRect1.left+'px';
-                    back1.style.transform = 'translate3d(0,'+(Math.round(frontRect1.top/1.5))+'px,0)';
-
-                    back2.style.left = frontRect1.left+'px';
-                    back2.style.transform = 'translate3d(0,'+(Math.round(frontRect2.top/1.5))+'px,0)';
-                })
-            }
+                back2.style.left = frontRect1.left+'px';
+                back2.style.transform = 'translate3d(0,'+(Math.round(frontRect2.top/1.5))+'px,0)';
+            })
+        }
         
       }
 
@@ -61,7 +61,7 @@ export class Postmasters extends React.Component {
 
         return (
 
-            <div className="postmasters" style={cursor}>
+            <div id="Postmasters" className="postmasters releases" style={cursor}>
 
                 {/*
                 <div id="parallax-scroller" className="parallax">
@@ -105,4 +105,6 @@ export class Postmasters extends React.Component {
           );
     }
   
-};
+}
+
+export default Postmasters;
