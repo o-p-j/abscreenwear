@@ -6,6 +6,10 @@
   background: white;
 }
 
+#Postmasters img {
+  box-sizing: content-box;
+}
+
 #myCanvas {
   position: fixed;
   top: 0;
@@ -22,6 +26,12 @@
   top: 0;
   left: 0;
   z-index: 3;
+  font-size: 0;
+}
+
+.front img {
+  display: inline-block;
+  vertical-align: top;
 }
 
 .releases .front img {
@@ -31,19 +41,8 @@
   padding: 10%;
 }
 
-#image-front0 {
-  width: 30%;
-  padding: 10%;
-}
-
-#image-front1 {
-  width: 30%;
-  padding: 25% 10%;
-}
-
-
 .back {
-  width: 100%;
+  width: auto;
   position: fixed;
   z-index: 0;
   top: 0;
@@ -65,23 +64,33 @@
   padding-top: 40%;
 }
 
-.parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background: white;
-}
-.parallax__layer {
+.vimeo {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  width: 40vw;
+  height: 22.5vw;
+  border: 0;
+  top: 100vw;
+  left: 50%;
+  transform: translate3d(-50%,0,0);
 }
-.parallax__layer--front {
-  transform: translateZ(0);
+
+.vimeo iframe {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
-.parallax__layer--back {
-  transform: translateZ(-1px);
+
+#image-front0 {
+  width: 30%;
+  padding: 0 16% 0 14%;
+}
+
+#image-front1 {
+  width: 30%;
+  padding: 24% 0 0 0;
+  margin-bottom: 53%;
+}
+
+#image-back0 {
+  margin-bottom: 86%;
 }

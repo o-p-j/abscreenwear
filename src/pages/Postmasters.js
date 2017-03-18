@@ -4,11 +4,13 @@ import { findDOMNode } from 'react-dom';
 import '../images/postmasters/postmasters.css';
 import screenPaper from '../images/postmasters/screen.paper.js';
 
+import Vimeo from '@vimeo/player';
+
 class Postmasters extends React.Component {
 
     componentDidMount() {
-
-        const scrollableContainer = document.getElementById('Postmasters');
+        
+        const scrollableContainer = document.querySelector('#Postmasters');
     
         scrollableContainer.scrollTop = 1;
 
@@ -26,16 +28,62 @@ class Postmasters extends React.Component {
 
         function parallaxScroll() {
             window.requestAnimationFrame(() => {
+
+                //Loop
+                const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
+
+                // reached top scroll down
+                if (!scrollTop) {
+                    scrollableContainer.scrollTop = scrollHeight / 2 - 1;
+                }
+                // reached bottom
+                else if (scrollTop >= scrollHeight / 2) {
+                    scrollableContainer.scrollTop = scrollTop - (scrollHeight / 2);
+                }
+
+                //Parallax
                 var frontRect1 = front1.getBoundingClientRect();
                 var frontRect2 = front2.getBoundingClientRect();
 
                 back1.style.left = frontRect1.left+'px';
                 back1.style.transform = 'translate3d(0,'+(Math.round(frontRect1.top/1.5))+'px,0)';
+                back1.style.width = front1.offsetWidth+'px';
 
                 back2.style.left = frontRect1.left+'px';
                 back2.style.transform = 'translate3d(0,'+(Math.round(frontRect2.top/1.5))+'px,0)';
+                back2.style.width = front1.offsetWidth+'px';
             })
         }
+
+        function isInView(el) {
+            var rect = el.getBoundingClientRect()
+
+            return(
+              rect.bottom >= window.innerHeight &&
+              rect.top <= (window.innerHeight || document.documentElement.clientHeight)
+            )
+          }
+
+          function videoInit() {
+            const player = document.querySelector('#player');
+            var vimeo = document.querySelector('.vimeo');
+            var iframePlayer = new Vimeo(player);
+
+            // vimeo.addEventListener('mouseenter', volumeUp, false);
+            // vimeo.addEventListener('mouseleave', volumeDown, false);
+
+            iframePlayer.setVolume(0);
+
+            var playerVolume = 0;
+
+            function volumeUp() {
+                iframePlayer.setVolume(0.5);
+            }
+
+            function volumeDown() {
+                iframePlayer.setVolume(0);
+            }
+          }
         
       }
 
@@ -46,14 +94,14 @@ class Postmasters extends React.Component {
         };
 
         const front = [];
-            for (let num = 0; num < 4; num++) {
+            for (let num = 0; num < 25; num++) {
                 front.push(`front${num}`);
             }
 
         const front_images = front.map((src, idx) => <img id={'image-'+src} key={idx} src={require(`../images/postmasters/${src}.jpg`)} />);
 
         const back = [];
-            for (let num = 0; num < 1; num++) {
+            for (let num = 0; num < 9; num++) {
                 back.push(`back${num}`);
             }
 
@@ -63,26 +111,15 @@ class Postmasters extends React.Component {
 
             <div id="Postmasters" className="postmasters releases" style={cursor}>
 
-                {/*
-                <div id="parallax-scroller" className="parallax">
-                  <div className="parallax__group">
-                    <div id="back" className="parallax__layer parallax__layer--back">
-                      {back_images}
-                      {back_images}
-                    </div>
-                    <div id="front" className="parallax__layer parallax__layer--front">
-                      {front_images}
-                    </div>
-                    <canvas id="myCanvas" resize></canvas>
-
-                  </div>
-                </div>
-                */}
-                
-
                 <div id="front1" className="front">
+                    {/*
+                    <div className="vimeo">
+                        <iframe id="player" src="https://player.vimeo.com/video/205447851?title=0&byline=0&portrait=0&autoplay=1&background=1" width="640" height="320" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
+                    </div>
+                    */}
                     {front_images}
-                    {front_images}
+                    
+                    
                 </div>
                 
                 <div id="back1" className="back">
@@ -90,7 +127,6 @@ class Postmasters extends React.Component {
                 </div>
 
                 <div id="front2" className="front">
-                    {front_images}
                     {front_images}
                 </div>
                 

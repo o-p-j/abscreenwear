@@ -5,7 +5,7 @@ var highlight = view.center;
 var colors = [];
 var cycles = 4;
 for (var i = 0, l = 100; i < l; i++) {
-  var brightness = 1 - (i / l) * 2.0;
+  var brightness = 1 - (i / l) * 1.75;
   var hue = i / l * cycles * -50;
   var color = {
     hue: hue,
@@ -15,7 +15,6 @@ for (var i = 0, l = 100; i < l; i++) {
   colors.push(color);
 }
 
-var radius = 250;
 var mouseMove = false;
 
 var path = new Path.Rectangle({
@@ -41,7 +40,6 @@ var mousePoint = view.center;
 
 var lastmousex=-1; 
 var lastmousey=-1;
-var lastmousetime = 0;
 var mousetravel = 41;
 
 document.addEventListener("mousemove", function(e) {
@@ -70,8 +68,6 @@ function onFrame() {
   for (var i = 0, l = gradient.stops.length; i < l; i++)
     gradient.stops[i].color.hue -= 0.5;
 
-  lastmousetime += 0.1;
-
   if (mouseMove === false)
     //color.destination = point - [0.01, 0];
   
@@ -80,10 +76,12 @@ function onFrame() {
   //color.destination -= 0.1;
   point = point + (mousePoint - point) / 80;
 
-  if (mouseDown && mousetravel < window.innerWidth*1.5) {
+  if (mouseDown && mousetravel < window.innerWidth*4) {
     mousetravel *= 1.05;
   } else if (mousetravel > 40) {
     mousetravel *= 0.96;
+  } else {
+    mousetravel = 40;
   }
 
   highlight = highlight + (mousePoint - highlight) / 15;

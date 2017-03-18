@@ -59,6 +59,7 @@
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
+    "@vimeo/player": "^2.0.1",
     "history": "^1.17.0",
     "paper": "^0.10.3",
     "react": "^0.14.3",
