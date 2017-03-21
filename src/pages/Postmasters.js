@@ -31,10 +31,10 @@ class Postmasters extends React.Component {
         var backRect = back1.getBoundingClientRect();
         var backRect2 = back2.getBoundingClientRect();
 
-        if(Browser.name === 'chrome') {
+        //if(Browser.name === 'chrome') {
             setSizes();
             scrollableContainer.addEventListener('scroll', parallaxScroll, false);
-        }
+        //}
 
         function setSizes() {
             front1.style.position = 'fixed';
@@ -147,7 +147,7 @@ class Postmasters extends React.Component {
             <div id="Postmasters" className="postmasters releases" style={cursor}>
 
                 <div className="vimeo">
-                    <iframe id="player" src="https://player.vimeo.com/video/184070481?title=0&byline=0&portrait=0&autoplay=1&background=1" width="640" height="320" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
+                    <iframe id="player" src="https://player.vimeo.com/video/184070481?title=0&byline=0&portrait=0&autoplay=0&background=0" width="640" height="320" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
                 </div>
 
                 <div id="front1" className="front">
