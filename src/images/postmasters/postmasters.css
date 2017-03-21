@@ -22,11 +22,13 @@
 }
 
 .front {
-  position: relative;
-  top: 0;
+  position: absolute;
+  width: 100%;
+  top: auto;
   left: 0;
   z-index: 3;
   font-size: 0;
+  pointer-events: none;
 }
 
 .front img {
@@ -42,12 +44,13 @@
 }
 
 .back {
-  width: auto;
-  position: fixed;
+  width: 100%;
+  position: relative;
   z-index: 0;
   top: 0;
   left: 0;
   background: white;
+  //min-height: 6000vh;
 }
 
 #back1 {
@@ -58,10 +61,8 @@
   width: 100%;
   height: auto;
   display: block;
-}
-
-#image-back1 {
-  padding-top: 40%;
+  position: relative;
+  //margin-top: 1000%;
 }
 
 .vimeo {
@@ -69,9 +70,12 @@
   width: 40vw;
   height: 22.5vw;
   border: 0;
-  top: 100vw;
+  top: 0;
+  margin-top: 110%;
   left: 50%;
   transform: translate3d(-50%,0,0);
+  pointer-events: none;
+  z-index: 3;
 }
 
 .vimeo iframe {
@@ -82,15 +86,75 @@
 
 #image-front0 {
   width: 30%;
-  padding: 0 16% 0 14%;
+  padding: 10% 16% 0 14%;
 }
 
 #image-front1 {
   width: 30%;
-  padding: 24% 0 0 0;
+  padding: 34% 0 0 0;
   margin-bottom: 53%;
+}
+
+#image-front2 {
+  width: 30%;
+  padding: 10% 0;
+}
+
+#image-front3 {
+  width: 20%;
+  padding-left: 50%;
+  padding-right: 0;
+  padding-top: 60%;
+}
+
+#image-front4 {
+  width: 35%;
+  padding: 0 10% 0 10%;
+}
+
+#image-front5 {
+  width: 35%;
+  padding: 0 0 0 10%;
+}
+
+#image-front6 {
+  width: 40%;
+  padding: 10% 30%;
+}
+
+#image-front7 {
+  width: 64%;
+  padding: 10% 18% 5%;
+}
+
+#image-front8 {
+  width: 100%;
+  padding: 10% 0;
+}
+
+#image-front9 {
+  width: 30%;
+  padding: 10% 35%;
 }
 
 #image-back0 {
   margin-bottom: 86%;
+}
+
+#image-back1 {
+  width: 32%;
+  padding: 35% 0 0 38%;
+}
+
+#image-back2 {
+  padding-top: 60%;
+}
+
+#image-back3 {
+  width: 74%;
+  padding: 190% 13% 0;
+}
+
+#image-back4 {
+  padding-top: 50%;
 }
