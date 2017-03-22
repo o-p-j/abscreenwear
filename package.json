@@ -62,6 +62,7 @@
     "@vimeo/player": "^2.0.1",
     "detect-browser": "^1.6.2",
     "history": "^1.17.0",
+    "imagesloaded": "^4.1.1",
     "paper": "^0.10.3",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",

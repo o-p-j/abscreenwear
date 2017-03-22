@@ -43,8 +43,8 @@ var lastmousey=-1;
 var mousetravel = 41;
 
 document.addEventListener("mousemove", function(e) {
-  mousePoint = new Point(e.clientX, e.clientY);
-  var mousex = e.clientX;
+   mousePoint = new Point(e.clientX, e.clientY);
+   var mousex = e.clientX;
    var mousey = e.clientY;
    if (lastmousex > -1)
        mousetravel += Math.max( Math.abs(mousex-lastmousex), Math.abs(mousey-lastmousey) )/10;
@@ -61,6 +61,17 @@ document.addEventListener("mouseup", function() {
   mouseDown = false;
 });
 
+document.getElementById('Postmasters').addEventListener("touchstart", function(event) {
+  event.preventDefault();
+  mouseDown = true;
+});
+
+document.addEventListener("touchend", function() {
+  mouseDown = false;
+});
+
+window.addEventListener("resize", onResize);
+
 var grow = false;
 var vector = new Point(150, 0);
 
@@ -74,17 +85,17 @@ function onFrame() {
   //console.log(color.destination);
   
   //color.destination -= 0.1;
-  point = point + (mousePoint - point) / 80;
+  point = point + (mousePoint - point) / 30;
 
   if (mouseDown && mousetravel < window.innerWidth*4) {
-    mousetravel *= 1.05;
+    mousetravel *= 1.08;
   } else if (mousetravel > 40) {
     mousetravel *= 0.96;
   } else {
     mousetravel = 40;
   }
 
-  highlight = highlight + (mousePoint - highlight) / 15;
+  highlight = highlight + (mousePoint - highlight) / 10;
 
   mouseMove = false;
   color.origin = highlight;
@@ -92,6 +103,8 @@ function onFrame() {
   color.highlight = mousePoint;
 }
 
-function onResize(event) {
-  path.bounds = view.bounds;
+function onResize(event){
+    view.bounds.width = window.innerWidth;
+    view.bounds.height = window.innerHeight;
+    path.bounds = view.bounds;
 }
