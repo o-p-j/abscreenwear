@@ -32,7 +32,7 @@ class Postmasters extends React.Component {
         var autoscroll = false;
 
         if(Browser.name === 'chrome' || Browser.name === 'safari')
-            autoscroll = false;
+            autoscroll = true;
 
         scrollableContainer.scrollTop = credits1.offsetHeight;
 
@@ -84,9 +84,9 @@ class Postmasters extends React.Component {
             parallax.style.width = front1.offsetWidth + 'px';
             
             newEl.style.position = 'absolute';
-            newEl.style.top = rect.top + 'px';
+            newEl.style.top = oldEl.offsetTop + 'px';
             newEl.style.left = rect.left - frontRect.left + 'px';
-            newEl.dataset.topPos = rect.top;
+            newEl.dataset.topPos = oldEl.offsetTop;
             var w = parseFloat(window.getComputedStyle(oldEl).width)
             newEl.dataset.widthPer = w / front1.offsetWidth;
             newEl.dataset.leftPer = parseInt(newEl.style.left,10) / front1.offsetWidth;
@@ -132,7 +132,7 @@ class Postmasters extends React.Component {
                 scrollDamp += (scrollPos - lastScrollPos) / 5;
                 
                 if(Math.abs(scrollDamp) >= 0.00001 && dampen)
-                    scrollDamp *= 0.94;
+                    scrollDamp *= 0.9;
                 else
                     scrollDamp = 0;
 
