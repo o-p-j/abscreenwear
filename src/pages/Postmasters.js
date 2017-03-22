@@ -30,6 +30,7 @@ class Postmasters extends React.Component {
         const scrollableContainer = document.querySelector('#Postmasters');
 
         var autoscroll = false;
+        var autoscrollAmt = 2;
 
         if(Browser.name === 'chrome' || Browser.name === 'safari')
             autoscroll = true;
@@ -122,10 +123,11 @@ class Postmasters extends React.Component {
             
             window.requestAnimationFrame(() => {
 
-                if(autoscroll) {
-                    var scroller = scrollableContainer.scrollTop + 1.5;
-                    scrollableContainer.scrollTop = scroller;
-                }
+                var scroller = scrollableContainer.scrollTop + autoscrollAmt;
+                scrollableContainer.scrollTop = scroller;
+
+                //autoscrollAmt = 2;
+
 
                 scrollPos = scrollableContainer.scrollTop - credits1.offsetHeight;
                 
@@ -187,6 +189,9 @@ class Postmasters extends React.Component {
 
         function loopScroll() {
             window.requestAnimationFrame(() => {
+
+                //autoscrollAmt = 0;
+
                 //Loop
                 const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
 
