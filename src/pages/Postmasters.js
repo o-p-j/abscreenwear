@@ -4,9 +4,13 @@ import { findDOMNode } from 'react-dom';
 import '../images/postmasters/postmasters.css';
 import screenPaper from '../images/postmasters/screen.paper.js';
 
+import TypeWriter from '../components/TypeWriter.js';
+
 import Vimeo from '@vimeo/player';
 import Browser from 'detect-browser';
 import imagesLoaded from 'imagesloaded';
+
+import PostmastersCredits from '../components/PostmastersCredits.js';
 
 class Postmasters extends React.Component {
 
@@ -20,20 +24,27 @@ class Postmasters extends React.Component {
         const frontRect = front1.getBoundingClientRect();
         const back1 = document.getElementById('back1');
 
-        //const player = document.querySelector('#player');
+        const player = document.querySelector('#player');
         const vimeo = document.querySelector('.vimeo');
-        //const iframePlayer = new Vimeo(player);
+        const iframePlayer = new Vimeo(player);
+        var videoVolume = 0.5;
+
+        vimeo.addEventListener('click', toggleVideo, false);
+
+        videoInit();
 
         const speed = 1.2;
         var dampen = true;
+
+        setTimeout(function() {
+            TypeWriter("#headline", "true", 120);
+        }, 1000);
+        
         
         const scrollableContainer = document.querySelector('#Postmasters');
 
         var autoscroll = false;
-        var autoscrollAmt = 2;
-
-        if(Browser.name === 'chrome' || Browser.name === 'safari')
-            autoscroll = true;
+        var autoscrollAmt = isRetina ? 1:1.5;
 
         scrollableContainer.scrollTop = credits1.offsetHeight;
 
@@ -42,39 +53,43 @@ class Postmasters extends React.Component {
 
         var scrollPos = scrollableContainer.scrollTop;
             
-        var canvasRect = canvas.getBoundingClientRect();
-        canvas.style.left = -canvasRect.left+'px';
-
         var lastScrollPos = 0;
         var scrollDamp = 0;
 
-        var parallaxChildren;
+        var parallaxChildren = [];
 
         imagesLoaded( front1, function( instance ) {
-            const frontChildren = front1.childNodes;
-            createParallax(frontChildren);
-            //vimeo.style.top = back1.offsetTop + 'px';
+            //all images loaded
             front1.parentNode.removeChild(front1);
             parallaxChildren = parallax.childNodes;
-            parallaxAnim();
+            if(Browser.name === 'chrome' || Browser.name === 'safari')
+                autoscroll = true;
+
+        }).on( 'progress', function( instance, image ) {
+          createParallax(image.img);
         });
 
-        function createParallax(childrenArray) {
+        parallaxAnim();
 
-            for (var i=0; i < childrenArray.length; i++) {
-                childrenArray[i].style.opacity = 0;
-                var src = childrenArray[i].src;
+        function isRetina(){
+            return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (min-resolution: 75.6dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)').matches)) || (window.devicePixelRatio && window.devicePixelRatio >= 2)) && /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+        }
+
+        function createParallax(el) {
+
+                el.style.opacity = 0;
+                var src = el.src;
         
                 var newNode = document.createElement("img");
                 newNode.src = src;
+                newNode.dataset.src = el.dataset.src;
 
-                setSizes(childrenArray[i], newNode);
+                setSizes(el, newNode);
 
-                newNode.classList = childrenArray[i].classList;
+                newNode.classList = el.classList;
 
                 parallax.appendChild(newNode);
 
-            }
 
         }
 
@@ -109,11 +124,13 @@ class Postmasters extends React.Component {
 
                     //vimeo.style.top = back1.offsetTop + 'px';
 
-                    var canvasRect = canvas.getBoundingClientRect();
-                    canvas.style.left = -canvasRect.left+'px';
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
+                    
                 }
+
+                canvas.style.width = window.innerWidth + 'px';
+                canvas.style.height = window.innerHeight + 'px';
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
 
             })
         }
@@ -123,11 +140,10 @@ class Postmasters extends React.Component {
             
             window.requestAnimationFrame(() => {
 
-                var scroller = scrollableContainer.scrollTop + autoscrollAmt;
-                scrollableContainer.scrollTop = scroller;
-
-                //autoscrollAmt = 2;
-
+                if(autoscroll) {
+                    var scroller = scrollableContainer.scrollTop + autoscrollAmt;
+                    scrollableContainer.scrollTop = scroller;
+                }
 
                 scrollPos = scrollableContainer.scrollTop - credits1.offsetHeight;
                 
@@ -147,17 +163,23 @@ class Postmasters extends React.Component {
                     var modifier = 0;
 
                     if(i % 2 == 0) {
-                        var modifier = 0.6;
+                        var modifier = 0.9;
                     }
 
                     if(i % 3 == 0) {
-                        var modifier = 1.2;
+                        var modifier = 1.1;
                     }
 
                     var damp = scrollDamp + scrollDamp * modifier;
                     var scroll = scrollH + damp;
 
                     if(isInView(el)) {
+
+                        if(!el.dataset.loaded) {
+                            el.src = el.dataset.src;
+                            el.dataset.loaded = true;
+                        }
+
                         el.style.transform = 'translate3d(0,'+(scroll)+'px,0)'
                         if(el.style.opacity < 1)
                             el.style.opacity = 1
@@ -184,7 +206,7 @@ class Postmasters extends React.Component {
 
             var top = parseInt(node.dataset.topPos, 10);
 
-            return (scrollPos / speed > top - window.innerHeight*3) && (scrollPos / speed < (top + window.innerHeight*3));
+            return (scrollPos / speed > top - window.innerHeight*2) && (scrollPos / speed < (top + window.innerHeight*3));
         }
 
         function loopScroll() {
@@ -196,38 +218,49 @@ class Postmasters extends React.Component {
                 const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
 
                 // reached top scroll down
-                if (scrollTop <= 2) {
-                    scrollableContainer.scrollTop = scrollHeight - credits1.offsetHeight - 2;
+                if (scrollTop <= credits1.offsetHeight*0.25 - 1) {
+                    scrollableContainer.scrollTop = scrollHeight - (credits1.offsetHeight*0.75) - 2;
                     dampen = false;
                 }
                 // reached bottom
-                else if (scrollTop >= scrollHeight - window.innerHeight) {
-                    scrollableContainer.scrollTop = credits1.offsetHeight - window.innerHeight;
+                else if (scrollTop >= scrollHeight - (credits1.offsetHeight*0.75)) {
+                    scrollableContainer.scrollTop = credits1.offsetHeight*0.25 + 2;
                     dampen = false;
                 }
             })
         }
 
           function videoInit() {
-            const player = document.querySelector('#player');
-            var vimeo = document.querySelector('.vimeo');
-            var iframePlayer = new Vimeo(player);
 
-            // vimeo.addEventListener('mouseenter', volumeUp, false);
-            // vimeo.addEventListener('mouseleave', volumeDown, false);
+            iframePlayer.setVolume(0.5);
 
-            iframePlayer.setVolume(0);
+            setInterval(function() {
+                window.requestAnimationFrame(() => {
 
-            var playerVolume = 0;
-
-            function volumeUp() {
-                iframePlayer.setVolume(0.5);
-            }
-
-            function volumeDown() {
-                iframePlayer.setVolume(0);
-            }
+                    if(scrollPos <= vimeo.offsetTop && scrollPos >= vimeo.offsetTop - window.innerWidth && videoVolume < 0.5) {
+                        videoVolume += 0.05;
+                        iframePlayer.setVolume(videoVolume);
+                    } else if (videoVolume > 0) {
+                        videoVolume -= 0.05;
+                        iframePlayer.setVolume(videoVolume);
+                    }
+                })
+            },200);
           }
+
+          function toggleVideo() {
+
+            if(!vimeo.dataset.paused) {
+                iframePlayer.pause();
+                vimeo.dataset.paused = true;
+            } else {
+                iframePlayer.play();
+                delete vimeo.dataset.paused;
+            }
+
+          }
+
+          
         
       }
 
@@ -242,32 +275,36 @@ class Postmasters extends React.Component {
                 front.push(`front${num}`);
             }
 
-        const front_images = front.map((src, idx) => <img className={'image-'+src} key={idx} src={require(`../images/postmasters/${src}.jpg`)} />);
+        const front_images = front.map((src, idx) => <img key={idx} className={'image-'+src} src={require(`../images/postmasters/${src}_sm.jpg`)} data-src={require(`../images/postmasters/${src}.jpg`)} />);
 
         const back = [];
             for (let num = 0; num < 10; num++) {
                 back.push(`back${num}`);
             }
 
-        const back_images = back.map((src, idx) => <img className={'image-'+src} key={idx} src={require(`../images/postmasters/${src}.jpg`)} />);
+        const back_images = back.map((src, idx) => 
+                <img className={'image-'+src} key={idx} 
+                    src={require(`../images/postmasters/${src}.jpg`)} />);
 
         return (
 
             <div id="Postmasters" className="postmasters releases" style={cursor}>
 
+                <div style={{position:'absolute', width:0, height:0, overflow:'hidden', zIndex:-1, content: 'url('+require('../images/postmasters/back0.jpg')+')'}} />
+
                 <div id="parallax"></div>
 
                 <div id="credits1" className="credits" style={{ backgroundImage: 'url('+require('../images/postmasters/back10.jpg')+')' }}>
-                    <img src={require(`../images/postmasters/credits.png`)} />
+                    <PostmastersCredits/>
                 </div>
 
                 <div className="vimeo">
-                    <iframe id="player" src="https://player.vimeo.com/video/205447851?title=0&byline=0&portrait=0&autoplay=1&background=1" width="640" height="320" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
+                    <iframe id="player" src="https://player.vimeo.com/video/209747767?title=0&byline=0&portrait=0&autoplay=1&background=1" width="640" height="320" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
                 </div>
 
                 <div id="text">
-                    <img src={require(`../images/postmasters/text1.png`)} />
-                    <img src={require(`../images/postmasters/text2.png`)} />
+                    <h1 id="headline">A2/17_ Postmasters release</h1>
+                    <p id="description">A2/17_Postmasters collection draws from organic vs digital in- terfaces, repetitive vs improvised structures to go post-language.Key item in screenwear-a jacket;Key item in softwear-an apron;Key item in everywear-a selfone</p>
                 </div>
 
                 <div id="front1" className="front">
@@ -278,10 +315,8 @@ class Postmasters extends React.Component {
                     {back_images}
                 </div>
 
-                
-
                 <div id="credits2" className="credits" style={{ backgroundImage: 'url('+require('../images/postmasters/back10.jpg')+')' }}>
-                    <img src={require(`../images/postmasters/credits.png`)} />
+                    <PostmastersCredits/>
                 </div>
             
                 <canvas id="paperCanvas"></canvas>

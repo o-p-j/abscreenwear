@@ -1,6 +1,14 @@
+@font-face {
+    font-family: 'menlobold';
+    src: url('./fonts/menlo-bold-webfont.woff2') format('woff2'),
+         url('./fonts/menlo-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   color: black;
-  font-family: 'menlo', monospace;
+  font-family: 'menlobold','menlo', monospace;
   font-weight: bold;
   line-height: 1.13;
   background-color: white;

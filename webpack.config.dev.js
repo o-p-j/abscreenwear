@@ -35,6 +35,10 @@ module.exports = {
         }, {
             test: /\.paper.js$/,
             loader: "paper-loader"
-        }]
+        },
+        {
+            test: /\.(eot|ttf|woff|woff2)$/,
+            loader: 'file-loader?name=fonts/[name].[ext]'
+          }]
     },
 };
