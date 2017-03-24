@@ -35,11 +35,6 @@ class Postmasters extends React.Component {
 
         const speed = 1.2;
         var dampen = true;
-
-        setTimeout(function() {
-            TypeWriter("#headline", "true", 120);
-        }, 1000);
-        
         
         const scrollableContainer = document.querySelector('#Postmasters');
 
@@ -58,15 +53,30 @@ class Postmasters extends React.Component {
 
         var parallaxChildren = [];
 
+        var backImagesLoaded = 0;
+
         imagesLoaded( front1, function( instance ) {
             //all images loaded
+            for (var i = 0; i < front1.childNodes.length; i++) {
+                createParallax(front1.childNodes[i])
+            }
             front1.parentNode.removeChild(front1);
             parallaxChildren = parallax.childNodes;
+
+
             if(Browser.name === 'chrome' || Browser.name === 'safari')
                 autoscroll = true;
 
         }).on( 'progress', function( instance, image ) {
-          createParallax(image.img);
+          if(image.img.classList[0] === 'image-front0' || 'image-front1')
+            loadImg(image.img);
+        });
+
+        imagesLoaded( back1, function( instance ){}).on( 'progress', function( instance, image ) {
+            backImagesLoaded++;
+            if(backImagesLoaded === 2) {
+                TypeWriter("#headline", "true", 120);
+            }
         });
 
         parallaxAnim();
@@ -99,11 +109,13 @@ class Postmasters extends React.Component {
             
             parallax.style.width = front1.offsetWidth + 'px';
             
+            //set position
             newEl.style.position = 'absolute';
             newEl.style.top = oldEl.offsetTop + 'px';
             newEl.style.left = rect.left - frontRect.left + 'px';
             newEl.dataset.topPos = oldEl.offsetTop;
             var w = parseFloat(window.getComputedStyle(oldEl).width)
+            //set percentages for resizing
             newEl.dataset.widthPer = w / front1.offsetWidth;
             newEl.dataset.leftPer = parseInt(newEl.style.left,10) / front1.offsetWidth;
             newEl.dataset.topPer = parseInt(newEl.style.top,10) / front1.offsetWidth;
@@ -175,10 +187,7 @@ class Postmasters extends React.Component {
 
                     if(isInView(el)) {
 
-                        if(!el.dataset.loaded) {
-                            el.src = el.dataset.src;
-                            el.dataset.loaded = true;
-                        }
+                        loadImg(el);
 
                         el.style.transform = 'translate3d(0,'+(scroll)+'px,0)'
                         if(el.style.opacity < 1)
@@ -200,6 +209,13 @@ class Postmasters extends React.Component {
             });
 
 
+        }
+
+        function loadImg(el) {
+            if(!el.dataset.loaded && el.dataset.src) {
+                el.src = el.dataset.src;
+                el.dataset.loaded = true;
+            }
         }
 
         function isInView(node) {
