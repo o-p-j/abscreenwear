@@ -2,24 +2,23 @@ import React from 'react';
 // new
 import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
 
-const links = [{
-    to: '/about',
-    text: `About;`
-    }, {
-    to: '/editorial',
-    text: (
-    `Press;`
-    )
-    }, {
-    to: '/labs',
-    text: `Labs;`
-    }, {
-    to: '/loves',
-    text: `Loves;`
-}];
+const links = [
+    {
+        to: '/editorial',
+        text: `Press;`
+    },
+    {
+        to: '/labs',
+        text: `Labs;`
+    },
+    {
+        to: '/loves',
+        text: `Loves;`
+    }
+];
 
 const rightPanelItems = links.map((link, idx) => (
-    <li key={idx}>
+    <li key={idx} className={`c-menu__item ${link.className || ''}`}>
         <Link activeClassName="active" to={link.to}>
             <pre>{link.text}</pre>
         </Link>
@@ -29,12 +28,11 @@ const rightPanelItems = links.map((link, idx) => (
 var RightPanel = (props) => {
     return (
         <aside className="rightpanel">
-            <ul className="menu">
+            <ul className="c-menu">
 
               <h1 className="shopButton">
                   <img width="150" src={require('../images/Ab_shop_button.png')}/>
               </h1>
-
 
               {rightPanelItems}
             </ul>
