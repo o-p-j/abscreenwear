@@ -14,7 +14,7 @@ body {
   background-color: white;
   margin: 0;
   height: 100vh;
-  //overflow: hidden;
+  /* overflow: hidden; */
 }
 
 pre {
@@ -99,7 +99,7 @@ nav
   z-index: 10;
   background: white;
 }
-.rightpanel 
+.rightpanel
 {
   -webkit-box-flex: 3;
   -webkit-flex: 3;
