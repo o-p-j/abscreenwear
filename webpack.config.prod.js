@@ -38,7 +38,14 @@ module.exports = {
             include: path.join(__dirname, 'src')
         }, {
             test: /\.(png|jpg|gif|svg)$/,
-            loader: 'url?limit=8192'
-        }]
+            loader: 'url?limit=500'
+        }, {
+            test: /\.paper.js$/,
+            loader: "paper-loader"
+        },
+        {
+            test: /\.(eot|ttf|woff|woff2)$/,
+            loader: 'file-loader?name=fonts/[name].[ext]'
+          }]
     }
 };

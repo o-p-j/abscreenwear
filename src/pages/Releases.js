@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
-
 class Releases extends React.Component {
     componentDidMount() {
-        const scrollableContainer = findDOMNode(this);
 
+        const scrollableContainer = findDOMNode(this);
+        
         scrollableContainer.scrollTop = 1;
 
         scrollableContainer.addEventListener('scroll', updateScrollPosition, false);
@@ -27,6 +27,7 @@ class Releases extends React.Component {
     }
 
     render() {
+
         const items = [];
 
           if (this.props.params.release === 'marfa'){
