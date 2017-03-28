@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "@vimeo/player": "^2.0.1",
+    "common-tags": "^1.4.0",
     "detect-browser": "^1.6.2",
     "history": "^1.17.0",
     "imagesloaded": "^4.1.1",

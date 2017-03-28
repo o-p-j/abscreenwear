@@ -1,60 +1,93 @@
+import { stripIndent } from 'common-tags'
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
 
-const links = [{
-    to: '/releases/postmasters',
-    text: (
-`Ab[Releas-
-es:
+const links = [
+    {
+        className: `u-mg--bottom`,
+        text: stripIndent`
+            Ab[Releas-
+            es:
+        `,
+        children: [
+            {
+                to: `/releases/postmasters`,
+                text: stripIndent`
+                    A2/17_
+                    Postmasters;
+                `
+            },
+            {
+                to: `/releases/kahn`,
+                text: stripIndent`
+                    A1/17_
+                    Kahn;
+                `
+            },
+            {
+                to: '/releases/marfa',
+                text: stripIndent`
+                    A1/16_
+                    Marfa;
+                `
+            }
+        ]
+    },
+    {
+        to: '/about',
+        text: `About`
+    },
+    {
+        to: '/codes',
+        text: `Ab[Codes:`,
+        className: `c-menu__last`,
+        children: [
+            {
+                to: '/codes',
+                className: 'u-mg-none',
+                text: stripIndent`
+                    A; b;
+                    S;c; r;
+                    ee; n
+                    ]
+                `,
+            }
+        ]
+    }
+];
 
-  A2/17_
-  Post-
-    masters;`)
-}, {
-    to: '/releases/kahn',
-    text: ( 
-` A1/17_
-    Kahn;`)
-}, {
-    to: '/releases/marfa',
-    text: (
-`  A1/16_
-    Marfa;`
-  )
-}, {
+const Menu = (props) => (
+    <ul className="c-menu">
+        {props.children}
+    </ul>
+)
 
-    to: '/codes',
-    text: (
-`Ab[Codes:
-   A; b;
-   S;c; r;
-   ee; n
-  ]`
-    )
-}];
-
-const navItems = links.map((link, idx) => (
-    <li key={idx}>
-        <Link activeClassName="active" to={link.to}>
-            <pre>{link.text}</pre>
-        </Link>
+const getNavItems = (items) => items.map((item, idx) => (
+    <li key={idx} className={`c-menu__item ${item.className || ''}`}>
+        { item.to ?
+            <Link activeClassName="active" to={item.to}>
+                <pre>{item.text}</pre>
+            </Link> :
+            <pre>{item.text}</pre>
+        }
+        { item.children ? (
+            <Menu>
+                {getNavItems(item.children)}
+            </Menu>
+        ) : null }
     </li>
 ));
 
-var Nav = (props) => {
-    return (
-        <nav className="leftbar">
-          <h1 className="logo">
-            <IndexLink to="/" activeClassName="active">
-                <img width="180" src={require('../images/logo.svg')}/>
-            </IndexLink>
-          </h1>
+const LeftNav = (props) => (
+    <nav className="c-left-menu">
+      <h1 className="logo">
+        <IndexLink to="/" activeClassName="active">
+            <img width="180" src={require('../images/logo.svg')}/>
+        </IndexLink>
+      </h1>
 
-          <ul className="menu">
-            {navItems}
-          </ul>
-        </nav>
-    );
-};
+      <Menu>{getNavItems(links)}</Menu>
+    </nav>
+);
 
-export default Nav;
+export default LeftNav;
