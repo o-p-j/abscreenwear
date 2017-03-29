@@ -27,6 +27,9 @@ module.exports = {
             }
         })
     ],
+    postcss () {
+        return [ require('autoprefixer') ]
+    },
     module: {
         loaders: [{
             test: /\.jsx?/,
@@ -34,14 +37,14 @@ module.exports = {
             include: path.join(__dirname, 'src')
         }, {
             test: /\.css/,
-            loader: 'style!css',
+            loader: 'style!css!postcss',
             include: path.join(__dirname, 'src')
         }, {
             test: /\.(png|jpg|gif|svg)$/,
             loader: 'url?limit=500'
         }, {
             test: /\.paper.js$/,
-            loader: "paper-loader"
+            loader: 'paper-loader'
         },
         {
             test: /\.(eot|ttf|woff|woff2)$/,

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Nav from './components/Nav';
+import LeftPanel from './components/LeftPanel';
 import RightPanel from './components/RightPanel';
 import SubscribeForm from './components/SubscribeForm';
 
 class App extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           subscribeFormVisible:  false
         }
@@ -14,16 +14,14 @@ class App extends Component {
 
     toggleSubscribeForm () {
         this.setState({ subscribeFormVisible: !this.state.subscribeFormVisible });
-        console.log('toggleform\'s value: ' + this.state.subscribeFormVisible)
-
     }
 
     render() {
         return (
           <div className="container">
-              <Nav/>
+              <LeftPanel />
               <main>
-                  <SubscribeForm  
+                  <SubscribeForm
                     toggleSubscribeForm={this.toggleSubscribeForm.bind(this)}
                     subscribeFormVisible={this.state.subscribeFormVisible}
                   />
@@ -33,6 +31,7 @@ class App extends Component {
           </div>
         );
     }
+
 }
 
 export default App;

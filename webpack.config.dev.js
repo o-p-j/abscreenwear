@@ -19,7 +19,10 @@ module.exports = {
         new webpack.ProvidePlugin({
             fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch'
         })
-  ],
+    ],
+    postcss () {
+        return [ require('autoprefixer') ]
+    },
     module: {
         loaders: [{
             test: /\.jsx?/,
@@ -27,7 +30,7 @@ module.exports = {
             include: path.join(__dirname, 'src')
         }, {
             test: /\.css/,
-            loader: 'style!css',
+            loader: 'style!css!postcss',
             include: path.join(__dirname, 'src')
         }, {
             test: /\.(png|jpg|gif|svg)$/,

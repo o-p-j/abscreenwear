@@ -29,7 +29,7 @@ class SubscribeForm extends React.Component {
           "email_address": this.state.email,
           "status": "subscribed",
           "merge_fields": {
-            "FNAME": this.state.name, 
+            "FNAME": this.state.name,
             "LNAME": "Unknown",
           },
         }
@@ -47,7 +47,7 @@ class SubscribeForm extends React.Component {
         .then(response => {
           if (!response.status || (response.status >= 200 && response.status < 300)) {
             this.setState({ completed: true });
-          } 
+          }
 
           else {
             let error = new Error(response.statusText);
@@ -67,7 +67,6 @@ class SubscribeForm extends React.Component {
     }
 
     render() {
-        console.log(this)
         if (this.state.closed) return null;
         if (!this.props.subscribeFormVisible) return null;
 
