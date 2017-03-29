@@ -1,6 +1,7 @@
 import { stripIndent } from 'common-tags'
 import React, { Component } from 'react';
 import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
+import getMenu from './getMenu'
 
 const links = [
     {
@@ -56,28 +57,8 @@ const links = [
     }
 ];
 
-
-const getMenu = (items) => (
-    <ul className="c-menu">
-        {items.map((item, index) => (
-            <li
-                key={`c-left-menu${index}`}
-                className={`c-menu__item ${item.className || ''}`}
-            >
-                { item.to ?
-                    <Link activeClassName="active" to={item.to}>
-                        <pre>{item.text}</pre>
-                    </Link> :
-                    <pre>{item.text}</pre>
-                }
-                {item.children ? getMenu(item.children) : null}
-            </li>
-        ))}
-    </ul>
-);
-
 const LeftPanel = (props) => (
-    <nav className="c-left-panel">
+    <nav className="c-panel c-panel--left">
       <h1 className="logo">
         <IndexLink to="/" activeClassName="active">
             <img width="180" src={require('../images/logo.svg')}/>

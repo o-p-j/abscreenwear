@@ -1,67 +1,69 @@
 import React from 'react';
-// new
 import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
+import { stripIndent } from 'common-tags'
+import getMenu from './getMenu'
 
-const links = [
+const topLinks = [
     {
-        to: '/editorial',
+        to: `/editorial`,
         text: `Press;`
     },
     {
-        to: '/labs',
+        to: `/labs`,
         text: `Labs;`
     },
     {
-        to: '/loves',
+        to: `/loves`,
         text: `Loves;`
     }
 ];
 
-const rightPanelItems = links.map((link, idx) => (
-    <li key={idx} className={`c-menu__item ${link.className || ''}`}>
-        <Link activeClassName="active" to={link.to}>
-            <pre>{link.text}</pre>
-        </Link>
-    </li>
-));
+const RightPanel = (props) => (
+    <aside className="c-panel c-panel--right">
+        <h1 className="shopButton">
+            <img
+                width="170"
+                src={require('../images/shop.gif')}
+            />
+        </h1>
 
-var RightPanel = (props) => {
-    return (
-        <aside className="rightpanel">
-            <ul className="c-menu">
+        {getMenu(topLinks)}
 
-              <h1 className="shopButton">
-                  <img width="150" src={require('../images/Ab_shop_button.png')}/>
-              </h1>
+        <div>
+            <img
+                width="170"
+                src={require('../images/appointments.gif')}
+            />
+        </div>
 
-              {rightPanelItems}
-            </ul>
-
-
-            <ul className="links">
-
-                <li onClick={props.toggleSubscribeForm} >
-                        <pre>News <br/>sign up;</pre>
-                </li>
-
-                <li>
-                    <a href="mailto:ab@abscreenwear.com"><span className="text">email;</span></a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/abscreenwear/" target="_blank">
-                        <span className="text">ig;</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/AbScreenwear-1656694317934158/" target="_blank"><span className="text">fb;</span>   </a>
-                </li>
-                <li>
-                    <a href="https://abscreenwear.tumblr.com" target="_blank"><span className="text">Tumblr</span></a>
-                </li>
-                <li>]   </li>
-            </ul>
-        </aside>
-    );
-};
+        <ul className="c-links">
+            <li onClick={props.toggleSubscribeForm}>
+                <pre>News</pre>
+                <pre>sign up;</pre>
+            </li>
+            <li className="c-links__space">
+                <a href="mailto:ab@abscreenwear.com">
+                    email;
+                </a>
+            </li>
+            <li className="c-links__indent--1">
+                <a href="https://www.instagram.com/abscreenwear/" target="_blank">
+                    ig;
+                </a>
+            </li>
+            <li className="c-links__indent--2">
+                <a href="https://www.facebook.com/AbScreenwear-1656694317934158/" target="_blank">
+                    fb;
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/Abscreenwear" target="_blank">
+                    twitter;
+                </a>
+            </li>
+            <li className="c-links__indent--2">]</li>
+        </ul>
+    </aside>
+);
 
 export default RightPanel;

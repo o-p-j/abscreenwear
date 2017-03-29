@@ -88,27 +88,13 @@ nav {
     background: white;
 }
 
-.rightpanel {
-    flex: 3;
-    font-size: 30px;
-    background: white;
-}
-
 nav {
     min-width: 240px;
 }
 
-.rightpanel {
-    min-width: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: right;
-    z-index: 10;
-}
-
 .logo {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .shopButton {
@@ -214,26 +200,35 @@ nav {
     outline: none;
 }
 
-.c-left-panel {
+.c-panel {
     display: flex;
     flex-direction: column;
-
     padding-top: 34px;
-    padding-left: 34px;
     padding-bottom: 34px;
-}
-
-.c-menu {
+    background: white;
     font-size: 28px;
     line-height: 1.2;
+}
+
+.c-panel--right {
+    z-index: 10;
+    flex: 3;
+    justify-content: space-between;
+    padding-right: 34px;
+    min-width: 200px;
+    text-align: right;
+}
+
+.c-panel--left {
+    padding-left: 34px;
 }
 
 .logo + .c-menu {
     margin-top: auto;
 }
 
-.c-menu .c-menu {
-    margin-left: 1.7em;
+.c-panel--left .c-menu .c-menu {
+    padding-left: 1.7em;
 }
 
 .c-menu__item {
@@ -243,10 +238,23 @@ nav {
     margin-bottom: 1.15em;
 }
 
-.c-menu__item:last-child {
-    margin-bottom: 0;
-}
-
 .u-mg-none {
     margin: 0;
+}
+
+.c-links {
+    margin-top: 1.7em;
+}
+
+.c-links__space {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.c-links__indent--1 {
+    padding-right: 1.7em;
+}
+
+.c-links__indent--2 {
+    padding-right: 3em;
 }
