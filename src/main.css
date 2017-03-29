@@ -214,7 +214,7 @@ nav {
     outline: none;
 }
 
-.c-left-menu {
+.c-left-panel {
     display: flex;
     flex-direction: column;
 
@@ -239,8 +239,8 @@ nav {
 .c-menu__item {
     font-size: inherit;
     line-height: inherit;
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
+    margin-top: 1.15em;
+    margin-bottom: 1.15em;
 }
 
 .c-menu__item:last-child {

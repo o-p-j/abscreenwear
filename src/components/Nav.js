@@ -56,37 +56,35 @@ const links = [
     }
 ];
 
-const Menu = (props) => (
-    <ul className="c-menu">
-        {props.children}
-    </ul>
-)
 
-const getNavItems = (items) => items.map((item, idx) => (
-    <li key={idx} className={`c-menu__item ${item.className || ''}`}>
-        { item.to ?
-            <Link activeClassName="active" to={item.to}>
-                <pre>{item.text}</pre>
-            </Link> :
-            <pre>{item.text}</pre>
-        }
-        { item.children ? (
-            <Menu>
-                {getNavItems(item.children)}
-            </Menu>
-        ) : null }
-    </li>
-));
+const getMenu = (items) => (
+    <ul className="c-menu">
+        {items.map((item, index) => (
+            <li
+                key={`c-left-menu${index}`}
+                className={`c-menu__item ${item.className || ''}`}
+            >
+                { item.to ?
+                    <Link activeClassName="active" to={item.to}>
+                        <pre>{item.text}</pre>
+                    </Link> :
+                    <pre>{item.text}</pre>
+                }
+                {item.children ? getMenu(item.children) : null}
+            </li>
+        ))}
+    </ul>
+);
 
 const LeftNav = (props) => (
-    <nav className="c-left-menu">
+    <nav className="c-left-panel">
       <h1 className="logo">
         <IndexLink to="/" activeClassName="active">
             <img width="180" src={require('../images/logo.svg')}/>
         </IndexLink>
       </h1>
 
-      <Menu>{getNavItems(links)}</Menu>
+      {getMenu(links)}
     </nav>
 );
 
