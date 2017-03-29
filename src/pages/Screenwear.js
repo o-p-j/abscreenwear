@@ -1,12 +1,14 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import SubscribeForm from '../components/SubscribeForm';
 
-class Screewear extends React.Component {
-    render() {
+const styles = {
+    backgroundImage: `url(${require('../images/spencer.gif')})`
+}
+
+class Screewear extends Component {
+    render () {
         return (
-            <div style={{ position: 'relative' }}>
-                <img style={{ width: '100%' }} src={require('../images/spencer.gif')}/>
-            </div>
+            <div className="c-screenwear-cover" style={styles}></div>
         );
     }
 }

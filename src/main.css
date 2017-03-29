@@ -200,6 +200,15 @@ nav {
     outline: none;
 }
 
+.c-screenwear-cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .c-panel {
     display: flex;
     flex-direction: column;
