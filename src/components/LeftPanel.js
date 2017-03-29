@@ -76,7 +76,7 @@ const getMenu = (items) => (
     </ul>
 );
 
-const LeftNav = (props) => (
+const LeftPanel = (props) => (
     <nav className="c-left-panel">
       <h1 className="logo">
         <IndexLink to="/" activeClassName="active">
@@ -88,4 +88,4 @@ const LeftNav = (props) => (
     </nav>
 );
 
-export default LeftNav;
+export default LeftPanel;

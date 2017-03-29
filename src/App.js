@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from './components/Nav';
+import LeftPanel from './components/LeftPanel';
 import RightPanel from './components/RightPanel';
 import SubscribeForm from './components/SubscribeForm';
 
@@ -19,7 +19,7 @@ class App extends Component {
     render() {
         return (
           <div className="container">
-              <Nav/>
+              <LeftPanel />
               <main>
                   <SubscribeForm
                     toggleSubscribeForm={this.toggleSubscribeForm.bind(this)}
