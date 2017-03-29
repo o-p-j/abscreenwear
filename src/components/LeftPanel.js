@@ -33,7 +33,10 @@ const links = [
                 `
             }
         ]
-    },
+    }
+];
+
+const bottomLinks = [
     {
         to: '/about',
         text: `About`
@@ -55,7 +58,7 @@ const links = [
             }
         ]
     }
-];
+]
 
 const LeftPanel = (props) => (
     <nav className="c-panel c-panel--left">
@@ -66,6 +69,7 @@ const LeftPanel = (props) => (
       </h1>
 
       {getMenu(links)}
+      {getMenu(bottomLinks)}
     </nav>
 );
 

@@ -214,6 +214,7 @@ nav {
 .c-panel {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding-top: 34px;
     padding-bottom: 34px;
     background-color: white;
@@ -224,7 +225,6 @@ nav {
 .c-panel--right {
     z-index: 10;
     flex: 3;
-    justify-content: space-between;
     padding-right: 34px;
     min-width: 200px;
     text-align: right;
@@ -234,8 +234,8 @@ nav {
     padding-left: 34px;
 }
 
-.logo + .c-menu {
-    margin-top: auto;
+.c-menu + .c-menu {
+    margin-top: -1.15em; /* compensate .c-menu__item margin */
 }
 
 .c-panel--left .c-menu .c-menu {
