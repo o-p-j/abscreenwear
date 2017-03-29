@@ -27,13 +27,17 @@ const appointmentsLabel = stripIndent`
 const RightPanel = (props) => (
     <aside className="c-panel c-panel--right">
         <div className="shopButton">
-           <Button>Shop</Button>
+            <a href="http://abscreenwear.shop/" target="_blank">
+                <Button>Shop</Button>
+            </a>
         </div>
 
         {getMenu(topLinks)}
 
         <div>
-            <Button slowly>{appointmentsLabel}</Button>
+            <a href="mailto:ab@abscreenwear.com">
+                <Button slowly>{appointmentsLabel}</Button>
+            </a>
         </div>
 
         <ul className="c-links">
