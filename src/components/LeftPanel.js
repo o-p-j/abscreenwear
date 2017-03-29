@@ -41,7 +41,7 @@ const links = [
     {
         to: '/codes',
         text: `Ab[Codes:`,
-        className: `c-menu__last`,
+        className: `u-mg-none`,
         children: [
             {
                 to: '/codes',
@@ -61,7 +61,7 @@ const LeftPanel = (props) => (
     <nav className="c-panel c-panel--left">
       <h1 className="logo">
         <IndexLink to="/" activeClassName="active">
-            <img width="180" src={require('../images/logo.svg')}/>
+            <img width="164" src={require('../images/logo.svg')} />
         </IndexLink>
       </h1>
 

@@ -6,7 +6,7 @@ import getMenu from './getMenu'
 const topLinks = [
     {
         to: `/editorial`,
-        text: `Press;`
+        text: `Ab[Press;`
     },
     {
         to: `/labs`,
@@ -30,10 +30,7 @@ const RightPanel = (props) => (
         {getMenu(topLinks)}
 
         <div>
-            <img
-                width="170"
-                src={require('../images/appointments.gif')}
-            />
+            <img width="170" src={require('../images/appointments.gif')} />
         </div>
 
         <ul className="c-links">
@@ -48,7 +45,7 @@ const RightPanel = (props) => (
             </li>
             <li className="c-links__indent--1">
                 <a href="https://www.instagram.com/abscreenwear/" target="_blank">
-                    ig;
+                    instagram;
                 </a>
             </li>
             <li className="c-links__indent--2">
