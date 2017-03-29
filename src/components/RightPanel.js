@@ -1,6 +1,7 @@
 import React from 'react';
-import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
+import { Link } from 'react-router';
 import { stripIndent } from 'common-tags'
+import Button from './Button'
 import getMenu from './getMenu'
 
 const topLinks = [
@@ -18,19 +19,21 @@ const topLinks = [
     }
 ];
 
+const appointmentsLabel = stripIndent`
+    Appoint-
+        ments
+`
+
 const RightPanel = (props) => (
     <aside className="c-panel c-panel--right">
-        <h1 className="shopButton">
-            <img
-                width="170"
-                src={require('../images/shop.gif')}
-            />
-        </h1>
+        <div className="shopButton">
+           <Button>Shop</Button>
+        </div>
 
         {getMenu(topLinks)}
 
         <div>
-            <img width="170" src={require('../images/appointments.gif')} />
+            <Button slowly>{appointmentsLabel}</Button>
         </div>
 
         <ul className="c-links">

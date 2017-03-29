@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import SubscribeForm from '../components/SubscribeForm';
+import React, { Component } from 'react';
 
 const styles = {
     backgroundImage: `url(${require('../images/spencer.gif')})`
