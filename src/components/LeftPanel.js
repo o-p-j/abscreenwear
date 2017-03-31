@@ -1,7 +1,7 @@
 import { stripIndent } from 'common-tags'
-import React, { Component } from 'react';
-import { Router, Route, IndexRoute, Link, IndexLink } from 'react-router';
-import getMenu from './getMenu'
+import React from 'react';
+import { IndexLink } from 'react-router';
+import getMenu from './getMenu';
 
 const links = [
     {
