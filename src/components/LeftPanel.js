@@ -14,21 +14,21 @@ const links = [
             {
                 to: `/releases/postmasters`,
                 text: stripIndent`
-                    A2/17_
+                    2/17_
                     Postmasters;
                 `
             },
             {
                 to: `/releases/kahn`,
                 text: stripIndent`
-                    A1/17_
+                    1/17_
                     Kahn;
                 `
             },
             {
                 to: '/releases/marfa',
                 text: stripIndent`
-                    A1/16_
+                    1/16_
                     Marfa;
                 `
             }
