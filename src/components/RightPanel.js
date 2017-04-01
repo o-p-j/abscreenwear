@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { stripIndent } from 'common-tags'
-import Button from './Button'
-import getMenu from './getMenu'
+import { stripIndent } from 'common-tags';
+import Button from './Button';
+import getMenu from './getMenu';
 
 const topLinks = [
     {
