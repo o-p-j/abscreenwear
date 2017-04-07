@@ -116,7 +116,7 @@
   transform: translate3d(-50%,0,0);
   pointer-events: auto;
   z-index: 2;
-  padding-top: 100%;
+  margin-top: 100%;
 }
 
 .vimeo:after {

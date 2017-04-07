@@ -6,6 +6,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import Screenwear from './pages/Screenwear';
 import Postmasters from './pages/Postmasters';
+import Kahn from './pages/Kahn';
 import Releases from './pages/Releases';
 import Codes from './pages/Codes';
 import About from './pages/About';
@@ -27,6 +28,7 @@ render((
       <IndexRoute component={Screenwear}/>
       <Route path="/signup" component={SubscribeForm}/>
       <Route path="/releases/postmasters" component={Postmasters}/>
+      <Route path="/releases/kahn" component={Kahn}/>
       <Route path="/releases/:release" component={Releases}/>
       <Route path="/codes" component={Codes}/>
       <Route path="/about" component={About}/>
