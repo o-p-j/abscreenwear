@@ -12,9 +12,24 @@ import imagesLoaded from 'imagesloaded';
 
 import PostmastersCredits from '../components/PostmastersCredits.js';
 
+var MobileDetect = require('mobile-detect');
+
 class Postmasters extends React.Component {
 
     componentDidMount() {
+
+        const cursor = 'url('+require('../images/postmasters/cursor.png')+') 15 15, auto'
+
+        const zoom_in = 'url('+require('../images/postmasters/cursor_plus.png')+') 15 15, auto'
+
+        const zoom_out = 'url('+require('../images/postmasters/cursor_minus.png')+') 15 15, auto'
+
+        const pause = 'url('+require('../images/postmasters/cursor_pause.png')+') 15 15, auto'
+
+        const play = 'url('+require('../images/postmasters/cursor_play.png')+') 15 15, auto'
+
+        var md = new MobileDetect(window.navigator.userAgent);
+        var mobile = md.phone() || md.tablet();
 
         const scope = screenPaper('paperCanvas');
         const parallax = document.getElementById('parallax');
@@ -23,6 +38,7 @@ class Postmasters extends React.Component {
         const front1 = document.getElementById('front1');
         const frontRect = front1.getBoundingClientRect();
         const back1 = document.getElementById('back1');
+        const click = document.getElementById('click');
 
         const player = document.querySelector('#player');
         const vimeo = document.querySelector('.vimeo');
@@ -31,10 +47,40 @@ class Postmasters extends React.Component {
 
         vimeo.addEventListener('click', toggleVideo, false);
 
+        var clickTimer = 0;
+        var clicker = false;
+        var clickInt;
+
+        click.addEventListener('mousedown', function() {
+            if(!clicker) {
+                clickTimer = setInterval(function() {
+                    clickTimer++;
+                    if(clickTimer > 75) {
+                        click.innerHTML = ';]'
+                    }
+
+                    if(clickTimer > 120) {
+                        click.innerHTML = '';
+                    }
+                },100);
+            }
+                
+            clicker = true;
+
+            click.innerHTML = '[&amp; hold]'
+        });
+
+        document.addEventListener('mouseup', function() {
+            clicker = false;
+            clearInterval(clickInt);
+        });
+
         videoInit();
 
         const speed = 1.2;
         var dampen = true;
+
+        var zoomed = false;
         
         const scrollableContainer = document.querySelector('#Postmasters');
 
@@ -57,19 +103,19 @@ class Postmasters extends React.Component {
 
         imagesLoaded( front1, function( instance ) {
             //all images loaded
-            for (var i = 0; i < front1.childNodes.length; i++) {
-                createParallax(front1.childNodes[i])
-            }
-            front1.parentNode.removeChild(front1);
-            parallaxChildren = parallax.childNodes;
-
+            // for (var i = 0; i < front1.childNodes.length; i++) {
+            //     createParallax(front1.childNodes[i])
+            // }
+            // front1.parentNode.removeChild(front1);
+            parallaxChildren = front1.childNodes;
 
             if(Browser.name === 'chrome' || Browser.name === 'safari')
                 autoscroll = true;
 
         }).on( 'progress', function( instance, image ) {
-          if(image.img.classList[0] === 'image-front0' || 'image-front1')
-            loadImg(image.img);
+            image.img.src = image.img.dataset.src;
+            image.img.addEventListener('click', zoom, false);
+            image.img.style.cursor = zoom_in;
         });
 
         imagesLoaded( back1, function( instance ){}).on( 'progress', function( instance, image ) {
@@ -79,7 +125,10 @@ class Postmasters extends React.Component {
             }
         });
 
-        parallaxAnim();
+        if(!mobile) {
+            parallaxAnim();
+        }
+        
 
         function isRetina(){
             return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (min-resolution: 75.6dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)').matches)) || (window.devicePixelRatio && window.devicePixelRatio >= 2)) && /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
@@ -103,6 +152,87 @@ class Postmasters extends React.Component {
 
         }
 
+        function zoom(event) {
+            //var newNode = document.createElement("img");
+
+            if(zoomed === true)
+                return false;
+
+            var el = event.target;
+            el.removeEventListener('click', zoom);
+            var el_rect = el.getBoundingClientRect();
+            var el_w = el.offsetWidth;
+            var el_h = el.offsetHeight;
+            // newNode.src = el.src;
+            // newNode.style.position = 'fixed';
+            // newNode.style.height = '80vh';
+            // newNode.style.width = 'auto';
+            // newNode.style.top = top+'%';
+            // newNode.style.left = left+'%';
+            // newNode.style.transform = 'translate3d(-50%,-50%,0)';
+
+            var count = 0;
+
+            var dupNode = document.createElement("img");
+            var hitArea = document.createElement("div");
+            hitArea.classList = ['zoom-hit-area'];
+
+            var all_img = front1.querySelectorAll("img");
+            for(var i=0; i<all_img.length; i++) {
+                all_img[i].style.cursor = '';
+                all_img[i].style.cursor = zoom_out;
+            }
+
+            dupNode.style.position = 'fixed';
+            dupNode.classList = ['zoom-img'];
+            dupNode.src = el.src;
+            dupNode.style.top = el_rect.top + 'px';
+            dupNode.style.left = el_rect.left + 'px';
+            //dupNode.style.width = el_w + 'px';
+            dupNode.style.height = el_h + 'px';
+            dupNode.style.transform = 'translate3d(0,0,0)';
+            scrollableContainer.appendChild(dupNode);
+            scrollableContainer.style.cursor = '';
+            scrollableContainer.style.cursor = zoom_out;
+
+            setTimeout(function() {
+                dupNode.style.height = '95vh';
+                //dupNode.style.width = 'auto';
+                dupNode.style.top = '2.5%';
+                dupNode.style.left = '50%';
+                dupNode.style.transform = 'translate3d(-50%,0,0)';
+                dupNode.style.marginLeft = count + 'px';
+                dupNode.style.marginTop = count + 'px';
+                dupNode.style.zIndex = 1500;
+                zoomed = true;
+                el.style.opacity = 0;
+
+                scrollableContainer.addEventListener('click', function(ev) {
+                    if(zoomed === false)
+                        return false;
+                    ev.preventDefault();
+                    var el_rect = el.getBoundingClientRect();
+                    dupNode.style.height = el.offsetHeight + 'px';
+                    //dupNode.style.width = el.offsetWidth + 'px';
+                    dupNode.style.top = el_rect.top + 'px';
+                    dupNode.style.left = el_rect.left + 'px';
+                    dupNode.style.transform = 'translate3d(0,0,0)';
+                    setTimeout(function() {
+                        dupNode.remove();
+                        el.style.opacity = 1;
+                        el.addEventListener('click', zoom);
+                        zoomed = false;
+                        scrollableContainer.style.cursor = '';
+                        scrollableContainer.style.cursor = cursor;
+                        for(var i=0; i<all_img.length; i++) {
+                            all_img[i].style.cursor = '';
+                            all_img[i].style.cursor = zoom_in;
+                        }
+                    }, 200);
+                });
+            }, 20);
+        }
+
         function setSizes(oldEl, newEl) {
             
             var rect = oldEl.getBoundingClientRect();
@@ -122,22 +252,26 @@ class Postmasters extends React.Component {
             newEl.dataset.topPosPer = rect.top / front1.offsetWidth;
         }
 
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
         function windowResize() {
             
             window.requestAnimationFrame(() => {
-                for(var i=0; i<parallaxChildren.length; i++) {
+                // for(var i=0; i<parallaxChildren.length; i++) {
 
-                    var el = parallaxChildren[i];
+                //     var el = parallaxChildren[i];
 
-                    parallax.style.width = back1.offsetWidth + 'px';
-                    el.style.left = (parseFloat(el.dataset.leftPer) * parallax.offsetWidth) + 'px';
-                    el.style.top = (parseFloat(el.dataset.topPer) * parallax.offsetWidth) + 'px';
-                    el.dataset.topPos = el.dataset.topPosPer * parallax.offsetWidth;
+                //     parallax.style.width = back1.offsetWidth + 'px';
+                //     el.style.left = (parseFloat(el.dataset.leftPer) * parallax.offsetWidth) + 'px';
+                //     el.style.top = (parseFloat(el.dataset.topPer) * parallax.offsetWidth) + 'px';
+                //     el.dataset.topPos = el.dataset.topPosPer * parallax.offsetWidth;
 
-                    //vimeo.style.top = back1.offsetTop + 'px';
+                //     //vimeo.style.top = back1.offsetTop + 'px';
 
                     
-                }
+                // }
 
                 canvas.style.width = window.innerWidth + 'px';
                 canvas.style.height = window.innerHeight + 'px';
@@ -159,10 +293,10 @@ class Postmasters extends React.Component {
 
                 scrollPos = scrollableContainer.scrollTop - credits1.offsetHeight;
                 
-                scrollDamp += (scrollPos - lastScrollPos) / 5;
+                scrollDamp += (scrollPos - lastScrollPos) / 10;
                 
-                if(Math.abs(scrollDamp) >= 0.00001 && dampen)
-                    scrollDamp *= 0.9;
+                if(dampen)
+                    scrollDamp *= 0.97;
                 else
                     scrollDamp = 0;
 
@@ -183,19 +317,16 @@ class Postmasters extends React.Component {
                     }
 
                     var damp = scrollDamp + scrollDamp * modifier;
-                    var scroll = scrollH + damp;
+                    var scroll = damp;
 
                     if(isInView(el)) {
 
-                        loadImg(el);
+                        //loadImg(el);
 
-                        el.style.transform = 'translate3d(0,'+(scroll)+'px,0)'
-                        if(el.style.opacity < 1)
-                            el.style.opacity = 1
-                    } else {
-                        if(el.style.opacity > 0)
-                            el.style.opacity = 0
-                    }
+                        el.style.transform = 'translate3d(0,'+(round(scroll))+'px,0)'
+                        // if(el.style.opacity < 1)
+                        //     el.style.opacity = 1
+                    } 
 
                 }
 
@@ -211,6 +342,10 @@ class Postmasters extends React.Component {
 
         }
 
+        function round(num) {
+          return Math.round(num * 10) / 10
+        }
+
         function loadImg(el) {
             if(!el.dataset.loaded && el.dataset.src) {
                 el.src = el.dataset.src;
@@ -220,9 +355,10 @@ class Postmasters extends React.Component {
 
         function isInView(node) {
 
-            var top = parseInt(node.dataset.topPos, 10);
+            var rect = node.getBoundingClientRect();
+            var top = rect.top + rect.bottom;
 
-            return (scrollPos / speed > top - window.innerHeight*2) && (scrollPos / speed < (top + window.innerHeight*3));
+            return (top > -window.innerHeight*1.5) && (rect.top < window.innerHeight * 1.5);
         }
 
         function loopScroll() {
@@ -250,10 +386,15 @@ class Postmasters extends React.Component {
 
             iframePlayer.setVolume(0.5);
 
+            vimeo.style.cursor = pause;
+
             setInterval(function() {
                 window.requestAnimationFrame(() => {
 
-                    if(scrollPos <= vimeo.offsetTop && scrollPos >= vimeo.offsetTop - window.innerWidth && videoVolume < 0.5) {
+                    var vimeo_rect = vimeo.getBoundingClientRect();
+                    var vimeo_top = vimeo_rect.top + vimeo_rect.bottom;
+
+                    if(vimeo_top > 0 && vimeo_rect.top < window.innerHeight && videoVolume < 0.5) {
                         videoVolume += 0.05;
                         iframePlayer.setVolume(videoVolume);
                     } else if (videoVolume > 0) {
@@ -268,9 +409,13 @@ class Postmasters extends React.Component {
 
             if(!vimeo.dataset.paused) {
                 iframePlayer.pause();
+                vimeo.style.cursor = '';
+                vimeo.style.cursor = play;
                 vimeo.dataset.paused = true;
             } else {
                 iframePlayer.play();
+                vimeo.style.cursor = '';
+                vimeo.style.cursor = pause;
                 delete vimeo.dataset.paused;
             }
 
@@ -291,7 +436,7 @@ class Postmasters extends React.Component {
                 front.push(`front${num}`);
             }
 
-        const front_images = front.map((src, idx) => <img key={idx} className={'image-'+src} src={require(`../images/postmasters/${src}_sm.jpg`)} data-src={require(`../images/postmasters/${src}.jpg`)} />);
+        const front_images = front.map((src, idx) => <img key={idx} className={'image-'+src} src={require(`../images/postmasters/${src}.png`)} data-src={require(`../images/postmasters/${src}.jpg`)} />);
 
         const back = [];
             for (let num = 0; num < 10; num++) {
@@ -314,13 +459,15 @@ class Postmasters extends React.Component {
                     <PostmastersCredits/>
                 </div>
 
+                <div id="click">[click]</div>
+
                 <div className="vimeo">
                     <iframe id="player" src="https://player.vimeo.com/video/209747767?title=0&byline=0&portrait=0&autoplay=1&background=1" width="640" height="320" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
                 </div>
 
                 <div id="text">
-                    <h1 id="headline">A2/17_ Postmasters release</h1>
-                    <p id="description">A2/17_Postmasters collection draws from organic vs digital in- terfaces, repetitive vs improvised structures to go post-language.Key item in screenwear-a jacket;Key item in softwear-an apron;Key item in everywear-a selfone</p>
+                    <h1 id="headline">2/17_ Postmasters release</h1>
+                    <p id="description">2/17_Postmasters collection draws from organic vs digital in- terfaces, repetitive vs improvised structures to go post-language.Key item in screenwear-a jacket;Key item in softwear-an apron;Key item in everywear-a selfone</p>
                 </div>
 
                 <div id="front1" className="front">

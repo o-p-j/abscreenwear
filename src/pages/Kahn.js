@@ -96,6 +96,7 @@ class Kahn extends React.Component {
           image.img.src = image.img.dataset.src;
 
           image.img.addEventListener('click', zoom, false);
+          image.img.style.cursor = '';
           image.img.style.cursor = zoom_in;
         });
 
@@ -124,10 +125,9 @@ class Kahn extends React.Component {
             var hitArea = document.createElement("div");
             hitArea.classList = ['zoom-hit-area'];
 
-            el.style.opacity = 0;
-
             var all_img = kahn.querySelectorAll("img");
             for(var i=0; i<all_img.length; i++) {
+                all_img[i].style.cursor = '';
                 all_img[i].style.cursor = zoom_out;
             }
 
@@ -140,18 +140,22 @@ class Kahn extends React.Component {
             dupNode.style.height = el_h + 'px';
             dupNode.style.transform = 'translate3d(0,0,0)';
             kahn.appendChild(dupNode);
+            kahn.style.cursor = '';
             kahn.style.cursor = zoom_out;
 
             setTimeout(function() {
                 dupNode.style.height = '95vh';
                 //dupNode.style.width = 'auto';
-                dupNode.style.top = '50%';
+                dupNode.style.top = '2.5%';
+                var left = getRandomInt(25, 50);
+
                 dupNode.style.left = '50%';
-                dupNode.style.transform = 'translate3d(-50%,-50%,0)';
+                dupNode.style.transform = 'translate3d(-50%,0,0)';
                 dupNode.style.marginLeft = count + 'px';
                 dupNode.style.marginTop = count + 'px';
                 dupNode.style.zIndex = 1500;
                 zoomed = true;
+                el.style.opacity = 0;
 
                 kahn.addEventListener('click', function(ev) {
                     if(zoomed === false)
@@ -168,8 +172,10 @@ class Kahn extends React.Component {
                         el.style.opacity = 1;
                         el.addEventListener('click', zoom);
                         zoomed = false;
+                        kahn.style.cursor = '';
                         kahn.style.cursor = cursor;
                         for(var i=0; i<all_img.length; i++) {
+                            all_img[i].style.cursor = '';
                             all_img[i].style.cursor = zoom_in;
                         }
                     }, 200);
@@ -322,7 +328,7 @@ class Kahn extends React.Component {
         images.push('w_3');
         images.push('x_1');
 
-        const all_images = images.concat(images).map((src, idx) => <img key={idx} className={'image-'+src} src={require(`../images/kahn/${src}.gif`)} data-src={require(`../images/kahn/${src}.jpg`)} />);
+        const all_images = images.concat(images).map((src, idx) => <img key={idx} className={'image-'+src} src={require(`../images/kahn/${src}.png`)} data-src={require(`../images/kahn/${src}.jpg`)} />);
 
         return (
 

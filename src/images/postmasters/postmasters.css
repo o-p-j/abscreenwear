@@ -31,6 +31,10 @@
   pointer-events: none;
 }
 
+.front img {
+  pointer-events: auto;
+}
+
 #text {
   position: absolute;
   z-index: 6;
@@ -51,7 +55,7 @@
 }
 
 #description {
-  padding: 700% 10% 0;
+  padding: 610% 10% 0;
   width: 80%;
   font-size: 3.6vw;
   line-height: 1em;
@@ -67,6 +71,12 @@
 .front div {
   display: inline-block;
   vertical-align: top;
+}
+
+.releases.postmasters img.zoom-img {
+  width: auto;
+  transition: all 200ms ease-in-out;
+  pointer-events: none;
 }
 
 .releases .front div img {
@@ -157,9 +167,37 @@
   padding-top: 35%;
   padding-bottom: 15%;
   height: 75vw;
-  min-height: 100vh;
+  min-height: 800px;
   background-size: cover;
   background-position: center 60%;
+}
+
+#click {
+  position: absolute;
+  z-index: 2;
+  margin-top: 170%;
+  margin-left: 60%;
+  top: auto;
+  left: 0;
+  font-size: 2vw;
+  text-align: center;
+}
+
+#click:hover {
+  color: #00FFFF;
+}
+
+@media (max-width: 600px) {
+
+  #click {
+    display: none;
+  }
+
+  .credits {
+    min-height: 50vh;
+    max-height: 50vh;
+  }
+  
 }
 
 .credits a {
@@ -203,136 +241,133 @@
 
 .releases .image-front0 {
   width: 30%;
-  padding: 15% 16% 0 14%;
+  margin: 15% 16% 0 14%;
 }
 
 .releases .image-front1 {
   width: 30%;
-  padding: 34% 0 0 0;
+  margin: 34% 0 0 0;
   margin-bottom: 53%;
 }
 
 .releases .image-front2 {
   width: 30%;
-  padding: 10% 0;
+  margin: 22.5% 0;
 }
 
 .releases .image-front3 {
   width: 20%;
-  padding-left: 50%;
-  padding-right: 0;
-  padding-top: 60%;
+  margin-left: 50%;
+  margin-right: 0;
+  margin-top: 90%;
 }
 
 .releases .image-front4 {
   width: 35%;
-  padding: 10% 10% 0 10%;
+  margin: 10% 10% 0 10%;
 }
 
 .releases .image-front5 {
   width: 35%;
-  padding: 10% 0 0 10%;
+  margin: 10% 0 0 10%;
 }
 
 .releases .image-front6 {
   width: 40%;
-  padding: 10% 30%;
+  margin: 10% 30%;
 }
 
 .releases .image-front7 {
   width: 64%;
-  padding: 10% 18% 5%;
+  margin: 10% 18% 5%;
 }
 
 .releases .image-front8 {
   width: 100%;
-  padding: 10% 0;
+  margin: 10% 0;
 }
 
 .releases .image-front9 {
   width: 30%;
-  padding: 10% 35%;
+  margin: 10% 35%;
 }
 
 .releases .image-front10 {
   width: 32%;
-  padding: 10% 2% 0 4.7%;
-  margin-top: -1px;
+  margin: 25% 2% 0 4.7%;
 }
 
 .releases .image-front11 {
   
   width: 24.75%;
-  padding: 10% 2% 0 0;
+  margin: 25% 2% 0 0;
 }
 
 .releases .image-front12 {
   width: 29%;
-  padding: 10% 0;
+  margin: 25% 0;
   position: relative;
-  margin-top: -1px;
-
 }
 
 .releases .image-front13 {
   width: 40%;
-  padding: 38% 30% 5%;
+  margin: 38% 30% 5%;
 }
 
 .releases .image-front14 {
   width: 26%;
-  padding: 0 20% 5% 10%;
+  margin: 20% 20% 5% 10%;
 }
 
 .releases .image-front15 {
   width: 40%;
-  padding: 0 10% 0 0;
+  margin: 0 10% 0 0;
 }
 
 .releases .image-front16 {
   width: 20%;
-  padding: 10% 0 0 10%;
+  margin: 10% 0 0 10%;
 }
 
 .releases .image-front17 {
   width: 40%;
-  padding: 11% 30%;
+  margin: 22% 30% 15%;
 }
 
 .releases .image-front18 {
   width: 24%;
-  padding: 105% 10% 0 15%;
+  margin: 125% 10% 0 15%;
 }
 
 .releases .image-front19 {
   width: 40%;
-  padding: 120% 0 0;
+  margin: 140% 0 0;
 }
 
 .releases .image-front20 {
   width: 25%;
-  padding: 0 0 0 8%;
+  margin: 0 0 0 8%;
   margin-top: -15%;
 }
 
 .releases .image-front21 {
   width: 68%;
-  padding: 15% 2% 0 0;
+  margin: 30% 2% 0 0;
 }
 
 .releases .image-front22 {
   width: 30%;
-  padding: 15% 0 0 0;
+  margin: 30% 0 0 0;
 }
 
 .releases .image-front23 {
   width: 60%;
-  padding: 5% 0% 0 8%;
+  margin: 5% 0% 0 8%;
 }
 
 .releases .image-front24 {
   width: 27%;
-  padding: 0 0 0 5%;
+  margin: 0 0 0 5%;
   margin-top: -5%;
 }
 
@@ -351,13 +386,13 @@
 
 .releases .image-back3 {
   width: 74%;
-  padding: 190% 13% 0;
+  padding: 120% 13% 0;
 }
 
 .releases .image-back4 {
-  padding-top: 50%;
+  padding-top: 40%;
 }
 
 .releases .image-back9 {
-  padding-bottom: 200%;
+  padding-bottom: 150%;
 }
