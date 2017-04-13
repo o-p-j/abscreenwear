@@ -126,7 +126,7 @@
   transform: translate3d(-50%,0,0);
   pointer-events: auto;
   z-index: 2;
-  margin-top: 100%;
+  margin-top: 92%;
 }
 
 .vimeo:after {
@@ -180,7 +180,7 @@
   top: auto;
   left: 0;
   font-size: 2vw;
-  text-align: center;
+  text-align: left;
 }
 
 #click:hover {

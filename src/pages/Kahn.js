@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
+import Vimeo from '@vimeo/player';
+
 import imagesLoaded from 'imagesloaded';
 
 import '../images/kahn/kahn.css';
@@ -15,6 +17,10 @@ class Kahn extends React.Component {
 
         const zoom_out = 'url('+require('../images/kahn/cursor_minus.png')+') 15 15, auto'
 
+        const pause = 'url('+require('../images/postmasters/cursor_pause.png')+') 15 15, auto'
+
+        const play = 'url('+require('../images/postmasters/cursor_play.png')+') 15 15, auto'
+
 
         var scrollPos = 0;
         var scrollDamp = 0;
@@ -28,6 +34,13 @@ class Kahn extends React.Component {
 
         var zoomed = false;
 
+        const player = document.querySelector('#player');
+        const vimeo = document.querySelector('.vimeo');
+        const iframePlayer = new Vimeo(player);
+        var videoVolume = 0.5;
+
+        vimeo.addEventListener('click', toggleVideo, false);
+
         const kahn = document.querySelector('#Kahn');
         kahn.scrollTop = 1;
         kahn.addEventListener('scroll', loopScroll, false);
@@ -37,6 +50,7 @@ class Kahn extends React.Component {
 
         const stacks = [];
         var stack_els = [];
+        stacks.push('a_1');
         stacks.push('c_3');
         stacks.push('d_1');
         stacks.push('e_2');
@@ -49,9 +63,50 @@ class Kahn extends React.Component {
         stacks.push('v_1');
         stacks.push('w_3');
 
+        videoInit();
+
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
+
+        function videoInit() {
+
+            iframePlayer.setVolume(0.5);
+
+            vimeo.style.cursor = pause;
+
+            setInterval(function() {
+                window.requestAnimationFrame(() => {
+
+                    var vimeo_rect = vimeo.getBoundingClientRect();
+                    var vimeo_top = vimeo_rect.top + vimeo_rect.bottom;
+
+                    if(vimeo_top >= 0 && vimeo_rect.top < window.innerHeight && videoVolume <= 0.5) {
+                        videoVolume += 0.05;
+                        iframePlayer.setVolume(videoVolume);
+                    } else if (videoVolume >= 0) {
+                        videoVolume -= 0.05;
+                        iframePlayer.setVolume(videoVolume);
+                    }
+                })
+            },200);
+          }
+
+          function toggleVideo() {
+
+            if(!vimeo.dataset.paused) {
+                iframePlayer.pause();
+                vimeo.style.cursor = '';
+                vimeo.style.cursor = play;
+                vimeo.dataset.paused = true;
+            } else {
+                iframePlayer.play();
+                vimeo.style.cursor = '';
+                vimeo.style.cursor = pause;
+                delete vimeo.dataset.paused;
+            }
+
+          }
 
         imagesLoaded( kahn, function( instance ) {
             for(var n=0; n<stacks.length; n++) {
@@ -66,7 +121,7 @@ class Kahn extends React.Component {
                     left = -1;
                 }
 
-                var r = getRandomInt(5, 25);
+                var r = getRandomInt(5, 18);
 
                 for(var i=0;i<r;i++) {
                     var newNode = document.createElement("div");
@@ -210,7 +265,7 @@ class Kahn extends React.Component {
                 
                 scrollPos = kahn.scrollTop;
                 
-                scrollDamp += (scrollPos - lastScrollPos) / 20;
+                scrollDamp += (scrollPos - lastScrollPos) / 15;
                 
                 if(dampen)
                     //scrollDamp = Math.sin(scrollDamp/15) * Math.cos(Math.PI) + scrollDamp * 0.975;
@@ -224,14 +279,17 @@ class Kahn extends React.Component {
 
                     var el = stack_els[i];
 
-                    var modifier = (el.dataset.index + 5) / 15;
+                    if(isInView(el)) {
+                        var modifier = (el.dataset.index + 5) / 15;
 
-                    wave = Math.sin( time + modifier );
+                        wave = Math.sin( time + modifier );
 
-                    var damp = scrollDamp * modifier - scrollDamp;
-                    var damp_x = scrollDamp * (modifier * wave);
+                        var damp = scrollDamp * modifier - scrollDamp;
+                        var damp_x = scrollDamp * (modifier * wave);
 
-                    el.style.transform = 'translate3d('+ (round(damp_x/10)) +'px,'+(round(damp/2))+'px,0)'
+                        el.style.transform = 'translate3d('+ (round(damp_x/10)) +'px,'+(round(damp/2))+'px,0)'
+                    }
+                    
 
                 }
 
@@ -249,6 +307,14 @@ class Kahn extends React.Component {
 
         function round(num) {
           return Math.round(num * 10) / 10
+        }
+
+        function isInView(node) {
+
+            var rect = node.getBoundingClientRect();
+            var top = rect.top + rect.bottom;
+
+            return (top > -window.innerHeight*1.5) && (rect.top < window.innerHeight * 1.5);
         }
 
         
@@ -328,12 +394,51 @@ class Kahn extends React.Component {
         images.push('w_3');
         images.push('x_1');
 
-        const all_images = images.concat(images).map((src, idx) => <img key={idx} className={'image-'+src} src={require(`../images/kahn/${src}.png`)} data-src={require(`../images/kahn/${src}.jpg`)} />);
+        const text1 = "A1/17_Kahn\nb1.1/b2.1/2/3\nWomen’s seasonal update; collection of screenwear {b1}  and softwear {b2};\nLouis Kahn’s back-to-the-basics approach and concrete backdrop for screenwear as new utility;girls swaying together in a state of electronic tranquility;\nw/out a mouth, \n w/out a voice;\nphysicality of the internet; lag between gesture and action; the everyday intimacy as we see it through"
+        const text2 = "Text;moving image;post/language - where/ how to wear,emb-\nrace;heart; sleeve, screen,skin;new codes - of making; of  wearing;of intimacy;screenwear screen\n w e a r e s c r e e n w e a r e s c r e e n w e a r s c r e e n wearescreenwearescreenwe a r e a b s c r e e n wear" 
+        const text3 = "We are a fashion label and lab interested in shifting forms of communication/dressing as our bodies are extended by machines;\n\nLayers;overlays;augmentation;screens and skin as an interface; technology as an accessory;an aperture; \nan appendage;     \n\nVestimentary \nmedia; experiments;speculative futurism; s c r e e n  \nw   e   a   r"
+
+        const about = <div className="about"><pre>{text1}</pre><pre>{text2}</pre><pre>{text3}</pre></div>
+
+        const all_images = images.map((src, idx) => <img key={idx} className={'image-'+src} src={require(`../images/kahn/${src}.png`)} data-src={require(`../images/kahn/${src}.jpg`)} />);
+
+        const link1 = <a href="#">@jeniafilatova</a>
+
+        const credits_text = "photography\n    "+{link1}+"\n\n    starring\n        @raniyamordanova\n                @thebabybabushka\n\nmakeup/hair\n    @harkoff_makeup\n\n        web\n        @andrevvm\n\n        creative production\n       @sputniksupervision\n\n@abscreenwear"
+
+        const credits = <div className='credits'><pre>{credits_text}</pre></div>
 
         return (
 
             <div id="Kahn" className="kahn releases" style={cursor}>
+                
+                {about}
 
+                <div className="vimeo">
+                    <iframe id="player" src="https://player.vimeo.com/video/184070481?title=0&byline=0&portrait=0&autoplay=1&background=1" width="640" height="320" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
+                </div>
+
+                {all_images}
+                    <div className='credits'>
+<pre>photography
+<br/>   <a target="_blank" href="http://instagram.com/jeniafilatova">@jeniafilatova</a>
+<br/><br/>   starring
+<br/>       <a target="_blank" href="http://instagram.com/raniyamordanova">@raniyamordanova</a>
+<br/>            <a target="_blank" href="http://instagram.com/thebabybabushka">@thebabybabushka</a>
+
+<br/><br/>makeup/hair
+<br/>    <a target="_blank" href="http://instagram.com/harkoff_makeup">@harkoff_makeup</a>
+<br/><br/>        web
+<br/>        <a target="_blank" href="http://instagram.com/andrevvm">@andrevvm</a>
+<br/><br/>        creative production
+<br/>        <a target="_blank" href="http://instagram.com/sputniksupervision">@sputniksupervision</a>
+<br/><br/>
+<a target="_blank" href="http://instagram.com/abscreenwear">@abscreenwear</a>   
+</pre>
+                    </div>
+
+
+                {about}
                 {all_images}
 
             </div>

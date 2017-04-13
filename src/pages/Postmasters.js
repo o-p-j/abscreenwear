@@ -53,21 +53,20 @@ class Postmasters extends React.Component {
 
         click.addEventListener('mousedown', function() {
             if(!clicker) {
-                clickTimer = setInterval(function() {
+                clickInt = setInterval(function() {
+
                     clickTimer++;
-                    if(clickTimer > 75) {
+                    if(clickTimer > 10) {
                         click.innerHTML = ';]'
                     }
 
-                    if(clickTimer > 120) {
+                    if(clickTimer > 20) {
                         click.innerHTML = '';
                     }
                 },100);
             }
                 
             clicker = true;
-
-            click.innerHTML = '[&amp; hold]'
         });
 
         document.addEventListener('mouseup', function() {
@@ -101,21 +100,17 @@ class Postmasters extends React.Component {
 
         var backImagesLoaded = 0;
 
-        imagesLoaded( front1, function( instance ) {
-            //all images loaded
-            // for (var i = 0; i < front1.childNodes.length; i++) {
-            //     createParallax(front1.childNodes[i])
-            // }
-            // front1.parentNode.removeChild(front1);
-            parallaxChildren = front1.childNodes;
+        imagesLoaded( front1, function( instance ) {            
 
             if(Browser.name === 'chrome' || Browser.name === 'safari')
                 autoscroll = true;
 
         }).on( 'progress', function( instance, image ) {
-            image.img.src = image.img.dataset.src;
+        
             image.img.addEventListener('click', zoom, false);
             image.img.style.cursor = zoom_in;
+            loadImg(image.img);
+            parallaxChildren.push(image.img);
         });
 
         imagesLoaded( back1, function( instance ){}).on( 'progress', function( instance, image ) {
@@ -321,8 +316,6 @@ class Postmasters extends React.Component {
 
                     if(isInView(el)) {
 
-                        //loadImg(el);
-
                         el.style.transform = 'translate3d(0,'+(round(scroll))+'px,0)'
                         // if(el.style.opacity < 1)
                         //     el.style.opacity = 1
@@ -447,6 +440,8 @@ class Postmasters extends React.Component {
                 <img className={'image-'+src} key={idx} 
                     src={require(`../images/postmasters/${src}.jpg`)} />);
 
+        const hold = "{&hold}";
+
         return (
 
             <div id="Postmasters" className="postmasters releases" style={cursor}>
@@ -459,7 +454,7 @@ class Postmasters extends React.Component {
                     <PostmastersCredits/>
                 </div>
 
-                <div id="click">[click]</div>
+                <div id="click">Click<br/>{hold}</div>
 
                 <div className="vimeo">
                     <iframe id="player" src="https://player.vimeo.com/video/209747767?title=0&byline=0&portrait=0&autoplay=1&background=1" width="640" height="320" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
