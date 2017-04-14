@@ -19,7 +19,7 @@ class Kahn extends React.Component {
 
         const zoom_out = 'url('+require('../images/kahn/cursor_minus.png')+') 15 15, auto'
 
-        const pause = 'url('+require('../images/postmasters/cursor_pause.png')+') 15 15, auto'
+        const pause = 'url('+require('../images/postmasters/cursor_pause.png')+') 10 15, auto'
 
         const play = 'url('+require('../images/postmasters/cursor_play.png')+') 15 15, auto'
 

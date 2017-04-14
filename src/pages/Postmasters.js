@@ -24,7 +24,7 @@ class Postmasters extends React.Component {
 
         const zoom_out = 'url('+require('../images/postmasters/cursor_minus.png')+') 15 15, auto'
 
-        const pause = 'url('+require('../images/postmasters/cursor_pause.png')+') 15 15, auto'
+        const pause = 'url('+require('../images/postmasters/cursor_pause.png')+') 10 15, auto'
 
         const play = 'url('+require('../images/postmasters/cursor_play.png')+') 15 15, auto'
 
@@ -51,7 +51,7 @@ class Postmasters extends React.Component {
         var clicker = false;
         var clickInt;
 
-        document.addEventListener('mousedown', function() {
+        click.addEventListener('mousedown', function() {
             if(!clicker) {
                 clickInt = setInterval(function() {
 
