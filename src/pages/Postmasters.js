@@ -51,7 +51,7 @@ class Postmasters extends React.Component {
         var clicker = false;
         var clickInt;
 
-        click.addEventListener('mousedown', function() {
+        document.addEventListener('mousedown', function() {
             if(!clicker) {
                 clickInt = setInterval(function() {
 
@@ -65,6 +65,9 @@ class Postmasters extends React.Component {
                     }
                 },100);
             }
+
+            if(click.innerHTML === 'Click')
+                click.innerHTML = '[&Hold]'
                 
             clicker = true;
         });
@@ -82,6 +85,10 @@ class Postmasters extends React.Component {
         var zoomed = false;
         
         const scrollableContainer = document.querySelector('#Postmasters');
+
+        if(mobile) {
+            scrollableContainer.classList.push('mobile');
+        }
 
         var autoscroll = false;
         var autoscrollAmt = isRetina ? 1:1.5;
@@ -107,7 +114,7 @@ class Postmasters extends React.Component {
 
         }).on( 'progress', function( instance, image ) {
         
-            image.img.addEventListener('click', zoom, false);
+            image.img.addEventListener('click', zoomer, false);
             image.img.style.cursor = zoom_in;
             loadImg(image.img);
             parallaxChildren.push(image.img);
@@ -147,14 +154,14 @@ class Postmasters extends React.Component {
 
         }
 
-        function zoom(event) {
+        function zoomer(event) {
             //var newNode = document.createElement("img");
 
             if(zoomed === true)
                 return false;
 
             var el = event.target;
-            el.removeEventListener('click', zoom);
+            el.removeEventListener('click', zoomer);
             var el_rect = el.getBoundingClientRect();
             var el_w = el.offsetWidth;
             var el_h = el.offsetHeight;
@@ -215,7 +222,7 @@ class Postmasters extends React.Component {
                     setTimeout(function() {
                         dupNode.remove();
                         el.style.opacity = 1;
-                        el.addEventListener('click', zoom);
+                        el.addEventListener('click', zoomer);
                         zoomed = false;
                         scrollableContainer.style.cursor = '';
                         scrollableContainer.style.cursor = cursor;
@@ -440,8 +447,6 @@ class Postmasters extends React.Component {
                 <img className={'image-'+src} key={idx} 
                     src={require(`../images/postmasters/${src}.jpg`)} />);
 
-        const hold = "{&hold}";
-
         return (
 
             <div id="Postmasters" className="postmasters releases" style={cursor}>
@@ -454,7 +459,7 @@ class Postmasters extends React.Component {
                     <PostmastersCredits/>
                 </div>
 
-                <div id="click">Click<br/>{hold}</div>
+                <div id="click">Click</div>
 
                 <div className="vimeo">
                     <iframe id="player" src="https://player.vimeo.com/video/209747767?title=0&byline=0&portrait=0&autoplay=1&background=1" width="640" height="320" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>

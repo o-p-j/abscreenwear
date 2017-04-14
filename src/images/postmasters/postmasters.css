@@ -172,6 +172,10 @@
   background-position: center 60%;
 }
 
+.mobile #click {
+  display: none;
+}
+
 #click {
   position: absolute;
   z-index: 2;

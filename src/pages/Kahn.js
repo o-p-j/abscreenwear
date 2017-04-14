@@ -7,6 +7,8 @@ import imagesLoaded from 'imagesloaded';
 
 import '../images/kahn/kahn.css';
 
+var MobileDetect = require('mobile-detect');
+
 class Kahn extends React.Component {
 
     componentDidMount() {
@@ -20,6 +22,9 @@ class Kahn extends React.Component {
         const pause = 'url('+require('../images/postmasters/cursor_pause.png')+') 15 15, auto'
 
         const play = 'url('+require('../images/postmasters/cursor_play.png')+') 15 15, auto'
+
+        var md = new MobileDetect(window.navigator.userAgent);
+        var mobile = md.phone() || md.tablet();
 
 
         var scrollPos = 0;
@@ -46,7 +51,10 @@ class Kahn extends React.Component {
         kahn.addEventListener('scroll', loopScroll, false);
         //kahn.addEventListener('scroll', scrollAnim, false);
 
-        scrollAnim();
+        if(!mobile) {
+            scrollAnim();
+        }
+        
 
         const stacks = [];
         var stack_els = [];
@@ -90,6 +98,16 @@ class Kahn extends React.Component {
                     }
                 })
             },200);
+
+            resizeVideo();
+          }
+
+          window.addEventListener('resize', resizeVideo, false);
+
+          function resizeVideo() {
+            var height = vimeo.offsetWidth * 0.5625;
+            vimeo.style.height = height + 'px';
+            player.style.height = height + 'px';
           }
 
           function toggleVideo() {
@@ -109,6 +127,37 @@ class Kahn extends React.Component {
           }
 
         imagesLoaded( kahn, function( instance ) {
+
+            //All images loaded
+            createStacks();
+            
+        }).on( 'progress', function( instance, image ) {
+          image.img.src = image.img.dataset.src;
+
+          image.img.addEventListener('click', zoomer, false);
+          image.img.style.cursor = '';
+          image.img.style.cursor = zoom_in;
+        });
+
+        var windowResizeTimeout;
+        window.addEventListener('resize', function() {
+            windowResizeTimeout = setTimeout(rebuildStacks, 300);
+        }, false);
+
+        function rebuildStacks() {
+            var all_stacks = document.querySelectorAll('.stack');
+
+            [].forEach.call(all_stacks, function(item) {
+
+              kahn.removeChild(item);
+            });
+            stack_els = [];
+            createStacks();
+
+            clearTimeout(windowResizeTimeout);
+        }
+
+        function createStacks() {
             for(var n=0; n<stacks.length; n++) {
                 var parentNode = document.querySelector('.image-'+stacks[n]);
                 var img = parentNode.dataset.src;
@@ -147,22 +196,16 @@ class Kahn extends React.Component {
                 });
                 
             }
-        }).on( 'progress', function( instance, image ) {
-          image.img.src = image.img.dataset.src;
+        }
 
-          image.img.addEventListener('click', zoom, false);
-          image.img.style.cursor = '';
-          image.img.style.cursor = zoom_in;
-        });
-
-        function zoom(event) {
+        function zoomer(event) {
             //var newNode = document.createElement("img");
 
             if(zoomed === true)
                 return false;
 
             var el = event.target;
-            el.removeEventListener('click', zoom);
+            el.removeEventListener('click', zoomer);
             var el_rect = el.getBoundingClientRect();
             var el_w = el.offsetWidth;
             var el_h = el.offsetHeight;
@@ -225,7 +268,7 @@ class Kahn extends React.Component {
                     setTimeout(function() {
                         dupNode.remove();
                         el.style.opacity = 1;
-                        el.addEventListener('click', zoom);
+                        el.addEventListener('click', zoomer);
                         zoomed = false;
                         kahn.style.cursor = '';
                         kahn.style.cursor = cursor;
@@ -422,6 +465,8 @@ class Kahn extends React.Component {
                     <div className='credits'>
 <pre>photography
 <br/>   <a target="_blank" href="http://instagram.com/jeniafilatova">@jeniafilatova</a>
+<br/><br/>video
+<br/>   <a href="https://www.instagram.com/bedj" target="_blank">@bedj</a>
 <br/><br/>   starring
 <br/>       <a target="_blank" href="http://instagram.com/raniyamordanova">@raniyamordanova</a>
 <br/>            <a target="_blank" href="http://instagram.com/thebabybabushka">@thebabybabushka</a>

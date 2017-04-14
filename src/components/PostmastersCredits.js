@@ -15,8 +15,6 @@ var PostmastersCredits = () => {
         <p>
             video<br/>
             <a  href="https://www.instagram.com/bedj" target="_blank">@bedj</a>
-            <br/>
-            <a  href="https://www.instagram.com/vide0queens" target="_blank">@vide0queens</a>
         </p>
         <p>
             makeup/hair<br/>
@@ -37,7 +35,7 @@ var PostmastersCredits = () => {
             <a  href="https://www.instagram.com/andrevvm" target="_blank">@andrevvm</a>
         </p>
         <p>
-            featuring<br/>
+            starring<br/>
             <a  href="https://www.instagram.com/elliottsailors" target="_blank">@elliottsailors</a>
             <br/>
             <a  href="https://www.instagram.com/ashbaccus" target="_blank">@ashbaccus</a>
