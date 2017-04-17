@@ -44,9 +44,9 @@ var mousetravel = 41;
 
 
 function trackMouse(e) {
-  mousePoint = new Point(e.clientX, e.clientY);
-   var mousex = e.clientX;
-   var mousey = e.clientY;
+  mousePoint = new Point(e.clientX || e.pageX, e.clientY || e.pageY);
+   var mousex = e.clientX || e.pageX;
+   var mousey = e.clientY || e.pageY;
    if (lastmousex > -1)
        mousetravel += Math.max( Math.abs(mousex-lastmousex), Math.abs(mousey-lastmousey) )/10;
    lastmousex = mousex;
@@ -66,7 +66,7 @@ document.addEventListener("mouseup", function() {
   mouseDown = false;
 });
 
-document.getElementById('Postmasters').addEventListener("touchstart", function(event) {
+document.getElementById('Postmasters').addEventListener("touchmove", function(e) {
   trackMouse(e);
   mouseDown = true;
 });

@@ -41,7 +41,7 @@ module.exports = {
             include: path.join(__dirname, 'src')
         }, {
             test: /\.(png|jpg|gif|svg)$/,
-            loader: 'url?limit=500'
+            loader: 'url?limit=50'
         }, {
             test: /\.paper.js$/,
             loader: 'paper-loader'

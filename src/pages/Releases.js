@@ -15,7 +15,7 @@ class Releases extends React.Component {
                 const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
 
                 // reached top scroll down
-                if (!scrollTop) {
+                if (!scrollTop || scrollTop <= 0) {
                     scrollableContainer.scrollTop = scrollHeight / 2 - 1;
                 }
                 // reached bottom
@@ -28,15 +28,17 @@ class Releases extends React.Component {
 
     render() {
 
-        const items = [];
+        var items = [];
 
           if (this.props.params.release === 'marfa'){
-              for (let num = 0; num < 10; num++) {
+              items = [];
+              for (let num = 0; num < 10; num++) {    
                 items.push(require(`../images/marfa/Ab_marfa${num}.jpg`));
               }
           }
 
-          if (this.props.params.release === 'kahn' || 'postmasters'){
+          if (this.props.params.release === 'kahn'){
+              items = [];
               for (let num = 0; num < 31; num++) {
                 items.push(require(`../images/kahn/AbScreenwear_Kahn${num}.jpg`));
               }
