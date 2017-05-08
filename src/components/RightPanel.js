@@ -1,6 +1,7 @@
 import React from 'react';
 import { stripIndent } from 'common-tags';
-import Button from './Button';
+import BarcodeButton from './BarcodeButton';
+import OffsetButton from './OffsetButton';
 import getMenu from './getMenu';
 
 const topLinks = [
@@ -25,9 +26,9 @@ const appointmentsLabel = stripIndent`
 
 const RightPanel = (props) => (
     <aside className="c-panel c-panel--right">
-        <div className="shopButton">
+        <div className="c-shop-button-container">
             <a href="http://abscreenwear.shop/" target="_blank">
-                <Button>Shop</Button>
+                <BarcodeButton>Shop</BarcodeButton>
             </a>
         </div>
 
@@ -35,7 +36,12 @@ const RightPanel = (props) => (
 
         <div>
             <a href="mailto:ab@abscreenwear.com">
-                <Button slowly>{appointmentsLabel}</Button>
+                <pre style={ { direction: 'rtl' } }>
+                    {stripIndent`
+                        ab:appt
+                           ;request
+                    `}
+                </pre>
             </a>
         </div>
 

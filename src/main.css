@@ -16,7 +16,7 @@ html, body, #root {
 
 body {
     color: black;
-    font-family: 'menlobold','menlo', monospace;
+    font-family: 'menlobold', 'menlo', monospace;
     font-weight: bold;
     line-height: 1.13;
     background-color: white;
@@ -24,7 +24,7 @@ body {
 }
 
 pre {
-    font-family: 'menlobold','menlo', monospace;
+    font-family: 'menlobold', 'menlo', monospace;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -100,11 +100,6 @@ nav {
 }
 
 .logo {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.shopButton {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -287,19 +282,28 @@ nav {
     }
 }
 
+.c-shop-button-container {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .c-button {
     /* Resets */
     padding: 0;
     border: none;
-    text-align: left;
+    text-align: inherit;
     font-size: inherit;
     font-family: inherit;
     line-height: inherit;
     outline: none;
-
+    background: none;
     position: relative;
+}
+
+.c-button-offset {
     min-height: 59px;
     min-width: 164px;
+    text-align: left;
     padding-top: 6px;
     padding-bottom: 3px;
     padding-left: 12px;
@@ -308,7 +312,7 @@ nav {
     cursor: pointer;
 }
 
-.c-button::before {
+.c-button-offset::before {
     content: "";
     position: absolute;
     top: 6px;
@@ -326,7 +330,7 @@ nav {
     animation-fill-mode: both;
 }
 
-.c-button--slowly::before {
+.c-button-offset--slowly::before {
     animation-duration: .5s;
     animation-direction: alternate-reverse;
 }
@@ -335,4 +339,68 @@ nav {
     position: relative;
     white-space: pre;
     z-index: 1;
+    color: #000;
+}
+
+.c-button-barcode {
+    width: 100%;
+    height: 45px;
+    padding-left: 1.7em;
+    text-align: left;
+}
+
+@keyframes an-barcode {
+    0% {
+        background-position-x: 0%;
+        color: #939DFD;
+    }
+    30% {
+        color: red;
+        background-size: 100px;
+    }
+    100% {
+        background-position-x: 100%;
+        color: #939DFD;
+    }
+}
+
+.c-button-barcode::before {
+    content: "";
+    display: block;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .95;
+    color: #939DFD;
+    background-image: linear-gradient(
+        to right,
+        rgba(0,0,0,0),
+        rgba(0,0,0,0) 20%,
+        currentColor 45%,
+        white,
+        currentColor 55%,
+        rgba(0,0,0,0) 80%,
+        rgba(0,0,0,0)
+    );
+    background-size: 60px;
+    background-repeat: repeat-y;
+    background-position-x: 0;
+
+    animation-name: an-barcode;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.c-icon:not([height]) {
+    height: 1em;
+    margin-bottom: -4px;
+}
+
+._short-spacing {
+    letter-spacing: -4px;
 }
