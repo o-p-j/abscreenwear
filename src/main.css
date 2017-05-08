@@ -256,6 +256,14 @@ nav {
     margin: 0;
 }
 
+.u-mg-none--t {
+    margin-top: 0;
+}
+
+.u-mg-none--b {
+    margin-bottom: 0;
+}
+
 .c-links {
     margin-top: 1.7em;
 }
@@ -265,8 +273,12 @@ nav {
     margin-bottom: 0.5em;
 }
 
+.c-links__indent--06 {
+    padding-right: 1em;
+}
+
 .c-links__indent--1 {
-    padding-right: 1.7em;
+    padding-right: 1.8em;
 }
 
 .c-links__indent--2 {

@@ -1,28 +1,25 @@
 import React from 'react';
 import { stripIndent } from 'common-tags';
 import BarcodeButton from './BarcodeButton';
-import OffsetButton from './OffsetButton';
+import * as Icons from './icons'
 import getMenu from './getMenu';
 
 const topLinks = [
     {
-        to: `/editorial`,
-        text: `Ab[Press;`
+        to: `/labs`,
+        text: `ab:labs;`
     },
     {
         to: `/labs`,
-        text: `Labs;`
+        className: 'u-mg-none--b c-links__indent--1',
+        text: `ab:fabs;`
     },
     {
         to: `/loves`,
-        text: `Loves;`
+        className: 'u-mg-none--t',
+        text: `ab:loves;`
     }
 ];
-
-const appointmentsLabel = stripIndent`
-    Appoint-
-        ments
-`
 
 const RightPanel = (props) => (
     <aside className="c-panel c-panel--right">
@@ -45,32 +42,43 @@ const RightPanel = (props) => (
             </a>
         </div>
 
+        <div>
+            <button className="c-button" onClick={props.toggleSubscribeForm}>
+                <pre style={ { direction: 'rtl' } }>
+                    {stripIndent`
+                        ab:news
+                           ;sign up
+                    `}
+                </pre>
+            </button>
+        </div>
+
         <ul className="c-links">
-            <li onClick={props.toggleSubscribeForm}>
-                <pre>News</pre>
-                <pre>sign up;</pre>
-            </li>
-            <li className="c-links__space">
+            <li>
                 <a href="mailto:ab@abscreenwear.com">
-                    email;
+                    email
                 </a>
             </li>
-            <li className="c-links__indent--1">
-                <a href="https://www.instagram.com/abscreenwear/" target="_blank">
-                    instagram;
-                </a>
-            </li>
-            <li className="c-links__indent--2">
+            <li className="c-links__indent--06">
                 <a href="https://www.facebook.com/AbScreenwear-1656694317934158/" target="_blank">
-                    fb;
+                    http<span className="_short-spacing">s://</span><Icons.Facebook />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/abscreenwear/" target="_blank">
+                    insta <Icons.Instagram />
+                </a>
+            </li>
+            <li>
+                <a href="http://abscreenwear.tumblr.com/" target="_blank">
+                    <Icons.Tumblr />.com
                 </a>
             </li>
             <li>
                 <a href="https://twitter.com/Abscreenwear" target="_blank">
-                    twitter;
+                    <Icons.Twitter />
                 </a>
             </li>
-            <li className="c-links__indent--2">]</li>
         </ul>
     </aside>
 );

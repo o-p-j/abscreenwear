@@ -3,7 +3,7 @@ import React from 'react';
 import { IndexLink } from 'react-router';
 import getMenu from './getMenu';
 
-const links = [
+const middleLinks = [
     {
         className: `u-mg--bottom`,
         text: stripIndent`
@@ -14,21 +14,21 @@ const links = [
             {
                 to: `/releases/postmasters`,
                 text: stripIndent`
-                    2/17_
+                    2/17
                     Postmasters;
                 `
             },
             {
                 to: `/releases/kahn`,
                 text: stripIndent`
-                    1/17_
+                    1/17
                     Kahn;
                 `
             },
             {
                 to: '/releases/marfa',
                 text: stripIndent`
-                    1/16_
+                    1/16
                     Marfa;
                 `
             }
@@ -39,7 +39,13 @@ const links = [
 const bottomLinks = [
     {
         to: '/about',
-        text: `About`
+        className: 'u-mg-none--b',
+        text: `About;`
+    },
+    {
+        to: `/editorial`,
+        className: 'u-mg-none--t',
+        text: `   Press;`
     },
     {
         to: '/codes',
@@ -68,7 +74,7 @@ const LeftPanel = (props) => (
         </IndexLink>
       </h1>
 
-      {getMenu(links)}
+      {getMenu(middleLinks)}
       {getMenu(bottomLinks)}
     </nav>
 );
