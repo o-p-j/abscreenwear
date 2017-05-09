@@ -361,56 +361,60 @@ nav {
     text-align: left;
 }
 
-@keyframes an-barcode {
-    0% {
-        background-position-x: 0%;
-        color: #939DFD;
+@keyframes an-barcode-bg {
+    0%   { background-position: 0%;  }
+    50%  {
+        background-size: 100%;
+        background-position: 30%;
     }
-    30% {
-        color: red;
-        background-size: 100px;
-    }
-    100% {
-        background-position-x: 100%;
-        color: #939DFD;
-    }
+    100% { background-position: 100%; }
 }
 
-.c-button-barcode::before {
-    content: "";
-    display: block;
-    z-index: 2;
+@keyframes an-barcode-colors {
+    0%     { color: #939DFD }
+    33.33% { color: #43C9FD }
+    66.66% { color: #F142FC }
+    100%   { color: #FDEF36 }
+}
+
+.c-button-barcode__bg {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: .95;
-    color: #939DFD;
+    z-index: 0;
+
     background-image: linear-gradient(
         to right,
-        rgba(0,0,0,0),
-        rgba(0,0,0,0) 20%,
-        currentColor 45%,
-        white,
-        currentColor 55%,
-        rgba(0,0,0,0) 80%,
-        rgba(0,0,0,0)
+        rgba(255,255,255,0),
+        currentColor 35%,
+        currentColor 50%,
+        rgba(255,255,255,0)
     );
-    background-size: 60px;
+    background-size: 20%;
     background-repeat: repeat-y;
-    background-position-x: 0;
+    background-position: top left;
 
-    animation-name: an-barcode;
-    animation-duration: 3s;
+    color: #939DFD;
+    opacity: .75;
+
+    animation-name: an-barcode-bg, an-barcode-colors;
+    animation-duration: 1.5s, 6s;
+    animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95), linear;
     animation-direction: alternate;
     animation-iteration-count: infinite;
     animation-fill-mode: both;
 }
 
-.c-icon:not([height]) {
+.c-icon {
     height: 1em;
     margin-bottom: -4px;
+}
+
+.c-icon--twitter {
+    height: .9em;
+    margin-bottom: -5px;
 }
 
 ._short-spacing {

@@ -8,6 +8,7 @@ class BarcodeButton extends Component {
         return (
             <button className={classList}>
                 <span className="c-button__text">{children}</span>
+                <div className="c-button-barcode__bg"></div>
             </button>
         );
     }
