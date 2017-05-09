@@ -1,13 +1,13 @@
 import React from 'react';
 
-class Editorial extends React.Component {
+class Favs extends React.Component {
     render() {
         return (
             <article className="c-article">
-                <div>Editorial</div>
+                <div>Comming soon</div>
             </article>
         );
     }
 }
 
-export default Editorial;
+export default Favs;

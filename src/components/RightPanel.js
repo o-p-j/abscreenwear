@@ -10,14 +10,14 @@ const topLinks = [
         text: `ab:labs;`
     },
     {
-        to: `/labs`,
+        to: `/fabs`,
         className: 'u-mg-none--b c-links__indent--1',
         text: `ab:fabs;`
     },
     {
         to: `/loves`,
         className: 'u-mg-none--t',
-        text: `ab:loves;`
+        text: `ab:favs;`
     }
 ];
 

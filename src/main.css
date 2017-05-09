@@ -416,3 +416,7 @@ nav {
 ._short-spacing {
     letter-spacing: -4px;
 }
+
+.c-article {
+    padding: 50px;
+}
