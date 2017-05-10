@@ -1,9 +1,11 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 class Editorial extends React.Component {
     render() {
         return (
-            <div>Editorial</div>
+            <article className="c-article">
+                <div>Editorial</div>
+            </article>
         );
     }
 }

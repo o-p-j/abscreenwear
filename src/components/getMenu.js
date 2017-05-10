@@ -10,6 +10,7 @@ const getMenu = (items) => (
                 <li
                     key={index}
                     className={`c-menu__item ${item.className || ''}`}
+                    style={item.style}
                 >
                     { item.to ? (
                         <Link activeClassName="active" to={item.to}>

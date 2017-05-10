@@ -37,7 +37,7 @@ module.exports = {
             loader: 'url?limit=50'
         }, {
             test: /\.paper.js$/,
-            loader: "paper-loader"
+            loader: 'paper-loader'
         },
         {
             test: /\.(eot|ttf|woff|woff2)$/,
