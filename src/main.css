@@ -67,7 +67,7 @@ ul {
 main {
     position: relative;
     flex: 16;
-    max-height: 100vh;
+    height: 100vh;
 }
 
 a {
@@ -222,9 +222,12 @@ nav {
 }
 
 .c-panel {
+    flex: 3;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 200px;
     padding-top: 34px;
     padding-bottom: 34px;
     background-color: white;
@@ -233,10 +236,7 @@ nav {
 }
 
 .c-panel--right {
-    z-index: 10;
-    flex: 3;
     padding-right: 34px;
-    min-width: 200px;
     text-align: right;
 }
 
