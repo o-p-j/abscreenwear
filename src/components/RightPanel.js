@@ -15,7 +15,7 @@ const topLinks = [
         text: `ab:fabs;`
     },
     {
-        to: `/loves`,
+        to: `/favs`,
         className: 'u-mg-none--t',
         text: `ab:favs;`
     }
