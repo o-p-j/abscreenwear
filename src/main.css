@@ -61,6 +61,8 @@ main {
     position: relative;
     flex: 16;
     max-height: 100vh;
+    max-width: calc(100% - 508px);
+    //min-width: 640px;
 }
 
 a {
