@@ -1,0 +1,212 @@
+.codes {
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  font-weight: normal;
+}
+
+.codes pre {
+  display: block;
+  font-size: 4.5vw;
+  white-space: pre-wrap;
+  margin-bottom: 1em;
+  line-height: 1em;
+  position: relative;
+  z-index: 10;
+}
+
+.codes .col-1,
+.codes .col-2,
+.codes .col-0 {
+  margin-bottom: 30%;
+}
+
+.codes pre {
+  margin-left: 5%;
+  padding-bottom: 5%;
+  display: block;
+}
+
+.codes .col-1 pre {
+  margin-left: 20%;
+}
+
+.codes .icon {
+  float: left;
+  width: 10%;
+  height: 80px;
+  margin: 0 5%;
+  background: no-repeat center;
+  background-size: contain;
+  position: relative;
+  z-index: 10;
+}
+
+
+.codes .col-2 pre{
+  margin-left: 22%;
+}
+
+.codes .col-2 .icon {
+  width: 20%;
+  height: 150px;
+  margin-right: 2%;
+}
+
+.codes .icon.tall {
+  height: 190px;
+  margin-top: -2%;
+  background-position: top center;
+}
+
+.codes .gradient {
+  position: absolute;
+  z-index: 0;
+  top: auto;
+  background-size: 100% 200%;
+  background-repeat: repeat;
+  background-position: top left;
+}
+
+.codes .gradient-1 {
+  width: 80%;
+  right: 5%;
+  height: 500px;
+  margin-top: -15%;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(255,255,0),
+      rgb(255,0,0),
+      rgb(255,0,255),
+      rgb(255,0,0),
+      rgb(255,255,0)
+  );
+  animation: gradient-cycle 5s infinite linear;
+}
+
+.codes .gradient-2 {
+  width: 60%;
+  right: 20%;
+  height: 400px;
+  margin-top: -5%;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(255,0,255),
+      rgb(0,0,255),
+      rgb(0,255,255),
+      rgb(0,0,255),
+      rgb(255,0,255)
+  );
+  animation: gradient-cycle 5s infinite linear;
+}
+
+.codes .gradient-3 {
+  width: 50%;
+  right: 25%;
+  height: 600px;
+  margin-top: -20%;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(255,255,0),
+      rgb(0,255,255),
+      rgb(255,255,0)
+  );
+  animation: gradient-cycle 5s infinite linear;
+}
+
+.codes .gradient-4 {
+  width: 400px;
+  left: 15%;
+  height: 400px;
+  margin-top: -20%;
+  border-radius: 200px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255,255,255, 0),
+      rgba(255,255,255, 0),
+      rgb(0,255,255),
+      rgba(255,255,255, 0)
+  );
+  animation: gradient-cycle 5s infinite linear;
+}
+
+.codes .gradient-5 {
+  width: 300px;
+  right: 5%;
+  height: 850px;
+  margin-top: -50%;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255,255,255, 0),
+      rgba(255,255,255, 0),
+      rgb(0,255,255),
+      rgb(0,0,255),
+      rgb(255,0,255),
+      rgba(255,255,255, 0)
+  );
+  animation: gradient-cycle 5s infinite linear;
+}
+
+.codes .gradient-6 {
+  width: 100%;
+  height: 600px;
+  margin-top: -55%;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(255,0,0),
+      rgb(255,255,0),
+      rgb(255,0,0)
+  );
+  animation: gradient-cycle 5s infinite linear;
+}
+
+.codes .gradient-7 {
+  width: 60%;
+  height: 500px;
+  margin-top: -55%;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(255,255,0),
+      rgb(0,255,255),
+      rgb(255,255,0)
+  );
+  animation: gradient-cycle 5s infinite linear;
+}
+
+.codes .gradient-8 {
+  width: 25%;
+  left: 15%;
+  height: 500px;
+  margin-top: -30%;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(0,255,255),
+      rgb(0,0,255),
+      rgb(255,0,255),
+      rgb(0,0,255),
+      rgb(0,255,255)
+  );
+  animation: gradient-cycle 5s infinite linear;
+}
+
+.codes .gradient-9 {
+  width: 300px;
+  left: 15%;
+  height: 300px;
+  margin-top: -20%;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(255,0,255),
+      rgb(255,0,0),
+      rgb(255,255,0),
+      rgb(255,0,0),
+      rgb(255,0,255)
+  );
+  animation: gradient-cycle 5s infinite linear;
+}
+
+@keyframes gradient-cycle {
+    0%   { background-position: 0 0;  }
+    100% { background-position: 0 200%; }
+}
