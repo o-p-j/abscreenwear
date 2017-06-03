@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
-import '../images/postmasters/postmasters.css';
+import '../styles/postmasters.css';
 import screenPaper from '../images/postmasters/screen.paper.js';
 
 import TypeWriter from '../components/TypeWriter.js';

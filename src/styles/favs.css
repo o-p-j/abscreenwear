@@ -1,0 +1,220 @@
+.favs {
+  height: 110%;
+  overflow-y: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  font-weight: normal;
+}
+
+.favs a {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 5vw;
+  box-shadow: 0 0 0 0 transparent;
+  line-height: 1em;
+  margin-bottom: 0.1em;
+  position: relative;
+  z-index: 10;
+}
+
+@media screen and (min-width: 1150px) {
+  .favs a {
+    font-size: 7vw;
+  }
+}
+
+.favs i {
+  font-style: normal;
+}
+
+.favs b {
+  display: flex;
+  justify-content: space-between;
+  font-weight: normal;
+  width: 100%;
+  page-break-after: always; /* CSS 2.1 syntax */
+  break-after: always;
+}
+
+.favs a:hover,
+.favs a:hover b {
+  border-color: black;
+  box-shadow: inset 0 -0.05em 0 black;
+}
+
+.favs a i {
+  display: inline;
+}
+
+.favs b.squeeze {
+  width: 99%;
+}
+
+.favs b.squeeze i {
+  width: 0.5em;
+}
+
+.gradients {
+  position: absolute;
+  z-index: 0;
+  top: auto;
+  width: 100%;
+  height: 100vh;
+}
+
+.gradient-1 {
+  width: 100%;
+  height: 700px;
+  animation-name: gradient-bg-1, gradient-bg-colors-1;
+  margin: 60% 0;
+  color: #00ffff;
+
+  background-image: linear-gradient(
+        to right,
+        rgba(255,255,255,0),
+        currentColor 35%,
+        currentColor 50%,
+        rgba(255,255,255,0)
+    );
+    background-size: 20%;
+    background-repeat: repeat-y;
+    background-position: top left;
+
+  animation-duration: 3s, 6s;
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95), linear;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes gradient-bg-1 {
+    0%   { background-position: -50%;  }
+    50%  {
+        background-size: 200%;
+        background-position: 30%;
+    }
+    100% { background-position: 150%; }
+}
+
+@keyframes gradient-bg-colors-1 {
+    0%     { color: #ff00ff }
+    33.33% { color: #00ffff }
+    66.66% { color: #ffff00 }
+    100%   { color: #FDEF36 }
+}
+
+.gradient-2 {
+  width: 30%;
+  height: 35%;
+  animation-name: gradient-bg-2, gradient-bg-colors-2;
+  margin: 50% 50% 100%;
+  color: #00ff00;
+
+  background-image: linear-gradient(
+        to bottom,
+        rgba(255,255,255,1),
+        #ffff00,
+        currentColor 50%,
+        #ffff00,
+        rgba(255,255,255,1)
+    );
+    background-size: 100% 200%;
+    background-repeat: repeat-y;
+    background-position: top left;
+
+  animation-duration: 3s, 6s;
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95), linear;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes gradient-bg-2 {
+    0%   { background-position: 0 -150%;  }
+    50%  {
+        background-size: 100% 200%;
+        background-position: 0 30%;
+    }
+    100% { background-position: 0 200%; }
+}
+
+@keyframes gradient-bg-colors-2 {
+    0% { color: #00ffff }
+    100% { color: #00ff00 }
+}
+
+.gradient-3 {
+  width: 100%;
+  height: 400px;
+  animation-name: gradient-bg-1, gradient-bg-colors-3;
+  margin: 50% 0;
+  color: #720cff;
+
+  background-image: linear-gradient(
+        to right,
+        rgba(255,255,255,0),
+        #ffe1ca 35%,
+        currentColor 50%,
+        rgba(255,255,255,0)
+    );
+    background-size: 20%;
+    background-repeat: repeat-y;
+    background-position: top left;
+
+  animation-duration: 3s, 6s;
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95), linear;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+
+@keyframes gradient-bg-colors-3 {
+    0%     { color: #720cff }
+    50% { color: #ff00ff }
+    100% { color: #0000ff }
+}
+
+
+.gradient-4 {
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
+  animation-name: gradient-bg-4, gradient-bg-colors-4;
+  margin: 100% 20%;
+  color: #720cff;
+
+  background-image: linear-gradient(
+        to right,
+        rgba(255,255,255,0),
+        #00ffff 35%,
+        currentColor 50%,
+        rgba(255,255,255,0)
+    );
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-position: top left;
+
+  animation-duration: 3s, 6s;
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95), linear;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+
+@keyframes gradient-bg-4 {
+    0%   { background-position: -50% 0;  }
+    50%  {
+        background-size: 300%;
+        background-position: 0 30%;
+    }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes gradient-bg-colors-4 {
+    0%     { color: #ff0000 }
+    50% { color: #720cff }
+    100% { color: #ff00ff }
+}

@@ -5,7 +5,7 @@ import Vimeo from '@vimeo/player';
 
 import imagesLoaded from 'imagesloaded';
 
-import '../images/kahn/kahn.css';
+import '../styles/kahn.css';
 
 var MobileDetect = require('mobile-detect');
 
@@ -62,10 +62,13 @@ class Kahn extends React.Component {
         stacks.push('c_3');
         stacks.push('d_1');
         stacks.push('e_2');
+        stacks.push('g_1');
+        stacks.push('i_2');
         stacks.push('j_3');
         stacks.push('l_2');
         stacks.push('m_3');
         stacks.push('o_2');
+        stacks.push('r_1');
         stacks.push('t_2');
         stacks.push('u_2');
         stacks.push('v_1');
