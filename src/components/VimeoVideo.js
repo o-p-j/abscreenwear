@@ -15,7 +15,6 @@ class VimeoVideo extends Component {
             tall = !auto,
             resizeContainer = false,
             autoVolume = false,
-            cursorPlay = '',
             cursorPause = '',
             volume = 0.5
         } = this.props
@@ -26,7 +25,6 @@ class VimeoVideo extends Component {
 
         const player = new Vimeo($video)
         $el.style.cursor = setCursorUrl(cursorPause)
-        $el.addEventListener('click', togglePlayState, false)
 
         if (ratio) {
             keepRatio()
@@ -72,24 +70,27 @@ class VimeoVideo extends Component {
             })
         }
 
-        function togglePlayState() {
-            if (!$el.dataset.paused) {
-                player.pause()
-                $el.style.cursor = setCursorUrl(cursorPlay)
-                $el.dataset.paused = true
-            } else {
-                player.play()
-                $el.style.cursor = setCursorUrl(cursorPause)
-                delete $el.dataset.paused
-            }
-        }
-
+        this.player = player
         this.cleanup = () => {
-            $el.addEventListener('click', togglePlayState, false)
             window.addEventListener('resize', keepRatio, false)
             window.clearInterval(volumeInterval)
             window.cancelAnimationFrame(volumeFrame)
             window.cancelAnimationFrame(ratioFrame)
+        }
+    }
+
+    togglePlayState () {
+        const { $el, player } = this
+        let { cursorPlay = '', cursorPause = '' } = this.props
+
+        if (!$el.dataset.paused) {
+            player.pause()
+            $el.style.cursor = setCursorUrl(cursorPlay)
+            $el.dataset.paused = true
+        } else {
+            player.play()
+            $el.style.cursor = setCursorUrl(cursorPause)
+            delete $el.dataset.paused
         }
     }
 
@@ -103,6 +104,7 @@ class VimeoVideo extends Component {
         return (
             <div
                 className={cls(className, 'c-vimeo-video')}
+                onClick={() => this.togglePlayState()}
                 ref={(ref) => this.$el = ref}
             >
                 <iframe
