@@ -1,4 +1,5 @@
 import React from 'react';
+import cls from 'classnames';
 import { stripIndent } from 'common-tags';
 import BarcodeButton from './BarcodeButton';
 import * as Icons from './icons'
@@ -22,7 +23,7 @@ const topLinks = [
 ];
 
 const RightPanel = (props) => (
-    <aside className="c-panel c-panel--right">
+    <aside className={cls('c-panel', 'c-panel--right', props.className)}>
         <div className="c-shop-button-container">
             <a href="http://abscreenwear.shop/" target="_blank">
                 <BarcodeButton>Shop</BarcodeButton>

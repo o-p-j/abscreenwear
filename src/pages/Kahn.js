@@ -54,7 +54,7 @@ class Kahn extends React.Component {
         if(!mobile) {
             scrollAnim();
         }
-        
+
 
         const stacks = [];
         var stack_els = [];
@@ -133,7 +133,7 @@ class Kahn extends React.Component {
 
             //All images loaded
             createStacks();
-            
+
         }).on( 'progress', function( instance, image ) {
           image.img.src = image.img.dataset.src;
 
@@ -161,8 +161,10 @@ class Kahn extends React.Component {
         }
 
         function createStacks() {
-            for(var n=0; n<stacks.length; n++) {
+            for (var n=0; n<stacks.length; n++) {
                 var parentNode = document.querySelector('.image-'+stacks[n]);
+                if (!parentNode) return;
+
                 var img = parentNode.dataset.src;
                 parentNode.style.zIndex = 1000;
                 var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
@@ -197,7 +199,7 @@ class Kahn extends React.Component {
                 [].forEach.call(all_stacks, function(item) {
                   stack_els.push(item);
                 });
-                
+
             }
         }
 
@@ -304,15 +306,15 @@ class Kahn extends React.Component {
         function scrollAnim() {
 
 
-            
+
             window.requestAnimationFrame(() => {
 
                 time += increase;
-                
+
                 scrollPos = kahn.scrollTop;
-                
+
                 scrollDamp += (scrollPos - lastScrollPos) / 15;
-                
+
                 if(dampen)
                     //scrollDamp = Math.sin(scrollDamp/15) * Math.cos(Math.PI) + scrollDamp * 0.975;
                     scrollDamp *= 0.98;
@@ -335,7 +337,7 @@ class Kahn extends React.Component {
 
                         el.style.transform = 'translate3d('+ (round(damp_x/10)) +'px,'+(round(damp/2))+'px,0)'
                     }
-                    
+
 
                 }
 
@@ -345,7 +347,7 @@ class Kahn extends React.Component {
                     dampen = true;
 
                 scrollAnim();
-                    
+
             });
 
 
@@ -363,7 +365,7 @@ class Kahn extends React.Component {
             return (top > -window.innerHeight*1.5) && (rect.top < window.innerHeight * 1.5);
         }
 
-        
+
     }
 
     render(){
@@ -441,7 +443,7 @@ class Kahn extends React.Component {
         images.push('x_1');
 
         const text1 = "A1/17_Kahn\nb1.1/b2.1/2/3\nWomen’s seasonal update; collection of screenwear {b1}  and softwear {b2};\nLouis Kahn’s back-to-the-basics approach and concrete backdrop for screenwear as new utility;girls swaying together in a state of electronic tranquility;\nw/out a mouth, \n w/out a voice;\nphysicality of the internet; lag between gesture and action; the everyday intimacy as we see it through"
-        const text2 = "Text;moving image;post/language - where/ how to wear,emb-\nrace;heart; sleeve, screen,skin;new codes - of making; of  wearing;of intimacy;screenwear screen\n w e a r e s c r e e n w e a r e s c r e e n w e a r s c r e e n wearescreenwearescreenwe a r e a b s c r e e n wear" 
+        const text2 = "Text;moving image;post/language - where/ how to wear,emb-\nrace;heart; sleeve, screen,skin;new codes - of making; of  wearing;of intimacy;screenwear screen\n w e a r e s c r e e n w e a r e s c r e e n w e a r s c r e e n wearescreenwearescreenwe a r e a b s c r e e n wear"
         const text3 = "We are a fashion label and lab interested in shifting forms of communication/dressing as our bodies are extended by machines;\n\nLayers;overlays;augmentation;screens and skin as an interface; technology as an accessory;an aperture; \nan appendage;     \n\nVestimentary \nmedia; experiments;speculative futurism; s c r e e n  \nw   e   a   r"
 
         const about = <div className="about"><pre>{text1}</pre><pre>{text2}</pre><pre>{text3}</pre></div>
@@ -457,7 +459,7 @@ class Kahn extends React.Component {
         return (
 
             <div id="Kahn" className="kahn releases" style={cursor}>
-                
+
                 {about}
 
                 <div className="vimeo">
@@ -481,7 +483,7 @@ class Kahn extends React.Component {
 <br/><br/>        creative production
 <br/>        <a target="_blank" href="http://instagram.com/sputniksupervision">@sputniksupervision</a>
 <br/><br/>
-<a target="_blank" href="http://instagram.com/abscreenwear">@abscreenwear</a>   
+<a target="_blank" href="http://instagram.com/abscreenwear">@abscreenwear</a>
 </pre>
                     </div>
 
@@ -493,7 +495,7 @@ class Kahn extends React.Component {
 
           );
     }
-  
+
 }
 
 export default Kahn;

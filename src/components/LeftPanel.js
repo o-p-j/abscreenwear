@@ -1,5 +1,6 @@
-import { stripIndent } from 'common-tags'
 import React from 'react';
+import cls from 'classnames';
+import { stripIndent } from 'common-tags'
 import { IndexLink } from 'react-router';
 import getMenu from './getMenu';
 
@@ -67,7 +68,7 @@ const bottomLinks = [
 ]
 
 const LeftPanel = (props) => (
-    <nav className="c-panel c-panel--left">
+    <aside className={cls('c-panel', 'c-panel--left', props.className)}>
       <h1 className="logo">
         <IndexLink to="/" activeClassName="active">
             <img width="164" src={require('../images/logo.svg')} />
@@ -76,7 +77,7 @@ const LeftPanel = (props) => (
 
       {getMenu(middleLinks)}
       {getMenu(bottomLinks)}
-    </nav>
+    </aside>
 );
 
 export default LeftPanel;
