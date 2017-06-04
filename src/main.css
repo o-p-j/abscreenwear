@@ -419,7 +419,8 @@ nav {
     margin-bottom: -4px;
 }
 
-.c-icon--twitter {
+.c-icon--twitter,
+.c-icon--vimeo {
     height: .95em;
     margin-bottom: -5px;
 }

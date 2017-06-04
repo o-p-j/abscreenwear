@@ -14,21 +14,21 @@ const middleLinks = [
             {
                 to: `/releases/postmasters`,
                 text: stripIndent`
-                    2/17
+                    2:17
                     Postmasters;
                 `
             },
             {
                 to: `/releases/kahn`,
                 text: stripIndent`
-                    1/17
+                    1:17
                     Kahn;
                 `
             },
             {
                 to: '/releases/marfa',
                 text: stripIndent`
-                    1/16
+                    1:16
                     Marfa;
                 `
             }

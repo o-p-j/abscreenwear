@@ -6,7 +6,7 @@ import getMenu from './getMenu';
 
 const topLinks = [
     {
-        to: `/labs`,
+        href: `http://abscreenwear.tumblr.com/`,
         text: `ab:labs;`
     },
     {
@@ -70,8 +70,8 @@ const RightPanel = (props) => (
                 </a>
             </li>
             <li>
-                <a href="http://abscreenwear.tumblr.com/" target="_blank">
-                    <Icons.Tumblr />.com
+                <a href="https://vimeo.com/user57806152" target="_blank">
+                    <Icons.Vimeo />.com
                 </a>
             </li>
             <li>
