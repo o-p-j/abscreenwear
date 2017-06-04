@@ -9,7 +9,10 @@ const topLinks = [
     {
         href: `http://abscreenwear.tumblr.com/`,
         text: `ab:labs;`
-    },
+    }
+]
+
+const middleLinks = [
     {
         to: `/fabs`,
         className: 'u-mg-none--b c-links__indent--1',
@@ -31,30 +34,24 @@ const RightPanel = (props) => (
         </div>
 
         {getMenu(topLinks)}
+        {getMenu(middleLinks)}
 
         <div>
             <a href="mailto:ab@abscreenwear.com">
-                <pre style={ { direction: 'rtl' } }>
-                    {stripIndent`
-                        ab:appt
-                           ;request
-                    `}
-                </pre>
+                request<br/>
+                appointments;
             </a>
         </div>
 
-        <div>
-            <button className="c-button" onClick={props.toggleSubscribeForm}>
-                <pre style={ { direction: 'rtl' } }>
-                    {stripIndent`
-                        ab:news
-                           ;sign up
-                    `}
-                </pre>
-            </button>
-        </div>
-
         <ul className="c-links">
+            <li>
+                <button
+                    className="c-button"
+                    onClick={props.toggleSubscribeForm}
+                >
+                    ab:news;
+                </button>
+            </li>
             <li>
                 <a href="mailto:ab@abscreenwear.com">
                     email

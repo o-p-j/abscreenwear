@@ -88,7 +88,7 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-width: 200px;
+    min-width: 220px;
     padding-top: 34px;
     padding-bottom: 34px;
     background-color: white;
@@ -99,6 +99,7 @@ ul {
 .c-panel--right {
     padding-right: 34px;
     text-align: right;
+    min-width: 230px;
 }
 
 .c-panel--left {
@@ -112,35 +113,15 @@ ul {
 .c-menu__item {
     font-size: inherit;
     line-height: inherit;
-    margin-top: 1.15em;
-    margin-bottom: 1.15em;
+    margin-top: .4em;
+    margin-bottom: .4em;
 }
 
 .c-menu + .c-menu {
-    margin-top: -1.15em; /* compensate .c-menu__item margin */
+    margin-top: -.4em; /* compensate .c-menu__item margin */
 }
 
 .logo a:hover {
-    background: none;
-}
-
-nav {
-    flex: 4;
-    font-size: 30px;
-    z-index: 200;
-    background: white;
-    min-width: 240px;
-}
-
-nav li {
-    position: relative;
-}
-
-nav a.active .text {
-    text-decoration: underline;
-}
-
-nav a.active:hover {
     background: none;
 }
 
@@ -252,10 +233,6 @@ nav a.active:hover {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-.c-links {
-    margin-top: 1.7em;
 }
 
 .c-links__space {
