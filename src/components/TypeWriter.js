@@ -26,8 +26,8 @@ var typeWriter = function (selector, type, interval) {
     for (a in list) {
 
         all = list[a]; // List of all element
-        text = all.innerHTML += "<span id='cursor'>|</span>"; // InnerHTML of the elements 
-        start = 0; // Start index of the text in the elements 
+        text = all.innerHTML += "<span id='cursor'>|</span>"; // InnerHTML of the elements
+        start = 0; // Start index of the text in the elements
         end = 0; // End index of the text in the elements
         style = document.createElement("style");
         document.head.appendChild(style);
@@ -54,18 +54,16 @@ var typeWriter = function (selector, type, interval) {
 
                     end = end + 1; //loops through the text in the element
 
-                    // Insert stylesheet to the document to animate cursor 
+                    // Insert stylesheet to the document to animate cursor
                     style.sheet.insertRule("@-webkit-keyframes cursor {0% { opacity : 1;}100% { opacity : 0;}}", 0);
 
                     style.sheet.insertRule("@keyframes cursor {0% { opacity : 1;}100% { opacity : 0;}}", 0);
 
-                    //cursor.style.fontSize = "10vw";
-
-                    cursor.style.fontWeight = "bold";
-
-                    cursor.style.webkitAnimation = "cursor 1s infinite steps(2)";
-
-                    cursor.style.animation = "cursor 1s infinite steps(2)";
+                    const cursor = document.getElementById('cursor')
+                    if (cursor && cursor.style) {
+                        cursor.style.webkitAnimation = "cursor 1s infinite steps(2)";
+                        cursor.style.animation = "cursor 1s infinite steps(2)";
+                    }
 
                     if (newText === text) {
 
