@@ -4,7 +4,7 @@ import { stripIndent } from 'common-tags'
 import { IndexLink } from 'react-router';
 import getMenu from './getMenu';
 
-const middleLinks = [
+const topLinks = [
     {
         className: `u-mg--bottom`,
         text: stripIndent`
@@ -37,7 +37,7 @@ const middleLinks = [
     }
 ];
 
-const bottomLinks = [
+const middleLinks = [
     {
         to: '/about',
         className: 'u-mg-none--b',
@@ -47,7 +47,10 @@ const bottomLinks = [
         to: `/editorial`,
         className: 'u-mg-none--t',
         text: `   Press;`
-    },
+    }
+]
+
+const bottomLinks = [
     {
         to: '/codes',
         text: `Ab[Codes:`,
@@ -75,6 +78,7 @@ const LeftPanel = (props) => (
         </IndexLink>
       </h1>
 
+      {getMenu(topLinks)}
       {getMenu(middleLinks)}
       {getMenu(bottomLinks)}
     </aside>

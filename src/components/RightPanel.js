@@ -39,7 +39,7 @@ const RightPanel = (props) => (
         <div>
             <a href="mailto:ab@abscreenwear.com">
                 request<br/>
-                appointments;
+                appointment;
             </a>
         </div>
 
