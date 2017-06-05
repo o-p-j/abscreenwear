@@ -31,8 +31,9 @@ class VimeoVideo extends Component {
             window.addEventListener('resize', keepRatio, false)
         }
 
+        player.setVolume(volume)
+
         if (autoVolume) {
-            player.setVolume(volume)
             volumeInterval = setInterval(() => {
                 volumeFrame = window.requestAnimationFrame(() => {
                     const rect = $el.getBoundingClientRect()

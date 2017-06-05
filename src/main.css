@@ -379,10 +379,13 @@ ul {
     margin-bottom: -4px;
 }
 
-.c-icon--twitter,
-.c-icon--vimeo {
+.c-icon--twitter {
     height: .95em;
     margin-bottom: -5px;
+}
+
+.c-icon--vimeo {
+    height: .85em;
 }
 
 ._short-spacing {
