@@ -61,7 +61,8 @@
     "webpack-hot-middleware": "^2.6.0"
   },
   "dependencies": {
-    "@vimeo/player": "^2.0.1",
+    "@vimeo/player": "^2.1.0",
+    "classnames": "^2.2.5",
     "common-tags": "^1.4.0",
     "detect-browser": "^1.6.2",
     "history": "^1.17.0",

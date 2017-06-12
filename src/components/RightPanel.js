@@ -1,4 +1,5 @@
 import React from 'react';
+import cls from 'classnames';
 import { stripIndent } from 'common-tags';
 import BarcodeButton from './BarcodeButton';
 import * as Icons from './icons'
@@ -6,9 +7,12 @@ import getMenu from './getMenu';
 
 const topLinks = [
     {
-        to: `/labs`,
+        href: `http://abscreenwear.tumblr.com/`,
         text: `ab:labs;`
-    },
+    }
+]
+
+const middleLinks = [
     {
         to: `/fabs`,
         className: 'u-mg-none--b c-links__indent--1',
@@ -22,7 +26,7 @@ const topLinks = [
 ];
 
 const RightPanel = (props) => (
-    <aside className="c-panel c-panel--right">
+    <aside className={cls('c-panel', 'c-panel--right', props.className)}>
         <div className="c-shop-button-container">
             <a href="http://abscreenwear.shop/" target="_blank">
                 <BarcodeButton>Shop</BarcodeButton>
@@ -30,30 +34,24 @@ const RightPanel = (props) => (
         </div>
 
         {getMenu(topLinks)}
+        {getMenu(middleLinks)}
 
         <div>
             <a href="mailto:ab@abscreenwear.com">
-                <pre style={ { direction: 'rtl' } }>
-                    {stripIndent`
-                        ab:appt
-                           ;request
-                    `}
-                </pre>
+                request<br/>
+                appointment;
             </a>
         </div>
 
-        <div>
-            <button className="c-button" onClick={props.toggleSubscribeForm}>
-                <pre style={ { direction: 'rtl' } }>
-                    {stripIndent`
-                        ab:news
-                           ;sign up
-                    `}
-                </pre>
-            </button>
-        </div>
-
         <ul className="c-links">
+            <li>
+                <button
+                    className="c-button"
+                    onClick={props.toggleSubscribeForm}
+                >
+                    ab:news;
+                </button>
+            </li>
             <li>
                 <a href="mailto:ab@abscreenwear.com">
                     email
@@ -70,8 +68,8 @@ const RightPanel = (props) => (
                 </a>
             </li>
             <li>
-                <a href="http://abscreenwear.tumblr.com/" target="_blank">
-                    <Icons.Tumblr />.com
+                <a href="https://vimeo.com/user57806152" target="_blank">
+                    <Icons.Vimeo />.com
                 </a>
             </li>
             <li>

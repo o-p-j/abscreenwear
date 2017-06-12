@@ -5,7 +5,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import './main.css';
 import App from './App';
-import Screenwear from './pages/Screenwear';
+import Home from './pages/Home';
 import Postmasters from './pages/Postmasters';
 import Kahn from './pages/Kahn';
 import Releases from './pages/Releases';
@@ -27,7 +27,7 @@ function logPageView() {
 render((
   <Router history={createBrowserHistory()} onUpdate={logPageView}>
     <Route path="/" component={App}>
-      <IndexRoute component={Screenwear}/>
+      <IndexRoute component={Home}/>
       <Route path="/signup" component={SubscribeForm}/>
       <Route path="/releases/postmasters" component={Postmasters}/>
       <Route path="/releases/kahn" component={Kahn}/>

@@ -1,8 +1,4 @@
 .favs {
-  height: 110vh;
-  overflow-y: auto;
-  position: relative;
-  -webkit-overflow-scrolling: touch;
   font-weight: normal;
 }
 
