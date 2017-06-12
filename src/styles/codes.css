@@ -43,6 +43,39 @@
   z-index: 10;
 }
 
+.codes .icon.spin {
+  animation: spinner 5s linear infinite;
+}
+
+#b3-dots {
+  position: absolute;
+  top: 0%;
+  left: 51%;
+  transform: translate(-50%, 0);
+}
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 25s linear infinite;
+  stroke-dasharray: 0 12;
+  stroke-linecap: round;
+  stroke-width: 5;
+}
+
+.path.reverse {
+  animation-direction: reverse;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 
 .codes .col-2 pre{
   margin-left: 22%;
@@ -209,4 +242,14 @@
 @keyframes gradient-cycle {
     0%   { background-position: 0 0;  }
     100% { background-position: 0 200%; }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
