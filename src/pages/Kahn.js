@@ -47,8 +47,9 @@ class Kahn extends React.Component {
         vimeo.addEventListener('click', toggleVideo, false);
 
         const kahn = document.querySelector('#Kahn');
-        kahn.scrollTop = 1;
-        kahn.addEventListener('scroll', loopScroll, false);
+        const scrollableContainer = document.querySelector('.c-app__content');
+        scrollableContainer.scrollTop = 1;
+        scrollableContainer.addEventListener('scroll', loopScroll, false);
         //kahn.addEventListener('scroll', scrollAnim, false);
 
         if(!mobile) {
@@ -288,16 +289,16 @@ class Kahn extends React.Component {
 
         function loopScroll() {
             window.requestAnimationFrame(() => {
-                const { scrollTop, scrollHeight, clientHeight } = kahn;
+                const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
 
                 // reached top scroll down
                 if (!scrollTop || scrollTop <= 0) {
-                    kahn.scrollTop = scrollHeight / 2 - 1;
+                    scrollableContainer.scrollTop = scrollHeight / 2 - 1;
                     dampen = false;
                 }
                 // reached bottom
                 else if (scrollTop >= scrollHeight / 2) {
-                    kahn.scrollTop = scrollTop - (scrollHeight / 2);
+                    scrollableContainer.scrollTop = scrollTop - (scrollHeight / 2);
                     dampen = false;
                 }
             })
@@ -311,7 +312,7 @@ class Kahn extends React.Component {
 
                 time += increase;
 
-                scrollPos = kahn.scrollTop;
+                scrollPos = scrollableContainer.scrollTop;
 
                 scrollDamp += (scrollPos - lastScrollPos) / 15;
 

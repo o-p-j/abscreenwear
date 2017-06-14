@@ -7,7 +7,7 @@ class Favs extends React.Component {
 
   componentDidMount() {
 
-        const scrollableContainer = findDOMNode(this);
+        const scrollableContainer = document.querySelector('.c-app__content');
         
         scrollableContainer.scrollTop = 1;
 

@@ -84,7 +84,8 @@ class Postmasters extends React.Component {
 
         var zoomed = false;
         
-        const scrollableContainer = document.querySelector('#Postmasters');
+        const postmasters = document.querySelector('#Postmasters');
+        const scrollableContainer = document.querySelector('.c-app__content');
 
         if(mobile) {
             scrollableContainer.classList.push('mobile');
@@ -193,9 +194,9 @@ class Postmasters extends React.Component {
             //dupNode.style.width = el_w + 'px';
             dupNode.style.height = el_h + 'px';
             dupNode.style.transform = 'translate3d(0,0,0)';
-            scrollableContainer.appendChild(dupNode);
-            scrollableContainer.style.cursor = '';
-            scrollableContainer.style.cursor = zoom_out;
+            postmasters.appendChild(dupNode);
+            postmasters.style.cursor = '';
+            postmasters.style.cursor = zoom_out;
 
             setTimeout(function() {
                 dupNode.style.height = '95vh';
@@ -209,7 +210,7 @@ class Postmasters extends React.Component {
                 zoomed = true;
                 el.style.opacity = 0;
 
-                scrollableContainer.addEventListener('click', function(ev) {
+                postmasters.addEventListener('click', function(ev) {
                     if(zoomed === false)
                         return false;
                     ev.preventDefault();
@@ -224,8 +225,8 @@ class Postmasters extends React.Component {
                         el.style.opacity = 1;
                         el.addEventListener('click', zoomer);
                         zoomed = false;
-                        scrollableContainer.style.cursor = '';
-                        scrollableContainer.style.cursor = cursor;
+                        postmasters.style.cursor = '';
+                        postmasters.style.cursor = cursor;
                         for(var i=0; i<all_img.length; i++) {
                             all_img[i].style.cursor = '';
                             all_img[i].style.cursor = zoom_in;
@@ -287,6 +288,9 @@ class Postmasters extends React.Component {
         function parallaxAnim() {
             
             window.requestAnimationFrame(() => {
+
+                if(!document.getElementById('Postmasters'))
+                    return false
 
                 if(autoscroll) {
                     var scroller = scrollableContainer.scrollTop + autoscrollAmt;
