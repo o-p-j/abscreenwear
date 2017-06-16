@@ -44,7 +44,7 @@ const middleLinks = [
         text: `About;`
     },
     {
-        to: `/editorial`,
+        to: `/press`,
         className: 'u-mg-none--t',
         text: `   Press;`
     }

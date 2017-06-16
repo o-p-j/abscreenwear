@@ -64,7 +64,7 @@
 .path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 25s linear infinite;
+  animation: dash 5s linear infinite;
   stroke-dasharray: 0 12;
   stroke-linecap: round;
   stroke-width: 5;
@@ -73,7 +73,7 @@
 .path-2 {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: dash 5s linear infinite;
+  animation: dash-2 5s linear infinite;
   stroke-dasharray: 300 100;
   stroke-linecap: round;
   stroke-width: 5;
@@ -86,7 +86,7 @@
 
 .path-3.dotted {
   stroke-dasharray: 6 12;
-  animation: dash infinite 2s linear reverse;
+  animation: dash-3 infinite 2s linear reverse;
 }
 
 .path-3.dotted.reverse {
@@ -98,6 +98,24 @@
 }
 
 @keyframes dash {
+  from {
+    stroke-dashoffset: 120;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash-2 {
+  from {
+    stroke-dashoffset: 800;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash-3 {
   from {
     stroke-dashoffset: 90;
   }
