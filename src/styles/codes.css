@@ -1,8 +1,4 @@
 .codes {
-  height: 100vh;
-  overflow-y: auto;
-  position: relative;
-  -webkit-overflow-scrolling: touch;
   font-weight: normal;
 }
 

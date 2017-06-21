@@ -1,108 +1,10 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
+import ParallaxPage from '../components/ParallaxPage'
 
 import '../styles/press.css';
 
-class Favs extends React.Component {
-
-  componentDidMount() {
-
-        const scrollableContainer = document.querySelector('.c-app__content');
-        
-        scrollableContainer.scrollTop = 1;
-
-        scrollableContainer.addEventListener('scroll', updateScrollPosition, false);
-
-        function updateScrollPosition() {
-            window.requestAnimationFrame(() => {
-                const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
-
-                // reached top scroll down
-                if (!scrollTop || scrollTop <= 0) {
-                    dampen = false;
-                    scrollableContainer.scrollTop = scrollHeight / 2 - 1;
-                }
-                // reached bottom
-                else if (scrollTop >= scrollHeight / 2) {
-                    dampen = false;
-                    scrollableContainer.scrollTop = scrollTop - (scrollHeight / 2);
-                }
-            });
-        }
-
-        var scrollPos = scrollableContainer.scrollTop;
-
-        const speed = 1.5;
-        var dampen = true;
-            
-        var lastScrollPos = 0;
-        var scrollDamp = 0;
-
-        var parallaxChildren = document.querySelectorAll(".parallax");
-
-        parallaxAnim();
-
-        function parallaxAnim() {
-            
-            window.requestAnimationFrame(() => {
-
-                scrollPos = scrollableContainer.scrollTop;
-                
-                scrollDamp += (scrollPos - lastScrollPos) / 15;
-                
-                if(dampen)
-                    scrollDamp *= 0.96;
-                else
-                    scrollDamp = 0;
-
-                var scrollH = -(scrollPos) / speed;
-
-                for (var i=0; i < parallaxChildren.length; i++) {
-
-                    var el = parallaxChildren[i];
-
-                    var modifier = 0;
-
-                    if(i % 2 == 0) {
-                        var modifier = 0.5;
-                    }
-
-                    if(i % 3 == 0) {
-                        var modifier = 1.5;
-                    }
-
-                    var damp = scrollDamp + scrollDamp * modifier;
-                    var scroll = damp;
-
-                    //if(isInView(el)) {
-
-                        el.style.transform = 'translate3d(0,'+(round(scroll))+'px,0)'
-                        // if(el.style.opacity < 1)
-                        //     el.style.opacity = 1
-                    //} 
-
-                }
-
-                lastScrollPos = scrollPos;
-
-                if(dampen === false)
-                    dampen = true;
-
-                parallaxAnim();
-                    
-            });
-
-        }
-
-        function round(num) {
-          return Math.round(num * 10) / 10
-        }
-    }
-
-    componentWillUnmount() {
-      const scrollableContainer = document.querySelector('.c-app__content');
-      scrollableContainer.removeEventListener('scroll', updateScrollPosition, false);
-    }
+class Press extends ParallaxPage {
 
     render() {
 
@@ -331,7 +233,7 @@ class Favs extends React.Component {
 
 
               <img className='parallax layer-1' style={{ marginTop: '10%', width: '100%' }} src={ require('../images/press/press_j_1.jpg') } />
-              <div style={{ marginTop: '40%', marginBottom: '20%', '-webkit-mask-image': '-webkit-gradient(linear, 0 100%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.2)))', 'mask-image': 'gradient(linear, 0 100%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.1)))' }}>
+              <div style={{ marginTop: '40%', marginBottom: '20%', 'WebkitMaskImage': '-webkit-gradient(linear, 0 100%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.2)))', 'maskImage': 'gradient(linear, 0 100%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0.1)))' }}>
                 <span className="text"><i>F</i><i>o</i><i>r</i><i>b</i><i>e</i><i>s</i></span>
                 <span className="text"><i>0</i><i>2</i><i>/</i><i>2</i><i>0</i><i>1</i><i>7</i><i>U</i><i>S</i></span>
                 
@@ -561,7 +463,7 @@ class Favs extends React.Component {
 
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i></span>
 
-              <img className="parallax layer-2" src={ require('../images/press/press_r_1.jpg') } style={{ marginTop: '-0.6em', width: '100%', '-webkit-mask-image': '-webkit-gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))', 'mask-image': 'gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))' }} />
+              <img className="parallax layer-2" src={ require('../images/press/press_r_1.jpg') } style={{ marginTop: '-0.6em', width: '100%', WebkitMaskImage: '-webkit-gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))', maskImage: 'gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))' }} />
               <span className="text start"><i>N</i><i>a</i><i>r</i><i>g</i><i>i</i><i>s</i></span>
               <span className="text"><i>1</i><i>0</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>R</i><i>U</i></span>
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i></span>
@@ -627,7 +529,7 @@ class Favs extends React.Component {
 
 
               <span className="text" style={{ marginTop: '25%' }}><i>L</i><i>a</i><i>d</i><i>y</i><i>g</i><i>u</i><i>n</i><i>n</i></span>
-              <img className="parallax layer-2" src={ require('../images/press/press_v_1.jpg') } style={{ marginTop: '-1em', width: '100%', '-webkit-mask-image': '-webkit-gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))', 'mask-image': 'gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))' }} />
+              <img className="parallax layer-2" src={ require('../images/press/press_v_1.jpg') } style={{ marginTop: '-1em', width: '100%', 'WebkitMaskImage': '-webkit-gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))', 'maskImage': 'gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))' }} />
               <span className="text"><i>1</i><i>0</i><i>/</i><i>2</i><i>0</i><i>1</i><i>5</i><i>U</i><i>S</i></span>
               <a href="http://ladygunn.com/fashion-style/ab-screenwear" target="_blank" className="text url" style={{ paddingBottom: '150%' }}>
                 <b><i>h</i><i>t</i><i>t</i><i>p</i><i>:</i><i>/</i><i>/</i><i>l</i><i>a</i><i>d</i><i>y</i><i>g</i><i>u</i><i>n</i><i>n</i><i>.</i>
@@ -655,4 +557,4 @@ class Favs extends React.Component {
     }
 }
 
-export default Favs;
+export default Press;

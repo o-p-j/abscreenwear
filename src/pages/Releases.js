@@ -1,41 +1,10 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
-class Releases extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.container = null
-        var $this = this
-        this.updateScrollPosition = function() {
-          window.requestAnimationFrame(() => {
-              const { scrollTop, scrollHeight, clientHeight } = $this.container;
+import ParallaxPage from '../components/ParallaxPage'
 
-              // reached top scroll down
-              if (!scrollTop || scrollTop <= 0) {
-                  $this.container.scrollTop = scrollHeight / 2 - 1;
-              }
-              // reached bottom
-              else if (scrollTop >= scrollHeight / 2) {
-                  $this.container.scrollTop = scrollTop - (scrollHeight / 2);
-              }
-          });
-        }
-    }
-
-    componentDidMount() {
-
-        this.container = document.querySelector('.c-app__content');
-        
-        this.container.scrollTop = 1;
-
-        this.container.addEventListener('scroll', this.updateScrollPosition, false);
-
-    }
-
-    componentWillUnmount() {
-      this.container.removeEventListener('scroll', this.updateScrollPosition, false);
-    }
+class Releases extends ParallaxPage {
 
     render() {
 

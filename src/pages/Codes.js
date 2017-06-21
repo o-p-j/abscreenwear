@@ -3,102 +3,10 @@ import { findDOMNode } from 'react-dom';
 
 import '../styles/codes.css';
 
-const items = [require('../images/Ab_codes.png')];
+import ParallaxPage from '../components/ParallaxPage'
 
-class Codes extends React.Component {
-    componentDidMount() {
-        const scrollableContainer = findDOMNode(this);
+class Codes extends ParallaxPage {
 
-        scrollableContainer.scrollTop = 1;
-
-        scrollableContainer.addEventListener('scroll', updateScrollPosition, false);
-
-        function updateScrollPosition() {
-            window.requestAnimationFrame(() => {
-                const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
-
-                // reached top scroll down
-                if (!scrollTop || scrollTop <= 0) {
-                    dampen = false;
-                    scrollableContainer.scrollTop = scrollHeight / 2 - 1;
-                }
-                // reached bottom
-                else if (scrollTop >= scrollHeight / 2) {
-                    dampen = false;
-                    scrollableContainer.scrollTop = scrollTop - (scrollHeight / 2);
-                }
-            });
-        }
-
-        var scrollPos = scrollableContainer.scrollTop;
-
-        const speed = 1.5;
-        var dampen = true;
-            
-        var lastScrollPos = 0;
-        var scrollDamp = 0;
-
-        var parallaxChildren = document.querySelectorAll(".parallax");
-
-        parallaxAnim();
-
-        function parallaxAnim() {
-            
-            window.requestAnimationFrame(() => {
-
-                scrollPos = scrollableContainer.scrollTop;
-                
-                scrollDamp += (scrollPos - lastScrollPos) / 10;
-                
-                if(dampen)
-                    scrollDamp *= 0.98;
-                else
-                    scrollDamp = 0;
-
-                var scrollH = -(scrollPos) / speed;
-
-                for (var i=0; i < parallaxChildren.length; i++) {
-
-                    var el = parallaxChildren[i];
-
-                    var modifier = 0;
-
-                    if(i % 2 == 0) {
-                        var modifier = 0.5;
-                    }
-
-                    if(i % 3 == 0) {
-                        var modifier = 1.5;
-                    }
-
-                    var damp = scrollDamp + scrollDamp * modifier;
-                    var scroll = damp;
-
-                    //if(isInView(el)) {
-
-                        el.style.transform = 'translate3d(0,'+(round(scroll))+'px,0)'
-                        // if(el.style.opacity < 1)
-                        //     el.style.opacity = 1
-                    //} 
-
-                }
-
-                lastScrollPos = scrollPos;
-
-                if(dampen === false)
-                    dampen = true;
-
-                parallaxAnim();
-                    
-            });
-
-        }
-
-        function round(num) {
-          return Math.round(num * 10) / 10
-        }
-
-    }
 
     render() {
         const codes = 

@@ -393,7 +393,7 @@ class Postmasters extends React.Component {
 
             vimeo.style.cursor = pause;
 
-            setInterval(function() {
+            window.videoInt = setInterval(function() {
                 window.requestAnimationFrame(() => {
 
                     var vimeo_rect = vimeo.getBoundingClientRect();
@@ -432,6 +432,7 @@ class Postmasters extends React.Component {
       componentWillUnmount() {
         this.container.removeEventListener('scroll', this.loopScroll, false);
         window.removeEventListener('resize', this.windowResize, false);
+        window.clearInterval(window.videoInt);
       }
 
     render(){

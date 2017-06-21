@@ -11,7 +11,38 @@ var MobileDetect = require('mobile-detect');
 
 class Kahn extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.dampen = true
+
+        this.container = null
+        this.canvas = null
+
+        var $this = this
+
+        this.loopScroll = function() {
+            window.requestAnimationFrame(() => {
+                const { scrollTop, scrollHeight, clientHeight } = $this.container;
+
+                // reached top scroll down
+                if (!scrollTop || scrollTop <= 0) {
+                    $this.container.scrollTop = scrollHeight / 2 - 1;
+                    $this.dampen = false;
+                }
+                // reached bottom
+                else if (scrollTop >= scrollHeight / 2) {
+                    $this.container.scrollTop = scrollTop - (scrollHeight / 2);
+                    $this.dampen = false;
+                }
+            })
+        }
+    }
+
     componentDidMount() {
+
+        this.container = document.querySelector('.c-app__content');
+
+        var $this = this
 
         const cursor = 'url('+require('../images/kahn/cursor.png')+') 15 15, auto'
 
@@ -35,7 +66,6 @@ class Kahn extends React.Component {
         var wave = 0;
 
         const speed = 1.2;
-        var dampen = true;
 
         var zoomed = false;
 
@@ -47,9 +77,8 @@ class Kahn extends React.Component {
         vimeo.addEventListener('click', toggleVideo, false);
 
         const kahn = document.querySelector('#Kahn');
-        const scrollableContainer = document.querySelector('.c-app__content');
-        scrollableContainer.scrollTop = 1;
-        scrollableContainer.addEventListener('scroll', this.loopScroll, false);
+        $this.container.scrollTop = 1;
+        $this.container.addEventListener('scroll', this.loopScroll, false);
         //kahn.addEventListener('scroll', scrollAnim, false);
 
         if(!mobile) {
@@ -87,7 +116,7 @@ class Kahn extends React.Component {
 
             vimeo.style.cursor = pause;
 
-            setInterval(function() {
+            window.videoInt = setInterval(function() {
                 window.requestAnimationFrame(() => {
 
                     var vimeo_rect = vimeo.getBoundingClientRect();
@@ -295,11 +324,11 @@ class Kahn extends React.Component {
 
                 time += increase;
 
-                scrollPos = scrollableContainer.scrollTop;
+                scrollPos = $this.container.scrollTop;
 
                 scrollDamp += (scrollPos - lastScrollPos) / 15;
 
-                if(dampen)
+                if($this.dampen)
                     //scrollDamp = Math.sin(scrollDamp/15) * Math.cos(Math.PI) + scrollDamp * 0.975;
                     scrollDamp *= 0.98;
                 else
@@ -327,8 +356,8 @@ class Kahn extends React.Component {
 
                 lastScrollPos = scrollPos;
 
-                if(dampen === false)
-                    dampen = true;
+                if($this.dampen === false)
+                    $this.dampen = true;
 
                 scrollAnim();
 
@@ -352,27 +381,11 @@ class Kahn extends React.Component {
 
     }
 
-    loopScroll() {
-        const scrollableContainer = document.querySelector('.c-app__content');
-        window.requestAnimationFrame(() => {
-            const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
-
-            // reached top scroll down
-            if (!scrollTop || scrollTop <= 0) {
-                scrollableContainer.scrollTop = scrollHeight / 2 - 1;
-                dampen = false;
-            }
-            // reached bottom
-            else if (scrollTop >= scrollHeight / 2) {
-                scrollableContainer.scrollTop = scrollTop - (scrollHeight / 2);
-                dampen = false;
-            }
-        })
-    }
+    
 
     componentWillUnmount() {
-        const scrollableContainer = document.querySelector('.c-app__content');
-        scrollableContainer.removeEventListener('scroll', this.loopScroll, false);
+        this.container.removeEventListener('scroll', this.loopScroll, false);
+        window.clearInterval(window.videoInt)
       }
 
     render(){
