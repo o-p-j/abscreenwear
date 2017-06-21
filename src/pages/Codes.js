@@ -20,7 +20,7 @@ class Codes extends ParallaxPage {
                     <span className="icon spin" style={{ backgroundImage: 'url('+require('../images/codes/icon-a3.png')+')' }}></span>
                     <pre>A3/ collabs<br/>  [Art x scene]</pre>
                     <div className="parallax gradient gradient-1"></div>
-                    <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-a4.gif')+')', height: '90px' }}></span>
+                    <span className="icon tall" style={{ backgroundImage: 'url('+require('../images/codes/icon-a4.gif')+')', backgroundSize: '110%' }}></span>
                     <pre>A4/ labs<br/>[Research x<br/>   development]</pre>
                 </div>
 
@@ -65,7 +65,7 @@ class Codes extends ParallaxPage {
                 <pre>{'{c}'} stands for<br/>   Content broadcast<br/>                 via</pre>
                 <div className="col-2">
                     <span className="icon">
-                        <svg width="100%" height="60%" viewBox="-5 -5 110 85" version="1.1">
+                        <svg width="100%" height="50%" viewBox="-5 -5 110 85" version="1.1">
                             <path className="path-3 dotted" fill="none" stroke="#000000" d="M103.86,25.313 C103.86,25.313 85.85,0.684 52.29,0.684 C18.71,0.684 0.64,25.319 0.64,25.319"></path>
                             <path className="path-3" fill="none" stroke="#000000" d="M85.01,38.441 C85.01,38.441 73.58,24.015 52.27,24.015 C30.96,24.015 19.48,38.448 19.48,38.448"></path>
                             <path className="path-3" fill="none" stroke="#000000" d="M68.39,54.331 C68.39,54.331 62.77,47.143 52.26,47.143 C41.76,47.143 36.1,54.331 36.1,54.331"></path>
@@ -75,7 +75,7 @@ class Codes extends ParallaxPage {
                     <pre>c1/ device<br/>  [Nested]</pre>
                     
                     <span className="icon">
-                        <svg width="100%" height="60%" viewBox="-5 -5 110 85" version="1.1">
+                        <svg width="100%" height="50%" viewBox="-5 -5 110 85" version="1.1">
                             <path className="path-3 blink-3" fill="none" stroke="#000000" d="M103.86,25.313 C103.86,25.313 85.85,0.684 52.29,0.684 C18.71,0.684 0.64,25.319 0.64,25.319"></path>
                             <path className="path-3 blink-2" fill="none" stroke="#000000" d="M85.01,38.441 C85.01,38.441 73.58,24.015 52.27,24.015 C30.96,24.015 19.48,38.448 19.48,38.448"></path>
                             <path className="path-3 blink-1" fill="none" stroke="#000000" d="M68.39,54.331 C68.39,54.331 62.77,47.143 52.26,47.143 C41.76,47.143 36.1,54.331 36.1,54.331"></path>
@@ -85,7 +85,7 @@ class Codes extends ParallaxPage {
                     <pre>c2/ body<br/>  [Native]</pre>
                     
                     <span className="icon">
-                        <svg width="100%" height="60%" viewBox="-5 -5 110 85" version="1.1">
+                        <svg width="100%" height="50%" viewBox="-5 -5 110 85" version="1.1">
                             <path className="path-3 dotted" fill="none" stroke="#000000" d="M103.86,25.313 C103.86,25.313 85.85,0.684 52.29,0.684 C18.71,0.684 0.64,25.319 0.64,25.319"></path>
                             <path className="path-3 dotted reverse" fill="none" stroke="#000000" d="M85.01,38.441 C85.01,38.441 73.58,24.015 52.27,24.015 C30.96,24.015 19.48,38.448 19.48,38.448"></path>
                             <path className="path-3" fill="none" stroke="#000000" d="M68.39,54.331 C68.39,54.331 62.77,47.143 52.26,47.143 C41.76,47.143 36.1,54.331 36.1,54.331"></path>

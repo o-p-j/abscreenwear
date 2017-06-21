@@ -13,13 +13,13 @@ class Press extends ParallaxPage {
               <span className="text"><i>H</i><i>a</i><i>r</i><i>p</i><i>e</i><i>r</i><i>s</i><i>B</i><i>a</i><i>z</i><i>a</i><i>a</i><i>r</i></span>
               <span className="text"><i>0</i><i>6</i><i>/</i><i>2</i><i>0</i><i>1</i><i>7</i><i>U</i><i>A</i></span>
 
-              <img className="parallax" style={{ width: '60%', marginLeft: '10%', marginTop: '-8%' }} src={ require('../images/press/press_a_1.jpg') } />
+              <img className="parallax" style={{ width: '70%', marginLeft: '12%', marginTop: '-8%' }} src={ require('../images/press/press_a_1.jpg') } />
 
 
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i></span>
 
 
-              <img className="parallax" style={{ width: '70%', marginLeft: '8%', marginTop: '-2%' }} src={ require('../images/press/press_a_2.jpg') } />
+              <img className="parallax glow" style={{ width: '80%', marginLeft: '10%', marginTop: '-2%' }} src={ require('../images/press/press_a_2.jpg') } />
 
 
               <span className="text"><i>D</i><i>i</i><i>f</i><i>a</i></span>
@@ -59,7 +59,9 @@ class Press extends ParallaxPage {
                 </b>
               </a>
 
-              <img className="parallax layer-2 glow" style={{ width: '40%', marginLeft: '50%', marginTop: '-55%' }}src={ require('../images/press/press_c_2.jpg') } />
+              <video className="layer-2 glow" style={{ width: '40%', marginLeft: '50%', marginTop: '-55%' }} autoPlay loop poster={ require('../images/press/press_c_2.jpg') } >
+                <source src={ require('../images/press/press_c_2.mp4') } type="video/mp4" />
+              </video>
 
 
               <span className="text"><b><i>BURO</i><i style={{ zIndex: '0' }}><img style={{ width: 'auto', height: '0.7em', marginLeft: '-5%' }} src={ require('../images/press/press_d_1.jpg') } /></i><i style={{ marginLeft: '-10%' }}>24/7</i></b></span>
@@ -177,7 +179,7 @@ class Press extends ParallaxPage {
                   <i>a</i><i>b</i><i>s</i><i>c</i><i>r</i><i>e</i><i>e</i><i>n</i><i>w</i><i>e</i><i>a</i><i>r</i><i>-</i>
                 </b>
 
-                <img className='parallax layer-2' style={{ width: '40%', marginTop: '3em', marginLeft: '7%' }} src={ require('../images/press/press_g_1.jpg') } />
+                <img className='parallax layer-2' style={{ width: '40%', marginTop: '3em', marginLeft: '7%' }} src={ require('../images/press/press_g_1.gif') } />
                 <b>
                   <i>n</i><i>e</i><i>w</i><i>-</i><i>y</i><i>o</i><i>r</i><i>k</i><i>-</i><i>f</i><i>a</i><i>l</i><i>l</i><i>-</i>
                 </b>
@@ -531,7 +533,7 @@ class Press extends ParallaxPage {
               <span className="text" style={{ marginTop: '25%' }}><i>L</i><i>a</i><i>d</i><i>y</i><i>g</i><i>u</i><i>n</i><i>n</i></span>
               <img className="parallax layer-2" src={ require('../images/press/press_v_1.jpg') } style={{ marginTop: '-1em', width: '100%', 'WebkitMaskImage': '-webkit-gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))', 'maskImage': 'gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))' }} />
               <span className="text"><i>1</i><i>0</i><i>/</i><i>2</i><i>0</i><i>1</i><i>5</i><i>U</i><i>S</i></span>
-              <a href="http://ladygunn.com/fashion-style/ab-screenwear" target="_blank" className="text url" style={{ paddingBottom: '150%' }}>
+              <a href="http://ladygunn.com/fashion-style/ab-screenwear" target="_blank" className="text url" style={{ paddingBottom: '120%' }}>
                 <b><i>h</i><i>t</i><i>t</i><i>p</i><i>:</i><i>/</i><i>/</i><i>l</i><i>a</i><i>d</i><i>y</i><i>g</i><i>u</i><i>n</i><i>n</i><i>.</i>
                 </b>
                 <b>

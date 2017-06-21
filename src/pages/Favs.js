@@ -12,10 +12,18 @@ class Favs extends ParallaxPage {
       const favs = 
             <div>
             <div className="gradients">
-              <iframe className="parallax video-1" src="https://player.vimeo.com/video/218974887?autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1" width="640" height="640" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
-              <iframe className="parallax video-2" src="https://player.vimeo.com/video/218975496?autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1" width="640" height="640" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
-              <iframe className="parallax video-3" src="https://player.vimeo.com/video/218974294?autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1" width="640" height="640" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
-              <iframe className="parallax video-4" src="https://player.vimeo.com/video/218977075?autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1" width="640" height="640" frameBorder="0" webkitallowFullScreen mozallowFullScreen allowFullScreen></iframe>
+              <video className="parallax video-1" autoPlay mute>
+                <source src={ require('../images/favs/shell-1.mp4') } type="video/mp4" />
+              </video>
+              <video className="parallax video-2" autoPlay mute>
+                <source src={ require('../images/favs/shell-2.mp4') } type="video/mp4" />
+              </video>
+              <video className="parallax video-3" autoPlay mute>
+                <source src={ require('../images/favs/shell-3.mp4') } type="video/mp4" />
+              </video>
+              <video className="parallax video-4" autoPlay mute>
+                <source src={ require('../images/favs/shell-4.mp4') } type="video/mp4" />
+              </video>
               <div className="parallax gradient-1"></div>
               <div className="parallax gradient-2"></div>
               <div className="parallax gradient-3"></div>

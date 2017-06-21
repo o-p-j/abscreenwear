@@ -72,12 +72,15 @@
   z-index: 0;
 }
 
-.press .parallax.layer-2 {
+.press .parallax.layer-2,
+.press .layer-2 {
   position: absolute;
   z-index: 20;
   pointer-events: none;
+  font-size: 6.5vw;
 }
 
-.press .parallax.glow {
-  box-shadow: 0 0 1em rgba(0,255,255, 0.5);
+
+.press .glow {
+  box-shadow: 0 0 1em #83D8F9;
 }

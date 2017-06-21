@@ -14,7 +14,8 @@
   z-index: 10;
 }
 
-.favs iframe {
+.favs iframe,
+.favs video {
   position: absolute;
   border: 0;
   width: 300px;
