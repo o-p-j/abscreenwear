@@ -135,7 +135,7 @@ class Postmasters extends React.Component {
         
 
         if(mobile) {
-            this.container.classList.push('mobile');
+            $this.container.className += " mobile";
         }
 
         var autoscroll = false;
@@ -175,9 +175,8 @@ class Postmasters extends React.Component {
             }
         });
 
-        if(!mobile) {
+        if(!mobile)
             parallaxAnim();
-        }
         
 
         function isRetina(){
