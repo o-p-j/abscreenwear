@@ -49,7 +49,7 @@ class Kahn extends React.Component {
         const kahn = document.querySelector('#Kahn');
         const scrollableContainer = document.querySelector('.c-app__content');
         scrollableContainer.scrollTop = 1;
-        scrollableContainer.addEventListener('scroll', loopScroll, false);
+        scrollableContainer.addEventListener('scroll', this.loopScroll, false);
         //kahn.addEventListener('scroll', scrollAnim, false);
 
         if(!mobile) {
@@ -287,23 +287,6 @@ class Kahn extends React.Component {
             }, 20);
         }
 
-        function loopScroll() {
-            window.requestAnimationFrame(() => {
-                const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
-
-                // reached top scroll down
-                if (!scrollTop || scrollTop <= 0) {
-                    scrollableContainer.scrollTop = scrollHeight / 2 - 1;
-                    dampen = false;
-                }
-                // reached bottom
-                else if (scrollTop >= scrollHeight / 2) {
-                    scrollableContainer.scrollTop = scrollTop - (scrollHeight / 2);
-                    dampen = false;
-                }
-            })
-        }
-
         function scrollAnim() {
 
 
@@ -368,6 +351,29 @@ class Kahn extends React.Component {
 
 
     }
+
+    loopScroll() {
+        const scrollableContainer = document.querySelector('.c-app__content');
+        window.requestAnimationFrame(() => {
+            const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
+
+            // reached top scroll down
+            if (!scrollTop || scrollTop <= 0) {
+                scrollableContainer.scrollTop = scrollHeight / 2 - 1;
+                dampen = false;
+            }
+            // reached bottom
+            else if (scrollTop >= scrollHeight / 2) {
+                scrollableContainer.scrollTop = scrollTop - (scrollHeight / 2);
+                dampen = false;
+            }
+        })
+    }
+
+    componentWillUnmount() {
+        const scrollableContainer = document.querySelector('.c-app__content');
+        scrollableContainer.removeEventListener('scroll', this.loopScroll, false);
+      }
 
     render(){
 

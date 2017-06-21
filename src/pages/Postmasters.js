@@ -16,7 +16,53 @@ var MobileDetect = require('mobile-detect');
 
 class Postmasters extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.dampen = true
+
+        this.container = null
+        this.canvas = null
+
+        var $this = this
+
+        this.loopScroll = function() {
+
+            window.requestAnimationFrame(() => {
+
+                //autoscrollAmt = 0;
+                //Loop
+                const { scrollTop, scrollHeight, clientHeight } = $this.container;
+
+                // reached top scroll down
+                if (scrollTop <= credits1.offsetHeight*0.25 - 1) {
+                    $this.container.scrollTop = scrollHeight - (credits1.offsetHeight*0.75) - 2;
+                    $this.dampen = false;
+                }
+                // reached bottom
+                else if (scrollTop >= scrollHeight - (credits1.offsetHeight*0.75)) {
+                    $this.container.scrollTop = credits1.offsetHeight*0.25 + 2;
+                    $this.dampen = false;
+                }
+                
+            })
+        }
+
+        this.windowResize = function() {
+            
+            window.requestAnimationFrame(() => {
+                $this.canvas.style.width = window.innerWidth + 'px';
+                $this.canvas.style.height = window.innerHeight + 'px';
+                $this.canvas.width = window.innerWidth;
+                $this.canvas.height = window.innerHeight;
+            })
+        }
+    }
+
     componentDidMount() {
+
+        this.container = document.querySelector('.c-app__content');
+
+        const $this = this;
 
         const cursor = 'url('+require('../images/postmasters/cursor.png')+') 15 15, auto'
 
@@ -44,6 +90,8 @@ class Postmasters extends React.Component {
         const vimeo = document.querySelector('.vimeo');
         const iframePlayer = new Vimeo(player);
         var videoVolume = 0.5;
+
+        const postmasters = document.querySelector('#Postmasters');
 
         vimeo.addEventListener('click', toggleVideo, false);
 
@@ -80,26 +128,25 @@ class Postmasters extends React.Component {
         videoInit();
 
         const speed = 1.2;
-        var dampen = true;
+        
 
         var zoomed = false;
         
-        const postmasters = document.querySelector('#Postmasters');
-        const scrollableContainer = document.querySelector('.c-app__content');
+        
 
         if(mobile) {
-            scrollableContainer.classList.push('mobile');
+            this.container.classList.push('mobile');
         }
 
         var autoscroll = false;
         var autoscrollAmt = isRetina ? 1:1.5;
 
-        scrollableContainer.scrollTop = credits1.offsetHeight;
+        this.container.scrollTop = credits1.offsetHeight;
 
-        scrollableContainer.addEventListener('scroll', loopScroll, false);
-        window.addEventListener('resize', windowResize, false);
+        this.container.addEventListener('scroll', this.loopScroll, false);
+        window.addEventListener('resize', this.windowResize, false);
 
-        var scrollPos = scrollableContainer.scrollTop;
+        var scrollPos = this.container.scrollTop;
             
         var lastScrollPos = 0;
         var scrollDamp = 0;
@@ -258,31 +305,6 @@ class Postmasters extends React.Component {
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-
-        function windowResize() {
-            
-            window.requestAnimationFrame(() => {
-                // for(var i=0; i<parallaxChildren.length; i++) {
-
-                //     var el = parallaxChildren[i];
-
-                //     parallax.style.width = back1.offsetWidth + 'px';
-                //     el.style.left = (parseFloat(el.dataset.leftPer) * parallax.offsetWidth) + 'px';
-                //     el.style.top = (parseFloat(el.dataset.topPer) * parallax.offsetWidth) + 'px';
-                //     el.dataset.topPos = el.dataset.topPosPer * parallax.offsetWidth;
-
-                //     //vimeo.style.top = back1.offsetTop + 'px';
-
-                    
-                // }
-
-                canvas.style.width = window.innerWidth + 'px';
-                canvas.style.height = window.innerHeight + 'px';
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-
-            })
-        }
         
 
         function parallaxAnim() {
@@ -293,15 +315,15 @@ class Postmasters extends React.Component {
                     return false
 
                 if(autoscroll) {
-                    var scroller = scrollableContainer.scrollTop + autoscrollAmt;
-                    scrollableContainer.scrollTop = scroller;
+                    var scroller = $this.container.scrollTop + autoscrollAmt;
+                    $this.container.scrollTop = scroller;
                 }
 
-                scrollPos = scrollableContainer.scrollTop - credits1.offsetHeight;
+                scrollPos = $this.container.scrollTop - credits1.offsetHeight;
                 
                 scrollDamp += (scrollPos - lastScrollPos) / 10;
                 
-                if(dampen)
+                if($this.dampen)
                     scrollDamp *= 0.97;
                 else
                     scrollDamp = 0;
@@ -336,8 +358,8 @@ class Postmasters extends React.Component {
 
                 lastScrollPos = scrollPos;
 
-                if(dampen === false)
-                    dampen = true;
+                if($this.dampen === false)
+                    $this.dampen = true;
 
                 parallaxAnim();
                     
@@ -365,28 +387,7 @@ class Postmasters extends React.Component {
             return (top > -window.innerHeight*1.5) && (rect.top < window.innerHeight * 1.5);
         }
 
-        function loopScroll() {
-            window.requestAnimationFrame(() => {
-
-                //autoscrollAmt = 0;
-
-                //Loop
-                const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
-
-                // reached top scroll down
-                if (scrollTop <= credits1.offsetHeight*0.25 - 1) {
-                    scrollableContainer.scrollTop = scrollHeight - (credits1.offsetHeight*0.75) - 2;
-                    dampen = false;
-                }
-                // reached bottom
-                else if (scrollTop >= scrollHeight - (credits1.offsetHeight*0.75)) {
-                    scrollableContainer.scrollTop = credits1.offsetHeight*0.25 + 2;
-                    dampen = false;
-                }
-            })
-        }
-
-          function videoInit() {
+        function videoInit() {
 
             iframePlayer.setVolume(0.5);
 
@@ -424,9 +425,13 @@ class Postmasters extends React.Component {
             }
 
           }
-
-          
         
+      }
+
+
+      componentWillUnmount() {
+        this.container.removeEventListener('scroll', this.loopScroll, false);
+        window.removeEventListener('resize', this.windowResize, false);
       }
 
     render(){

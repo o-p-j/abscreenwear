@@ -19,12 +19,12 @@
 .codes .col-1,
 .codes .col-2,
 .codes .col-0 {
-  margin-bottom: 30%;
+  margin-bottom: 20%;
 }
 
 .codes pre {
   margin-left: 5%;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
   display: block;
 }
 
@@ -52,6 +52,10 @@
   z-index: 10;
   width: 100%;
   height: auto;
+}
+
+.codes .icon.icon-e2 {
+  animation: scale 1.5s infinite;
 }
 
 #b3-dots {
@@ -365,5 +369,19 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0.5);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.5);
   }
 }

@@ -2,28 +2,39 @@ import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
 class Releases extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.container = null
+        var $this = this
+        this.updateScrollPosition = function() {
+          window.requestAnimationFrame(() => {
+              const { scrollTop, scrollHeight, clientHeight } = $this.container;
+
+              // reached top scroll down
+              if (!scrollTop || scrollTop <= 0) {
+                  $this.container.scrollTop = scrollHeight / 2 - 1;
+              }
+              // reached bottom
+              else if (scrollTop >= scrollHeight / 2) {
+                  $this.container.scrollTop = scrollTop - (scrollHeight / 2);
+              }
+          });
+        }
+    }
+
     componentDidMount() {
 
-        const scrollableContainer = document.querySelector('.c-app__content');
+        this.container = document.querySelector('.c-app__content');
         
-        scrollableContainer.scrollTop = 1;
+        this.container.scrollTop = 1;
 
-        scrollableContainer.addEventListener('scroll', updateScrollPosition, false);
+        this.container.addEventListener('scroll', this.updateScrollPosition, false);
 
-        function updateScrollPosition() {
-            window.requestAnimationFrame(() => {
-                const { scrollTop, scrollHeight, clientHeight } = scrollableContainer;
+    }
 
-                // reached top scroll down
-                if (!scrollTop || scrollTop <= 0) {
-                    scrollableContainer.scrollTop = scrollHeight / 2 - 1;
-                }
-                // reached bottom
-                else if (scrollTop >= scrollHeight / 2) {
-                    scrollableContainer.scrollTop = scrollTop - (scrollHeight / 2);
-                }
-            });
-        }
+    componentWillUnmount() {
+      this.container.removeEventListener('scroll', this.updateScrollPosition, false);
     }
 
     render() {

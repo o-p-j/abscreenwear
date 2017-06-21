@@ -133,15 +133,21 @@ class Codes extends React.Component {
 
                 <pre>{'{S}'} stands for<br/>   Screen version</pre>
                 <div className="col-2">
+                    {/* 
                     <span className="icon icon-s1 icon-gradient">
                         <img src={ require('../images/codes/icon-s1.png') } />
                     </span>
+                    */}
+                    <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-s1.png')+')' }}></span>
                     <pre>S1/ fullscreen<br/>    [2:1]</pre>
                     <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-s2.png')+')' }}></span>
                     <pre>S2/ offscreen<br/>    [1:2]</pre>
+                    {/* 
                     <span className="icon icon-s3 icon-gradient">
                         <img src={ require('../images/codes/icon-s3.png') } />
                     </span>
+                    */}
+                    <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-s3.png')+')' }}></span>
                     <pre>S3/ demiscreen<br/>    [1:1]</pre>
                     <div className="parallax gradient gradient-3"></div>
                     <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-s4.png')+')' }}></span>
@@ -216,7 +222,7 @@ class Codes extends React.Component {
                     </svg>
                     </span>
                     <pre>e1/ baseline<br/>   [Ready-to-wear]</pre>
-                    <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-e2.png')+')', backgroundPosition: 'top center', height: '100px' }}></span>
+                    <span className="icon icon-e2" style={{ backgroundImage: 'url('+require('../images/codes/icon-e2.png')+')', backgroundPosition: 'top center', height: '100px' }}></span>
                     <pre>e2/ bespoke<br/>   [High sewing]</pre>
                     
                     <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-e3.gif')+')', backgroundPosition: 'top center', height: '100px' }}></span>

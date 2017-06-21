@@ -61,7 +61,7 @@ class Favs extends React.Component {
 
                     var el = parallaxChildren[i];
 
-                    var modifier = 1;
+                    var modifier = 0;
 
                     if(i % 2 == 0) {
                         var modifier = 0.5;
@@ -97,6 +97,11 @@ class Favs extends React.Component {
         function round(num) {
           return Math.round(num * 10) / 10
         }
+    }
+
+    componentWillUnmount() {
+      const scrollableContainer = document.querySelector('.c-app__content');
+      scrollableContainer.removeEventListener('scroll', updateScrollPosition, false);
     }
 
     render() {
@@ -152,7 +157,7 @@ class Favs extends React.Component {
                 </b>
               </a>
 
-              <img className="parallax layer-2" style={{ width: '40%', marginLeft: '50%', marginTop: '-55%', boxShadow: '0 0 5em rgba(0,255,255, 0.5)' }}src={ require('../images/press/press_c_2.jpg') } />
+              <img className="parallax layer-2 glow" style={{ width: '40%', marginLeft: '50%', marginTop: '-55%' }}src={ require('../images/press/press_c_2.jpg') } />
 
 
               <span className="text"><b><i>BURO</i><i style={{ zIndex: '0' }}><img style={{ width: 'auto', height: '0.7em', marginLeft: '-5%' }} src={ require('../images/press/press_d_1.jpg') } /></i><i style={{ marginLeft: '-10%' }}>24/7</i></b></span>
@@ -448,10 +453,12 @@ class Favs extends React.Component {
                   <i>s</i><i>c</i><i>r</i><i>e</i><i>e</i><i>n</i><i>w</i><i>e</i><i>a</i><i>r</i><i>-</i><i>f</i><i>w</i><i>1</i><i>7</i><i>/</i>
                 </b>
               </a>
+              <img className="parallax layer-1" src={ require('../images/press/press_m_1.jpg') } style={{ width: '35%', marginTop:'0', left: '5%' }} />
+              <img className="parallax layer-2 glow" src={ require('../images/press/press_m_2.jpg') } style={{ width: '60%', marginTop:'-1.2em', right: '5%' }} />
 
 
 
-              <span className="text"><i>B</i><i>u</i><i>r</i><i>o</i> <i>2</i><i>4</i><i>/</i><i>7</i></span>
+              <span className="text" style={{ marginTop: '35%' }}><i>B</i><i>u</i><i>r</i><i>o</i> <i>2</i><i>4</i><i>/</i><i>7</i></span>
               <span className="text"><i>0</i><i>1</i><i>/</i><i>2</i><i>0</i><i>1</i><i>7</i><i>R</i><i>U</i></span>
               <a href="https://www.buro247.ru/fashion/fashionshows/novoe-imya-ab-screenwear.html" target="_blank" className="text url">
                 <b>
@@ -470,19 +477,18 @@ class Favs extends React.Component {
                   <i>a</i><i>b</i><i>-</i><i>s</i><i>c</i><i>r</i><i>e</i><i>e</i><i>n</i><i>w</i><i>e</i><i>a</i><i>r</i><i>.</i><i>h</i><i>t</i><i>m</i><i>l</i>
                 </b>
               </a>
+              <img className="parallax layer-1" src={ require('../images/press/press_n_1.jpg') } style={{ width: '33%', marginTop:'-4em', left: '33%' }} />
 
 
-              <span className="text"><i>E</i><i>L</i><i>L</i><i>E</i></span>
+              <span className="text start"><i>E</i><i>L</i><i>L</i><i>E</i></span>
               <span className="text"><i>1</i><i>2</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>R</i><i>U</i></span>
 
-
-
-
+              <img className="parallax" src={ require('../images/press/press_o_1.jpg') } style={{ width: '100%' }} />
 
 
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i></span>
 
-              <span className="text"><i>C</i><i>a</i><i>l</i><i>v</i><i>e</i><i>r</i><i>t</i></span>
+              <span className="text start"><i>C</i><i>a</i><i>l</i><i>v</i><i>e</i><i>r</i><i>t</i></span>
               <span className="text"><i>1</i><i>1</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>G</i><i>B</i></span>
 
               <a href="https://www.calvertjournal.com/news/show/7143/check-out-this-contemplative-fashion-film-by-russian-director-nadia-bedzhan" target="_blank" className="text url">
@@ -519,8 +525,9 @@ class Favs extends React.Component {
               </a>
 
 
-              <span className="text"><i>M</i><i>e</i><i>t</i><i>a</i><i>l</i></span>
+              <span className="text start"><i>M</i><i>e</i><i>t</i><i>a</i><i>l</i></span>
               <span className="text"><i>1</i><i>0</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>E</i><i>S</i></span>
+              <img className="parallax layer-2 glow" src={ require('../images/press/press_p_1.jpg') } style={{ width: '70%', right: '5%', marginTop:'0.8em', left: '20%' }} />
               <a href="http://metalmagazine.eu/en/post/video/ab-screenwear-juxtaposing-skin-and-screen" target="_blank" className="text url">
                 <b>
                   <i>h</i><i>t</i><i>t</i><i>p</i><i>:</i><i>/</i><i>/</i>
@@ -543,26 +550,24 @@ class Favs extends React.Component {
               </a>
 
 
-              <span className="text"><i>E</i><i>L</i><i>L</i><i>E</i></span>
+              <span className="text start"><i>E</i><i>L</i><i>L</i><i>E</i></span>
               <span className="text"><i>1</i><i>0</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>R</i><i>U</i></span>
 
 
+              <img className="parallax" src={ require('../images/press/press_q_1.jpg') } style={{ width: '100%' }} />
 
 
 
 
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i></span>
 
-
-              <span className="text"><i>N</i><i>a</i><i>r</i><i>g</i><i>i</i><i>s</i></span>
+              <img className="parallax layer-2" src={ require('../images/press/press_r_1.jpg') } style={{ marginTop: '-0.6em', width: '100%', '-webkit-mask-image': '-webkit-gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))', 'mask-image': 'gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))' }} />
+              <span className="text start"><i>N</i><i>a</i><i>r</i><i>g</i><i>i</i><i>s</i></span>
               <span className="text"><i>1</i><i>0</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>R</i><i>U</i></span>
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i></span>
 
 
-
-
-
-              <span className="text"><i>K</i><i>o</i><i>m</i><i>m</i><i>e</i><i>r</i><i>s</i><i>a</i><i>n</i><i>t</i><i>S</i><i>t</i><i>y</i><i>l</i><i>e</i></span>
+              <span className="text" style={{ marginTop: '80%' }}><i>K</i><i>o</i><i>m</i><i>m</i><i>e</i><i>r</i><i>s</i><i>a</i><i>n</i><i>t</i><i>S</i><i>t</i><i>y</i><i>l</i><i>e</i></span>
               <span className="text"><i>0</i><i>9</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>R</i><i>U</i></span>
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i><i>&</i></span>
               <a href="http://kommersant.ru/gallery/3095137#id=1329898" target="_blank" className="text url">
@@ -577,19 +582,15 @@ class Favs extends React.Component {
                 </b>
               </a>
 
-
-
-
-
-
-
-
+              <img className="parallax layer-2" src={ require('../images/press/press_s_1.png') } style={{ width: '70%', marginLeft: '10%', marginTop: '-2em' }} />
+              <img className="parallax" src={ require('../images/press/press_s_2.jpg') } style={{ width: '50%', marginLeft: '50%', marginTop: '50%' }} />
 
 
               <span className="text"><i>C</i><i>o</i><i>s</i><i>t</i><i>o</i><i>m</i><i>o</i><i>p</i><i>o</i><i>l</i><i>i</i><i>t</i><i>a</i><i>n</i> <i>s</i><i>h</i><i>o</i><i>p</i><i>p</i><i>i</i><i>n</i><i>g</i></span>
               <span className="text"><i>0</i><i>7</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>R</i><i>U</i></span>
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i></span>
 
+              <img className="parallax glow" src={ require('../images/press/press_t_1.jpg') } style={{ width: '98%', marginLeft: '1%' }} />
 
 
 
@@ -602,8 +603,7 @@ class Favs extends React.Component {
 
 
 
-
-              <span className="text"><i>C</i><i>o</i><i>o</i><i>l</i><i>h</i><i>u</i><i>n</i><i>t</i><i>i</i><i>n</i><i>g</i></span>
+              <span className="text start"><i>C</i><i>o</i><i>o</i><i>l</i><i>h</i><i>u</i><i>n</i><i>t</i><i>i</i><i>n</i><i>g</i></span>
               <span className="text"><i>0</i><i>9</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>U</i><i>S</i></span>
               <a href="http://www.coolhunting.com/style/abscreenwear-tech-fashion" target="_blank" className="text url">
                 <b>
@@ -623,11 +623,13 @@ class Favs extends React.Component {
                 </b>
               </a>
 
+              <img className="parallax layer-2" src={ require('../images/press/press_u_1.jpg') } style={{ width: '80%', right: '0', marginTop: '-35%' }} />
 
 
-              <span className="text"><i>L</i><i>a</i><i>d</i><i>y</i><i>g</i><i>u</i><i>n</i><i>n</i></span>
+              <span className="text" style={{ marginTop: '25%' }}><i>L</i><i>a</i><i>d</i><i>y</i><i>g</i><i>u</i><i>n</i><i>n</i></span>
+              <img className="parallax layer-2" src={ require('../images/press/press_v_1.jpg') } style={{ marginTop: '-1em', width: '100%', '-webkit-mask-image': '-webkit-gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))', 'mask-image': 'gradient(linear, 0 40%, 0 0, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))' }} />
               <span className="text"><i>1</i><i>0</i><i>/</i><i>2</i><i>0</i><i>1</i><i>5</i><i>U</i><i>S</i></span>
-              <a href="http://ladygunn.com/fashion-style/ab-screenwear" target="_blank" className="text url">
+              <a href="http://ladygunn.com/fashion-style/ab-screenwear" target="_blank" className="text url" style={{ paddingBottom: '150%' }}>
                 <b><i>h</i><i>t</i><i>t</i><i>p</i><i>:</i><i>/</i><i>/</i><i>l</i><i>a</i><i>d</i><i>y</i><i>g</i><i>u</i><i>n</i><i>n</i><i>.</i>
                 </b>
                 <b>
@@ -637,6 +639,7 @@ class Favs extends React.Component {
                   <i>a</i><i>b</i><i>-</i><i>s</i><i>c</i><i>r</i><i>e</i><i>e</i><i>n</i><i>w</i><i>e</i><i>a</i><i>r</i>
                 </b>
               </a>
+
 
 
             </div>
