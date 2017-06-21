@@ -12,16 +12,16 @@ class Favs extends ParallaxPage {
       const favs = 
             <div>
             <div className="gradients">
-              <video className="parallax video-1" autoPlay mute>
+              <video className="parallax video-1" autoPlay loop>
                 <source src={ require('../images/favs/shell-1.mp4') } type="video/mp4" />
               </video>
-              <video className="parallax video-2" autoPlay mute>
+              <video className="parallax video-2" autoPlay loop>
                 <source src={ require('../images/favs/shell-2.mp4') } type="video/mp4" />
               </video>
-              <video className="parallax video-3" autoPlay mute>
+              <video className="parallax video-3" autoPlay loop>
                 <source src={ require('../images/favs/shell-3.mp4') } type="video/mp4" />
               </video>
-              <video className="parallax video-4" autoPlay mute>
+              <video className="parallax video-4" autoPlay loop>
                 <source src={ require('../images/favs/shell-4.mp4') } type="video/mp4" />
               </video>
               <div className="parallax gradient-1"></div>

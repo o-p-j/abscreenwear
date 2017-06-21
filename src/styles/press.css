@@ -84,3 +84,12 @@
 .press .glow {
   box-shadow: 0 0 1em #83D8F9;
 }
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 500ms;
+}

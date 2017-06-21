@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 
+import lazysizes from 'lazysizes'
+
 class DefaultPage extends React.Component {
 
   constructor(props){

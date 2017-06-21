@@ -475,8 +475,8 @@ class Postmasters extends React.Component {
                 </div>
 
                 <div id="text">
-                    <h1 id="headline">2/17_ Postmasters release</h1>
-                    <p id="description">2/17_Postmasters collection draws from organic vs digital in- terfaces, repetitive vs improvised structures to go post-language.Key item in screenwear-a jacket;Key item in softwear-an apron;Key item in everywear-a selfone</p>
+                    <h1 id="headline">2|17_ Postmasters release</h1>
+                    <p id="description">2|17_Postmasters collection draws from organic vs digital in- terfaces, repetitive vs improvised structures to go post-language.Key item in screenwear-a jacket;Key item in softwear-an apron;Key item in everywear-a selfone</p>
                 </div>
 
                 <div id="front1" className="front">
