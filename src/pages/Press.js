@@ -471,7 +471,7 @@ class Press extends ParallaxPage {
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i></span>
 
 
-              <span className="text" style={{ marginTop: '80%' }}><i>K</i><i>o</i><i>m</i><i>m</i><i>e</i><i>r</i><i>s</i><i>a</i><i>n</i><i>t</i><i>S</i><i>t</i><i>y</i><i>l</i><i>e</i></span>
+              <span className="text" style={{ marginTop: '80%' }}><b><i>K</i><i>o</i><i>m</i><i>m</i><i>e</i><i>r</i><i>s</i><i>a</i><i>n</i><i>t</i><i>S</i><i>t</i><i>y</i><i>l</i><i>e</i></b></span>
               <span className="text"><i>0</i><i>9</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>R</i><i>U</i></span>
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i><i>&</i></span>
               <a href="http://kommersant.ru/gallery/3095137#id=1329898" target="_blank" className="text url">

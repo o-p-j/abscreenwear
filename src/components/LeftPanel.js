@@ -54,7 +54,7 @@ const bottomLinks = [
     {
         to: '/codes',
         text: `Ab[Codes:`,
-        className: `u-mg-none`,
+        className: `u-mg-none--b`,
         children: [
             {
                 to: '/codes',

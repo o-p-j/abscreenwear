@@ -89,10 +89,10 @@ ul {
     flex-direction: column;
     justify-content: space-between;
     min-width: 220px;
-    padding-top: 34px;
-    padding-bottom: 34px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background-color: white;
-    font-size: 3vmin;
+    font-size: 28px;
     line-height: 1.2;
 }
 
@@ -445,8 +445,8 @@ ul {
 
 .c-home-video {
     position: absolute;
-    top: 34px;
-    bottom: 34px;
+    top: 20px;
+    bottom: 20px;
     left: 50%;
     width: 100vmax;
     transform: translate(-50%);

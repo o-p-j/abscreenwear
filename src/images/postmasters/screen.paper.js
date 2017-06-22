@@ -75,7 +75,6 @@ document.addEventListener("touchend", function() {
   mouseDown = false;
 });
 
-window.addEventListener("resize", onResize);
 
 var grow = false;
 var vector = new Point(150, 0);
@@ -107,6 +106,8 @@ function onFrame() {
   color.destination = point + [mousetravel,mousetravel];
   color.highlight = mousePoint;
 }
+
+window.addEventListener("resize", onResize);
 
 function onResize(event){
     view.bounds.width = window.innerWidth;
