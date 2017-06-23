@@ -46,19 +46,19 @@ class Codes extends ParallaxPage {
                         <img src={ require('../images/codes/icon-s1.png') } />
                     </span>
                     */}
-                    <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-s1.png')+')' }}></span>
+                    <span className="icon top" style={{ backgroundImage: 'url('+require('../images/codes/icon-s1.png')+')' }}></span>
                     <pre>S1/ fullscreen<br/>    [2:1]</pre>
-                    <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-s2.png')+')' }}></span>
+                    <span className="icon top" style={{ backgroundImage: 'url('+require('../images/codes/icon-s2.png')+')' }}></span>
                     <pre>S2/ offscreen<br/>    [1:2]</pre>
                     {/* 
                     <span className="icon icon-s3 icon-gradient">
                         <img src={ require('../images/codes/icon-s3.png') } />
                     </span>
                     */}
-                    <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-s3.png')+')' }}></span>
+                    <span className="icon top" style={{ backgroundImage: 'url('+require('../images/codes/icon-s3.png')+')' }}></span>
                     <pre>S3/ demiscreen<br/>    [1:1]</pre>
                     <div className="parallax gradient gradient-3"></div>
-                    <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-s4.png')+')' }}></span>
+                    <span className="icon top" style={{ backgroundImage: 'url('+require('../images/codes/icon-s4.png')+')' }}></span>
                     <pre>S4/ overscreen<br/>    [1:4]</pre>
                 </div>
 

@@ -4,7 +4,7 @@
 
 .codes pre {
   display: block;
-  font-size: 4.5vw;
+  font-size: 5.22vw;
   white-space: pre-wrap;
   margin-bottom: 1em;
   line-height: 1em;
@@ -37,6 +37,10 @@
   background-size: contain;
   position: relative;
   z-index: 10;
+}
+
+.codes .icon.top {
+  background-position: center top;
 }
 
 .codes .icon.spin {

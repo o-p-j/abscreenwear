@@ -6,7 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 6.5vw;
+  font-size: 5.22vw;
   box-shadow: 0 0 0 0 transparent;
   line-height: 1em;
   margin-bottom: 0.1em;
@@ -67,7 +67,7 @@
 }
 
 .press .parallax {
-  font-size: 6.5vw;
+  font-size: 5.22vw;
 }
 
 .press .parallax.layer-1 {
@@ -80,7 +80,7 @@
   position: absolute;
   z-index: 20;
   pointer-events: none;
-  font-size: 6.5vw;
+  font-size: 5.22vw;
 }
 
 
@@ -102,6 +102,6 @@
   .press .layer-2,
   .press .parallax,
   .press .text {
-    font-size: 5.5vw;
+    font-size: 5.22vw;
   }
 }
