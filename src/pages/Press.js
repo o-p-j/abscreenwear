@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import { findDOMNode } from 'react-dom';
 import ParallaxPage from '../components/ParallaxPage'
 
 import '../styles/press.css';
@@ -92,7 +91,7 @@ class Press extends ParallaxPage {
               </a>
 
 
-              <span className="text start">
+              <span className="text start" style={{ marginTop: '20%' }}>
                 <b>
                   <i>J</i>
                   <img className='parallax' style={{ width: '1.111em', height: '1.6667em', display: 'block', marginTop: '-0.4em' }} src={ require('../images/press/press_e_1.jpg') } />
@@ -128,9 +127,9 @@ class Press extends ParallaxPage {
                 </b>
               </a>
               <span className='text'>
-                <img className='parallax layer-2' style={{ width: '1.111em', height: '1.6667em', display: 'block', marginTop: '-1.5em', left: '1.25em' }} src={ require('../images/press/press_e_7.jpg') } />
-                <img className='layer-2' style={{ position: 'absolute', width: '1.111em', height: '1.6667em', display: 'block', marginTop: '-1.5em', left: '4.25em' }} src={ require('../images/press/press_e_8.jpg') } />
-                <img className='parallax layer-2' style={{ width: '1.111em', height: '1.6667em', display: 'block', marginTop: '-1.5em', left: '7.5em' }} src={ require('../images/press/press_e_9.jpg') } />
+                <img className='parallax layer-2' style={{ width: '1.111em', height: '1.6667em', display: 'block', marginTop: '-1.5em', left: '1.4em' }} src={ require('../images/press/press_e_7.jpg') } />
+                <img className='layer-2' style={{ position: 'absolute', width: '1.111em', height: '1.6667em', display: 'block', marginTop: '-1.5em', left: '4.8em' }} src={ require('../images/press/press_e_8.jpg') } />
+                <img className='parallax layer-2' style={{ width: '1.111em', height: '1.6667em', display: 'block', marginTop: '-1.5em', left: '8.15em' }} src={ require('../images/press/press_e_9.jpg') } />
               </span>
 
 
@@ -280,9 +279,9 @@ class Press extends ParallaxPage {
               <span className="text">
                 <b>
                   <i>B</i>
-                  <img src={ require('../images/press/press_k_2.jpg') } style={{ height: '1em', width: '0.6667em', marginLeft: '2.2em' }} />
+                  <img src={ require('../images/press/press_k_2.jpg') } style={{ height: '1.1em', width: '0.7337em', marginLeft: '2.2em' }} />
                   <i>O</i>
-                  <img src={ require('../images/press/press_k_3.jpg') } style={{ height: '1em', width: '0.6667em', marginRight: '2.2em' }} />
+                  <img src={ require('../images/press/press_k_3.jpg') } style={{ height: '1.1em', width: '0.7337em', marginRight: '2.2em' }} />
                   <i>N</i>
                 </b>
               </span>
@@ -300,26 +299,26 @@ class Press extends ParallaxPage {
                 </b>
                 <b style={{ height: '0.85em' }}>
                   <i>b</i><i>o</i><i>n</i><i>.</i><i>s</i>
-                  <i><img className="" src={ require('../images/press/press_k_5.jpg') } style={{ height: '1em', width: '0.6667em', marginTop: '-0.1em' }} /></i>
+                  <i><img className="" src={ require('../images/press/press_k_5.jpg') } style={{ height: '1.1em', width: '0.7337em', marginTop: '-0.1em' }} /></i>
                   <i>/</i><i>a</i><i>r</i><i>t</i><i>i</i><i>c</i><i>l</i><i>e</i><i>/</i>
                 </b>
                 <b style={{ height: '0.85em' }}>
                   <i>r</i><i>a</i><i>f</i><i>s</i><i>i</i><i>m</i><i>o</i><i>n</i><i>s</i><i>-</i><i>g</i>
-                  <i><img src={ require('../images/press/press_k_6.jpg') } style={{ height: '1em', width: '0.6667em', marginTop: '-0.1em' }} /></i>
+                  <i><img src={ require('../images/press/press_k_6.jpg') } style={{ height: '1.1em', width: '0.7337em', marginTop: '-0.1em' }} /></i>
                   <i>r</i><i>-</i>
                 </b>
                 <b style={{ height: '0.85em' }}>
                   <i>c</i>
-                  <i><img src={ require('../images/press/press_k_7.jpg') } style={{ height: '1em', width: '0.6667em', marginTop: '-0.1em' }} /></i>
+                  <i><img src={ require('../images/press/press_k_7.jpg') } style={{ height: '1.1em', width: '0.7337em', marginTop: '-0.1em' }} /></i>
                   <i>l</i><i>v</i><i>i</i><i>n</i>
-                  <i><img className="" src={ require('../images/press/press_k_8.jpg') } style={{ height: '1em', width: '0.6667em', marginTop: '-0.1em' }} /></i>
+                  <i><img className="" src={ require('../images/press/press_k_8.jpg') } style={{ height: '1.1em', width: '0.7337em', marginTop: '-0.1em' }} /></i>
                   <i>k</i><i>l</i><i>e</i><i>i</i><i>n</i><i>-</i>
                 </b>
                 <b style={{ height: '0.85em' }}>
                   <i>g</i><i>r</i><i>e</i>
-                  <i><img src={ require('../images/press/press_k_9.jpg') } style={{ height: '1em', width: '0.6667em', marginTop: '-0.1em' }} /></i>
+                  <i><img src={ require('../images/press/press_k_9.jpg') } style={{ height: '1.1em', width: '0.7337em', marginTop: '-0.1em' }} /></i>
                   <i>t</i><i>-</i><i>a</i><i>g</i>
-                  <i><img className="" src={ require('../images/press/press_k_10.jpg') } style={{ height: '1em', width: '0.6667em', marginTop: '-0.1em' }} /></i>
+                  <i><img className="" src={ require('../images/press/press_k_10.jpg') } style={{ height: '1.1em', width: '0.7337em', marginTop: '-0.1em' }} /></i>
                   <i>i</i><i>n</i><i>/</i>
                 </b>
               </a>
@@ -490,19 +489,11 @@ class Press extends ParallaxPage {
               <img className="parallax" src={ require('../images/press/press_s_2.jpg') } style={{ width: '50%', marginLeft: '50%', marginTop: '50%' }} />
 
 
-              <span className="text"><i>C</i><i>o</i><i>s</i><i>t</i><i>o</i><i>m</i><i>o</i><i>p</i><i>o</i><i>l</i><i>i</i><i>t</i><i>a</i><i>n</i> <i>s</i><i>h</i><i>o</i><i>p</i><i>p</i><i>i</i><i>n</i><i>g</i></span>
+              <span className="text"><b><i>C</i><i>o</i><i>s</i><i>t</i><i>o</i><i>m</i><i>o</i><i>p</i><i>o</i><i>l</i><i>i</i><i>t</i><i>a</i><i>n</i></b><b><i>s</i><i>h</i><i>o</i><i>p</i><i>p</i><i>i</i><i>n</i><i>g</i></b></span>
               <span className="text"><i>0</i><i>7</i><i>/</i><i>2</i><i>0</i><i>1</i><i>6</i><i>R</i><i>U</i></span>
               <span className="text"><i>p</i><i>r</i><i>i</i><i>n</i><i>t</i></span>
 
               <img className="parallax glow" src={ require('../images/press/press_t_1.jpg') } style={{ width: '98%', marginLeft: '1%' }} />
-
-
-
-
-
-
-
-
 
 
 

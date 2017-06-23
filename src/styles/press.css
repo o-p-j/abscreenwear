@@ -37,10 +37,12 @@
   font-style: normal;
   position: relative;
   z-index: 1;
+  white-space: nowrap;
 }
 
 .press b {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
   font-weight: normal;
   width: 100%;
@@ -50,6 +52,7 @@
   padding-right: 1%;
   position: relative;
   z-index: 10;
+  word-break: break-all;
 }
 
 .press a.text {
@@ -92,4 +95,13 @@
 .lazyloaded {
   opacity: 1;
   transition: opacity 500ms;
+}
+
+@media (max-width: 1250px) {
+  .press .parallax.layer-2,
+  .press .layer-2,
+  .press .parallax,
+  .press .text {
+    font-size: 5.5vw;
+  }
 }
