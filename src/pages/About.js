@@ -21,8 +21,8 @@ class About extends ParallaxPage {
                 <b><i>l</i><i>a</i><i>b</i></b>
                 <b><i>that</i> <i>aims</i> <i>to</i></b> 
                 <b><i>m</i><i>a</i><i>r</i><i>r</i><i>y</i></b>
-                <b><i>the</i><i> </i><i>familiarity</i></b>
-                <b><i>of</i><i> </i><i>the</i></b> 
+                <b><i>the</i><i> </i><i>familiaritys</i></b>
+                <b><i>of</i><i> </i><i>thes</i></b> 
                 <b><i>s</i><i>e</i><i>n</i><i>s</i><i>u</i><i>a</i><i>l</i></b>
                 <b><i>m</i><i>a</i><i>t</i><i>e</i><i>r</i><i>i</i><i>a</i><i>l</i></b>
                 <b><i>world</i><i> </i><i>with</i></b>

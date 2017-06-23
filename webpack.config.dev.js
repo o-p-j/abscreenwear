@@ -33,8 +33,11 @@ module.exports = {
             loader: 'style!css!postcss',
             include: path.join(__dirname, 'src')
         }, {
-            test: /\.(png|jpg|gif|svg|mp4)$/,
+            test: /\.(png|jpg|gif|svg)$/,
             loader: 'url?limit=50'
+        }, {
+              test: /\.mp4$/,
+              loader: 'url?limit=10000&mimetype=video/mp4'
         }, {
             test: /\.paper.js$/,
             loader: 'paper-loader'
