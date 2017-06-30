@@ -1,0 +1,34 @@
+.fabs {
+  font-size: 2vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+.fabs a {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+  letter-spacing: -0.1em;
+}
+
+.fabs i {
+  font-style: normal;
+  position: relative;
+  z-index: 1;
+}
+
+.fabs b {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-weight: normal;
+  width: 100%;
+  page-break-after: always; /* CSS 2.1 syntax */
+  break-after: always;
+  line-height: 1.1em;
+  position: relative;
+  z-index: 10;
+  //word-break: break-all;
+}

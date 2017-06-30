@@ -198,7 +198,7 @@ class Labs extends ParallaxPage {
 
 
         return (
-            <div className="labs">
+          <div className="labs">
     
             {labs}
             {labs}
