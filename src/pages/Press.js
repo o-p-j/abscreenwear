@@ -7,7 +7,7 @@ class Press extends ParallaxPage {
 
     render() {
 
-      const favs = 
+      const press = 
             <div>
               <span className="text"><i>H</i><i>a</i><i>r</i><i>p</i><i>e</i><i>r</i><i>s</i><i>B</i><i>a</i><i>z</i><i>a</i><i>a</i><i>r</i></span>
               <span className="text"><i>0</i><i>6</i><i>/</i><i>2</i><i>0</i><i>1</i><i>7</i><i>U</i><i>A</i></span>
@@ -542,8 +542,8 @@ class Press extends ParallaxPage {
         return (
           <div className="press">
     
-            {favs}
-            {favs}
+            {press}
+            {press}
 
           </div>
         );

@@ -1,0 +1,75 @@
+.labs {
+  font-size: 5.22vw;
+}
+
+.labs a {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1em;
+  letter-spacing: -0.1em;
+}
+
+.labs i {
+  font-style: normal;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.labs b {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  font-weight: normal;
+  width: 100%;
+  page-break-after: always; /* CSS 2.1 syntax */
+  break-after: always;
+  line-height: 1.1em;
+  padding-right: 1%;
+  position: relative;
+  z-index: 10;
+  word-break: break-all;
+}
+
+.labs a:hover b {
+  box-shadow: inset 0 -0.06em 0 black;
+}
+
+.labs a img {
+  transition: opacity 500ms ease-in-out;
+}
+
+.labs a:hover img.layer-2 {
+  opacity: 0.25;
+}
+
+.labs .parallax.layer-1 {
+  position: absolute;
+  z-index: 0;
+}
+
+.labs .parallax.layer-2,
+.labs .layer-2 {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  font-size: 5.22vw;
+}
+
+.labs img {
+  box-shadow: 0.025em 0.025em 0.15em rgba(49,79,171,0.6);
+}
+
+.labs img.glow-2 {
+  box-shadow: 0.05em 0.05em 0.3em rgba(49,79,171,0.6);
+}
+
+.labs img.glow-3 {
+  box-shadow: 0.1em 0.1em 0.5em rgba(49,79,171,0.6);
+}
+
+.labs img.no-glow {
+  box-shadow: none;
+}

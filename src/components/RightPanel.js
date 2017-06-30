@@ -7,7 +7,7 @@ import getMenu from './getMenu';
 
 const topLinks = [
     {
-        href: `http://abscreenwear.tumblr.com/`,
+        to: `/labs`,
         text: `ab:labs;`
     }
 ]
