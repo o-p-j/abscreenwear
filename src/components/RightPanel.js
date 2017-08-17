@@ -52,6 +52,8 @@ const RightPanel = (props) => (
                     ab:news;
                 </button>
             </li>
+        </ul>
+        <ul>
             <li>
                 <a href="mailto:ab@abscreenwear.com">
                     email
