@@ -458,7 +458,7 @@ ul {
     height: auto;
     margin: auto;
     left: 50%;
-    top: 50%;
+    top: 47%;
     min-width: 500px;
     transform: translate3d(-50%,-50%,0);
 }
