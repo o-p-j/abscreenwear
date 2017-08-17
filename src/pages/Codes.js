@@ -117,7 +117,6 @@ class Codes extends ParallaxPage {
                     
                     <pre><span className="blink-1">></span><span className="blink-2">></span> e2/ extensions<br/>[Multiple<br/>     modules]</pre>
 
-                    <pre><span className="blink-1">></span><span className="blink-2">></span><span className="blink-3">></span>e3/ upcycling<br/>[Lifetime<br/>  modules]</pre>
                     <div className="parallax gradient gradient-6"></div>
 
                 </div>
@@ -125,16 +124,16 @@ class Codes extends ParallaxPage {
                 <pre>{'{e}'} stands for<br/>  Exterior specs</pre>
                 <div className="col-1">
                     <span className="icon" style={{ backgroundImage: 'none', backgroundPosition: 'top center', height: '100px' }}>
-                    <svg width="78px" height="82px" viewBox="0 0 78 82" version="1.1">
+                    <svg width="100%" height="70px" viewBox="0 0 78 82" version="1.1">
                         <path className="path-2" fill="none" stroke="#000000" strokeWidth="4" stroke-miterlimit="20" d="M30.283,78.49 C27.958,78.49 25.762,77.4 24.35,75.54 L5.27,50.35 C2.793,47.08 3.435,42.42 6.714,39.93 C9.998,37.45 14.659,38.1 17.14,41.37 L29.689,57.94 L61.243,7.29 C63.417,3.8 68.006,2.73 71.498,4.9 C74.986,7.07 76.054,11.66 73.88,15.15 L36.601,74.98 C35.309,77.06 33.072,78.37 30.622,78.48 C30.507,78.48 30.397,78.49 30.283,78.49 Z"></path>
                     </svg>
                     </span>
                     <pre>e1/ baseline<br/>   [Ready-to-wear]</pre>
-                    <span className="icon icon-e2" style={{ backgroundImage: 'url('+require('../images/codes/icon-e2.png')+')', backgroundPosition: 'top center', height: '100px' }}></span>
+                    <span className="icon icon-e2" style={{ backgroundImage: 'url('+require('../images/codes/icon-e2.png')+')', backgroundPosition: 'top center', height: '120px' }}></span>
                     <pre>e2/ bespoke<br/>   [High sewing]</pre>
                     
                     <span className="icon" style={{ backgroundImage: 'url('+require('../images/codes/icon-e3.gif')+')', backgroundPosition: 'top center', height: '100px' }}></span>
-                    <pre>e3/ slow<br/>   [Re-use x<br/>         re-new]</pre>
+                    <pre>e3/ upcycling<br/>   [Re-use x<br/>         re-new]</pre>
                     <div className="parallax gradient gradient-7"></div>
                 </div>
                 <div className="col-0">

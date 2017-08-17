@@ -16,21 +16,21 @@ const topLinks = [
                 to: `/releases/postmasters`,
                 text: stripIndent`
                     2:17
-                    Postmasters;
+                    postmasters;
                 `
             },
             {
                 to: `/releases/kahn`,
                 text: stripIndent`
                     1:17
-                    Kahn;
+                    kahn;
                 `
             },
             {
                 to: '/releases/marfa',
                 text: stripIndent`
                     1:16
-                    Marfa;
+                    marfa;
                 `
             }
         ]
@@ -41,24 +41,33 @@ const middleLinks = [
     {
         to: '/about',
         className: 'u-mg-none--b',
-        text: `About;`
+        text: `About;`,
+        children: [
+            {
+                to: `/press`,
+                className: 'u-mg-none--t',
+                text: `Press;`
+            },
+        ]
     },
-    {
-        to: `/press`,
-        className: 'u-mg-none--t',
-        text: `   Press;`
-    }
+    
+
 ]
 
 const bottomLinks = [
     {
         to: '/codes',
-        text: `Ab[Codes:`,
+        text: ``,
         className: `u-mg-none--b`,
         children: [
             {
                 to: '/codes',
-                className: 'u-mg-none',
+                text: `Codes:`,
+                className: `u-mg-none--t`,
+            },
+            {
+                to: '/codes',
+                className: 'u-mg-none--t',
                 text: stripIndent`
                     A; b;
                     S;c; r;
