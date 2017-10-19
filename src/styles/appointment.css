@@ -349,6 +349,7 @@ input, button, textarea {
 .appointment input[type=text],
 .appointment input[type=email],
 .appointment textarea {
+  -webkit-appearance: none;
   font-size: 28px;
   border: 0;
   border-bottom: 2px solid black;
@@ -360,6 +361,7 @@ input, button, textarea {
   color: transparent;
   text-shadow: 0 1px 0 black, 1px 0 0 black, 0 -1px 0 black, -1px 0 0 black, 1px 1px 0 black, -1px -1px 0 black;
   caret-color: black;
+  border-radius: 0;
 }
 
 @media screen and (max-width: 1280px) {
@@ -406,16 +408,16 @@ input, button, textarea {
 
 .appointment textarea {
   line-height: 1.7em;
-  height: 4em;
+  height: 3.6em;
   background: transparent;
-  box-shadow: inset 0 -1em 0px white, inset 0 -1.07em 0px black, inset 0 -2.7em 0px white, inset 0 -2.77em 0px black;
+  box-shadow: inset 0 -15px 0px white, inset 0 -17px 0px black, inset 0 -62px 0px white, inset 0 -64px 0px black;
   resize: none;
   margin-top: -0.35em;
   border: 0;
 }
 
 .appointment textarea:focus {
-  box-shadow: inset 0 -1em 0px white, inset 0 -1.07em 0px blue, inset 0 -2.7em 0px white, inset 0 -2.77em 0px blue;
+  box-shadow: inset 0 -15px 0px white, inset 0 -17px 0px blue, inset 0 -62px 0px white, inset 0 -64px 0px blue;
   border: 0;
 }
 
@@ -450,7 +452,7 @@ input, button, textarea {
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-fill-mode: both;
-  display: none;
+  opacity: 0;
 
 }
 
@@ -467,7 +469,7 @@ input, button, textarea {
 textarea:focus ~ .help-box,
 label.focus + .help-box,
 .social-handles label.focus ~ .help-box {
-  display: block;
+  opacity: 1;
 }
 
 @keyframes an-barcode-bg-2 {

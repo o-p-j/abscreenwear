@@ -182,6 +182,8 @@ export default class Appointment extends ParallaxPage {
                                 </label>
                             </p>
 
+                            <br/>
+
                             <label className="textField">
                                 First name:
                                 <input required name="First name" type="text" />
@@ -268,8 +270,11 @@ export default class Appointment extends ParallaxPage {
 
                             <input type="hidden" name="_subject" value="New appointment request" />
                             <input type="text" name="_gotcha" style={{ display: 'none' }} />
+                            <p>
 
-                            <button type="submit">Next ></button>
+                                <button type="submit">Next ></button>
+
+                            </p>
                         </div>
 
 
