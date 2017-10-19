@@ -28,9 +28,9 @@ class DefaultPage extends React.Component {
         }
     }
 
-    componentDidMount() {
+    onMount() {
 
-        this.container = document.querySelector('.c-app__content');
+      this.container = document.querySelector('.c-app__content');
 
         var $this = this
         
@@ -104,6 +104,7 @@ class DefaultPage extends React.Component {
         function round(num) {
           return Math.round(num * 10) / 10
         }
+
     }
 
     componentWillUnmount() {

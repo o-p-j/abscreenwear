@@ -6,7 +6,10 @@ import '../styles/codes.css';
 import ParallaxPage from '../components/ParallaxPage'
 
 class Codes extends ParallaxPage {
-
+    
+    componentDidMount() {
+        this.onMount()
+    }
 
     render() {
         const codes = 

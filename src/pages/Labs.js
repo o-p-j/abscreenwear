@@ -5,6 +5,10 @@ import '../styles/labs.css';
 
 class Labs extends ParallaxPage {
 
+    componentDidMount() {
+        this.onMount()
+    }
+
     render() {
 
       const labs = <div>

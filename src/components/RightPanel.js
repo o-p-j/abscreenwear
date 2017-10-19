@@ -25,6 +25,14 @@ const middleLinks = [
     }
 ];
 
+const appointment = [
+    {
+        to: `/appointment`,
+        className: 'c-shop-button-container appointment-link',
+        text: 'Appointment;'
+    }
+]
+
 const RightPanel = (props) => (
     <aside className={cls('c-panel', 'c-panel--right', props.className)}>
         <div className="c-shop-button-container">
@@ -36,12 +44,7 @@ const RightPanel = (props) => (
         {getMenu(topLinks)}
         {getMenu(middleLinks)}
 
-        <div>
-            <a href="mailto:ab@abscreenwear.com">
-                request<br/>
-                appointment;
-            </a>
-        </div>
+        {getMenu(appointment)}
 
         <ul className="c-links">
             <li>
