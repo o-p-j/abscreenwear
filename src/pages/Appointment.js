@@ -127,15 +127,21 @@ export default class Appointment extends ParallaxPage {
             
         })
 
-        const social_inputs = appointmentForm.querySelectorAll('input, textarea')
+        const inputs = appointmentForm.querySelectorAll('input, textarea')
 
-        for(let i=0; i<social_inputs.length; i++) {
-            social_inputs[i].addEventListener('focus', function() {
-                social_inputs[i].parentNode.classList.add('focus')
+        for(let i=0; i<inputs.length; i++) {
+            inputs[i].addEventListener('focus', function() {
+                inputs[i].parentNode.classList.add('focus')
             })
-            social_inputs[i].addEventListener('blur', function() {
-                social_inputs[i].parentNode.classList.remove('focus')
+            inputs[i].addEventListener('blur', function() {
+                inputs[i].parentNode.classList.remove('focus')
+                if(inputs[i].value === '')
+                    inputs[i].parentNode.classList.remove('typed')
             })
+            inputs[i].addEventListener('keypress', function() {
+                inputs[i].parentNode.classList.add('typed')
+            })
+
         }
 
         appointmentForm.addEventListener('submit', function(e) {
@@ -196,11 +202,12 @@ export default class Appointment extends ParallaxPage {
                                 Email address:
                                 <input required name="Email address" type="email" />
                             </label>
-                            <label className="textField mailing-address">
-                                Mailing address:
-                                <textarea name="Mailing address"></textarea>
-                            </label>
-                            <div className="help-box">
+                            <div className="mailing-address">
+                                <label className="textField">
+                                    Mailing address:
+                                    <textarea name="Mailing address"></textarea>
+                                </label>
+                                <div className="help-box">
                                     Optional.
                                     If you provide your
                                     mailing address, we will
@@ -209,8 +216,11 @@ export default class Appointment extends ParallaxPage {
                                     Ab[Screenwear] starter
                                     kit by mail
                                 </div>
+                            </div>
+                            <br/><br/>
+                            
+                            <p>Social handles:</p>
                             <div className="social-handles">
-                                <p>Social handles:</p>
                                 <label className="textField">
                                     instagram:
                                     <input name="Instagram" type="text" />
@@ -232,7 +242,7 @@ export default class Appointment extends ParallaxPage {
                                 </div>
                             </div>
 
-
+                            <br/><br/>
 
                             <p>
                                 <span>Age:</span>

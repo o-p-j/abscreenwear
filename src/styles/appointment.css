@@ -404,6 +404,7 @@ input, button, textarea {
   cursor: pointer;
   width: auto;
   margin-bottom: 20px;
+  border-radius: 0;
 }
 
 .appointment textarea {
@@ -422,16 +423,18 @@ input, button, textarea {
 }
 
 .appointment .help-box {
-  position: relative;
+  position: absolute;
   font-size: 14px;
   line-height: 1.2em;
   white-space: pre-wrap;
-  top: 0;
+  top: 50%;
   text-align: center;
-  left: 50%;
-  width: 50%;
-  transform: translate3d(-50%,0,0);
+  right: 0;
+  width: 40%;
+  min-width: 250px;
+  transform: translate3d(0,-50%,0);
   background: white;
+  pointer-events: none;
 
   background-image: linear-gradient(
       to right,
@@ -443,7 +446,7 @@ input, button, textarea {
   background-size: 100%;
   background-repeat: repeat-y;
   background-position: top left;
-  padding: 1em;
+  padding: 1.5em;
 
   animation-name: an-barcode-bg-2;
   animation-duration: 3s, 6s;
@@ -454,6 +457,11 @@ input, button, textarea {
   animation-fill-mode: both;
   opacity: 0;
 
+}
+
+.appointment .social-handles,
+.appointment .mailing-address {
+  position: relative;
 }
 
 .appointment .social-handles .help-box {
@@ -470,6 +478,11 @@ textarea:focus ~ .help-box,
 label.focus + .help-box,
 .social-handles label.focus ~ .help-box {
   opacity: 1;
+}
+
+label.typed + .help-box,
+.social-handles label.typed ~ .help-box {
+  opacity: 0;
 }
 
 @keyframes an-barcode-bg-2 {
