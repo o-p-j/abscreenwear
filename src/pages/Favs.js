@@ -7,6 +7,10 @@ import ParallaxPage from '../components/ParallaxPage'
 
 class Favs extends ParallaxPage {
 
+    componentDidMount() {
+        this.onMount()
+    }
+
     render() {
 
       const favs = 

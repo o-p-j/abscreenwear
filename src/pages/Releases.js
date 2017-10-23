@@ -6,6 +6,10 @@ import ParallaxPage from '../components/ParallaxPage'
 
 class Releases extends ParallaxPage {
 
+    componentDidMount() {
+        this.onMount()
+    }
+
     render() {
 
         var items = [];

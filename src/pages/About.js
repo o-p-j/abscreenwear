@@ -7,6 +7,10 @@ import ParallaxPage from '../components/ParallaxPage'
 
 class About extends ParallaxPage {
 
+    componentDidMount() {
+        this.onMount()
+    }
+
     render() {
         const about = 
             <div className="text">

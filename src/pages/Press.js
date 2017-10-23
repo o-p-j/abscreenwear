@@ -5,6 +5,10 @@ import '../styles/press.css';
 
 class Press extends ParallaxPage {
 
+    componentDidMount() {
+        this.onMount()
+    }
+
     render() {
 
       const press = 

@@ -33,6 +33,9 @@ module.exports = {
             loader: 'style!css!postcss',
             include: path.join(__dirname, 'src')
         }, {
+            test: /\.json$/,
+            loader: 'json-loader',
+        }, {
             test: /\.(png|jpg|gif|svg)$/,
             loader: 'url?limit=50'
         }, {
@@ -47,4 +50,9 @@ module.exports = {
             loader: 'file-loader?name=fonts/[name].[ext]'
           }]
     },
+    node: {
+        fs: 'empty',
+        net: 'empty',
+        tls: 'empty'
+      }
 };

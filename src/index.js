@@ -17,6 +17,7 @@ import Favs from './pages/Favs';
 import Labs from './pages/Labs';
 import Editorial from './pages/Editorial';
 import SubscribeForm from './components/SubscribeForm';
+import Appointment from './pages/Appointment';
 
 var ga = require('react-ga');
 ga.initialize('UA-69537137-1');
@@ -40,6 +41,7 @@ render((
       <Route path="/fabs" component={Fabs}/>
       <Route path="/labs" component={Labs}/>
       <Route path="/editorial" component={Editorial}/>
+      <Route path="/appointment" component={Appointment}/>
     </Route>
   </Router>
 ), document.getElementById('root'));
