@@ -18,9 +18,13 @@ import Labs from './pages/Labs';
 import Editorial from './pages/Editorial';
 import SubscribeForm from './components/SubscribeForm';
 import Appointment from './pages/Appointment';
+import ReactPixel from 'react-facebook-pixel';
 
 var ga = require('react-ga');
 ga.initialize('UA-69537137-1');
+
+ReactPixel.init('129376951103660');
+ReactPixel.pageView(); // For tracking page view
 
 function logPageView() {
   ga.pageview(window.location.pathname);
