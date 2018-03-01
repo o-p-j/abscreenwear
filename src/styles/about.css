@@ -1,6 +1,7 @@
 .about .text {
   font-size: 28px;
   line-height: 40px;
+  padding: 0 5%;
   padding-bottom: 50vh;
   position: relative;
   z-index: 500;
@@ -43,22 +44,6 @@
   animation-fill-mode: both;
 }
 
-@keyframes gradient-bg-1 {
-    0%   { background-position: -50%;  }
-    50%  {
-        background-size: 200%;
-        background-position: 30%;
-    }
-    100% { background-position: 150%; }
-}
-
-@keyframes gradient-bg-colors-1 {
-    0%     { color: #ff00ff }
-    33.33% { color: #00ffff }
-    66.66% { color: #ffff00 }
-    100%   { color: #FDEF36 }
-}
-
 .about .gradient-2 {
   width: 45%;
   height: 35%;
@@ -85,28 +70,15 @@
   animation-fill-mode: both;
 }
 
-@keyframes gradient-bg-2 {
-    0%   { background-position: 0 -150%;  }
-    50%  {
-        background-size: 100% 200%;
-        background-position: 0 30%;
-    }
-    100% { background-position: 0 200%; }
-}
-
-@keyframes gradient-bg-colors-2 {
-    0% { color: #00ffff }
-    100% { color: #00ff00 }
-}
-
 
 .about .gradient-3 {
   position: absolute;
   width: 300px;
   height: 300px;
+  right: 0;
   border-radius: 150px;
-  animation-name: gradient-bg-3, gradient-bg-colors-3;
-  margin: 40em 60%;
+  animation-name: gradient-bg-1, gradient-bg-colors-3;
+  margin: 40em 5% 0;
   color: #720cff;
 
   background-image: linear-gradient(
@@ -128,17 +100,28 @@
 }
 
 
-@keyframes gradient-bg-3 {
-    0%   { background-position: -50% 0;  }
-    50%  {
-        background-size: 300%;
-        background-position: 0 30%;
-    }
-    100% { background-position: 200% 0; }
-}
+.about .gradient-4 {
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
+  animation-name: gradient-bg-4, gradient-bg-colors-4;
+  margin: 100% 20%;
+  color: #720cff;
 
-@keyframes gradient-bg-colors-3 {
-    0%     { color: #ff0000 }
-    50% { color: #720cff }
-    100% { color: #ff00ff }
+  background-image: linear-gradient(
+        to right,
+        rgba(255,255,255,0),
+        #00ffff 35%,
+        currentColor 50%,
+        rgba(255,255,255,0)
+    );
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-position: top left;
+
+  animation-duration: 3s, 6s;
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95), linear;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
 }

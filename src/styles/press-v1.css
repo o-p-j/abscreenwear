@@ -1,0 +1,107 @@
+.press {
+  font-weight: normal;
+}
+
+.press .text {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 5.22vw;
+  box-shadow: 0 0 0 0 transparent;
+  line-height: 1em;
+  margin-bottom: 0.1em;
+  position: relative;
+  z-index: 10;
+}
+
+.press .text.start {
+  margin-top: 8%;
+}
+
+.press .text.fade:after {
+  position: absolute;
+  content: "";
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to top, transparent, gray);
+}
+
+.press .text.url {
+  word-break: break-all;
+  text-align: justify;
+}
+
+.press i {
+  font-style: normal;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.press b {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  font-weight: normal;
+  width: 100%;
+  page-break-after: always; /* CSS 2.1 syntax */
+  break-after: always;
+  line-height: 1.1em;
+  padding-right: 1%;
+  position: relative;
+  z-index: 10;
+  word-break: break-all;
+}
+
+.press a.text {
+  cursor: pointer;
+  letter-spacing: -0.1em;
+}
+
+.press a.text b {
+  line-height: 0.85em;
+  margin-bottom: 0.2em;
+  box-shadow: inset 0 -0.06em 0 black;
+}
+
+.press .parallax {
+  font-size: 5.22vw;
+}
+
+.press .parallax.layer-1 {
+  position: absolute;
+  z-index: 0;
+}
+
+.press .parallax.layer-2,
+.press .layer-2 {
+  position: absolute;
+  z-index: 20;
+  pointer-events: none;
+  font-size: 5.22vw;
+}
+
+
+.press .glow {
+  box-shadow: 0 0 1em #83D8F9;
+}
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+@media (max-width: 1250px) {
+  .press .parallax.layer-2,
+  .press .layer-2,
+  .press .parallax,
+  .press .text {
+    font-size: 5.22vw;
+  }
+}

@@ -16,9 +16,7 @@ class About extends ParallaxPage {
         <div>
             <div className="gradients">
               <div className="parallax gradient-1"></div>
-              <div className="parallax gradient-2"></div>
-
-              
+              <div className="parallax gradient-2"></div>              
             </div>
             <div className="text">
 
