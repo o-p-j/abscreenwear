@@ -12,6 +12,7 @@ import Releases from './pages/Releases';
 import Codes from './pages/Codes';
 import About from './pages/About';
 import Press from './pages/Press';
+import PressV1 from './pages/PressV1';
 import Fabs from './pages/Fabs';
 import Favs from './pages/Favs';
 import Labs from './pages/Labs';
@@ -41,6 +42,7 @@ render((
       <Route path="/codes" component={Codes}/>
       <Route path="/about" component={About}/>
       <Route path="/press" component={Press}/>
+      <Route path="/press/v1" component={PressV1}/>
       <Route path="/favs" component={Favs}/>
       <Route path="/fabs" component={Fabs}/>
       <Route path="/labs" component={Labs}/>
