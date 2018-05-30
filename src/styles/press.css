@@ -1,21 +1,28 @@
 .press {
   font-weight: normal;
+  font-size: 28px;
+  max-width: 100%;
+  overflow: hidden;
+  word-break: break-all;
 }
 
-.press .text {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  font-size: 5.22vw;
-  box-shadow: 0 0 0 0 transparent;
-  line-height: 1em;
-  margin-bottom: 0.1em;
+.press .press-item {
+  padding-top: 8.5%;
+}
+
+.press .press-item p,
+.press .press-item img {
   position: relative;
-  z-index: 10;
+  left: 8.5%;
 }
 
-.press .text.start {
-  margin-top: 8%;
+
+.press .parallax {
+  left: 0;
+}
+
+.press p {
+  margin: 0.25em 0;
 }
 
 .press .text.fade:after {
@@ -75,12 +82,16 @@
   z-index: 0;
 }
 
-.press .parallax.layer-2,
-.press .layer-2 {
+.press .parallax.layer-2 {
   position: absolute;
   z-index: 20;
   pointer-events: none;
   font-size: 5.22vw;
+}
+
+.press .layer-2 {
+  z-index: 20;
+  position: relative;
 }
 
 
