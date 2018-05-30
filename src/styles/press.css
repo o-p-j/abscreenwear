@@ -89,6 +89,10 @@
   font-size: 5.22vw;
 }
 
+.press .transparent {
+  mix-blend-mode: multiply;
+}
+
 .press .layer-2 {
   z-index: 20;
   position: relative;
