@@ -34,7 +34,7 @@ class DefaultPage extends React.Component {
 
         var $this = this
         
-        $this.container.scrollTop = 1;
+        $this.container.scrollTop = 10;
 
         $this.container.addEventListener('scroll', $this.updateScrollPosition, false);
 
