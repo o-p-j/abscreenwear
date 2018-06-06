@@ -40,6 +40,9 @@ class Press extends ParallaxPage {
                 <p>150 anniversary print issue</p>
                 <img className="layer-2" width="55%" style={{ marginLeft: '-2%' }} src={ require('../images/pressV2/02/bazaar.png') } />
                 <img className="lazyload" width="70%" style={{ marginLeft: '-4%' }} src={ require('../images/pressV2/02/01.gif') } data-src={ require('../images/pressV2/02/01.jpg') } />
+
+                <img className=" parallax transparent layer-2 lazyload" width="80%" style={{ marginLeft: '8%' }} src={ require('../images/pressV2/02/03.png') } />
+                
                 <img width="24%" className="lazyload parallax layer-1" style={{ marginLeft: '46%', marginTop: '40%' }} src={ require('../images/pressV2/02/02.gif') } data-src={ require('../images/pressV2/02/02.png') } />
               </div>
               <div className="press-item">
@@ -48,8 +51,8 @@ class Press extends ParallaxPage {
                 <p>
                   <a href="http://garage.vice.com/en_us/article/43n85w/art-and-fashion-get-a-room-you-two" target="_blank">garage.vice.com/en_us/article/43n85w/art-and-fashion-get-a-room-you-two</a>
                 </p>
-                <img className="lazyload" width="67%" src={ require('../images/pressV2/03/garage.gif') } data-src={ require('../images/pressV2/03/garage.jpg') } />
-                <img className="parallax layer-1" style={{ marginTop: '2%', marginLeft: '68%' }} width="14%" src={ require('../images/pressV2/03/vice.png') } />
+                <img className="lazyload" width="72%" src={ require('../images/pressV2/03/garage.gif') } data-src={ require('../images/pressV2/03/garage.jpg') } />
+                <img className="parallax layer-1" style={{ marginTop: '2%', marginLeft: '70%' }} width="14%" src={ require('../images/pressV2/03/vice.png') } />
                 <img className="lazyload" width="80%" style={{ marginTop: '4%' }} src={ require('../images/pressV2/03/01.gif') } data-src={ require('../images/pressV2/03/01.jpg') } />
                 <img className="lazyload" style={{ left: 0, marginTop: '5%' }} width="100%" src={ require('../images/pressV2/03/garage_crop.gif') } data-src={ require('../images/pressV2/03/garage_crop.jpg') } />
                 
@@ -162,7 +165,7 @@ class Press extends ParallaxPage {
               <div className="press-item">
 
                 
-                <p>The Cut</p>
+                <p>WGSN Insider</p>
                 <p>
                   <a href="https://www.wgsn.com/blogs/ny-tech-forward-fashion-label-ab-screenwear/" target="_blank">wgsn.com/blogs/ny-tech-forward-fashion-label-ab-screenwear</a>
                 </p>
@@ -170,9 +173,9 @@ class Press extends ParallaxPage {
                 
                 <img className="" width="48%" style={{ zIndex: 0 }} src={ require('../images/pressV2/12/01.png') } />
 
-                <img className="parallax layer-2 lazyload" width="60%" style={{ marginTop: '40%', marginLeft: '4%' }} src={ require('../images/pressV2/12/03.gif') } data-src={ require('../images/pressV2/12/03.png') } />
+                <img className="parallax layer-2 lazyload" width="60%" style={{ marginTop: '70%', marginLeft: '4%' }} src={ require('../images/pressV2/12/03.gif') } data-src={ require('../images/pressV2/12/03.png') } />
 
-                <img className="parallax layer-2 lazyload" width="50%" style={{ marginTop: '30%', marginLeft: '32%' }} src={ require('../images/pressV2/12/04.gif') } data-src={ require('../images/pressV2/12/04.png') } />
+                <img className="parallax layer-2 lazyload" width="50%" style={{ marginTop: '60%', marginLeft: '32%' }} src={ require('../images/pressV2/12/04.gif') } data-src={ require('../images/pressV2/12/04.png') } />
 
 
                 <img className="lazyload" width="78%" style={{ position: 'relative', zIndex: 0 }} src={ require('../images/pressV2/12/02.gif') } data-src={ require('../images/pressV2/12/02.png') } />
@@ -277,7 +280,236 @@ class Press extends ParallaxPage {
 
               </div>
 
+              <div className="press-item">
+                
+                <p>Bon magazine</p>
+                <p>
+                  <a href="https://bon.se/article/raf-simons-gor-calvin-klein-great-again/" target="_blank">bon.se/article/raf-simons-gor-calvin-klein-great-again</a>
+                </p>
 
+                <img className="transparent layer-2" width="36%" style={{ }} src={ require('../images/pressV2/18/01.png') } />
+
+                <img className="lazyload" width="85%" style={{ marginTop: '0' }} src={ require('../images/pressV2/18/02.gif') } data-src={ require('../images/pressV2/18/02.jpg') } />
+
+                <img className="parallax lazyload layer-2" width="30%" style={{ marginLeft: '53%', marginTop: '-5%' }} src={ require('../images/pressV2/18/03.png') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Jute magazine</p>
+                <p>
+                  <a href="http://www.jutefashionmagazine.com/stories/abscreenwear/" target="_blank">jutefashionmagazine.com/stories/abscreenwear</a>
+                </p>
+
+                <img className="parallax transparent layer-2" width="45%" style={{ }} src={ require('../images/pressV2/19/01.png') } />
+
+                <img className="lazyload layer-1" width="85%" style={{ marginTop: '18%' }} src={ require('../images/pressV2/19/02.gif') } data-src={ require('../images/pressV2/19/02.jpg') } />
+
+                <img className="parallax lazyload layer-2" width="76%" style={{ marginLeft: '5%', marginTop: '10%' }} src={ require('../images/pressV2/19/03.png') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Glitty magazine</p>
+                <p>
+                  <a href="https://www.glitty.jp/2017/02/060781adscreen_fashion.html" target="_blank">glitty.jp/2017/02/060781adscreen_fashion.html</a>
+                </p>
+
+                <img className="transparent layer-2" width="17%" style={{ }} src={ require('../images/pressV2/20/01.png') } />
+
+                <img className="lazyload parallax layer-1 transparent" width="80%" style={{ marginTop: '-5%' }} src={ require('../images/pressV2/20/02.gif') } data-src={ require('../images/pressV2/20/02.png') } />
+
+                <img className="layer-2 parallax transparent" width="85%" style={{ marginTop: '25%' }} src={ require('../images/pressV2/20/04.png') } />
+
+                <img className="lazyload layer-2 transparent" width="85%" style={{ marginTop: '4%' }} src={ require('../images/pressV2/20/03.gif') } data-src={ require('../images/pressV2/20/03.png') } />
+
+                <img className="lazyload layer-1" width="85%" style={{ marginTop: '-5%' }} src={ require('../images/pressV2/20/05.gif') } data-src={ require('../images/pressV2/20/05.jpg') } />       
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Futur404</p>
+                <p>
+                  <a href="https://futur404.com/ab-screenwear/" target="_blank">futur404.com/ab-screenwear</a>
+                </p>
+
+                <img className="transparent layer-2" width="47%" style={{ }} src={ require('../images/pressV2/21/01.png') } />
+
+                <img className="parallax layer-2 transparent" width="22%" style={{ marginLeft: '60%' }} src={ require('../images/pressV2/21/02.png') } />
+
+                <img className="lazyload layer-1" width="85%" style={{ marginTop: '-5%' }} src={ require('../images/pressV2/21/03.gif') } data-src={ require('../images/pressV2/21/03.jpg') } />       
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Atlas magazine</p>
+                <p>
+                  <a href="http://theatlasmagazine.com/show-ab-screenwear-fw17/" target="_blank">theatlasmagazine.com/show-ab-screenwear-fw17</a>
+                </p>
+
+                <img className="" width="55%" style={{ }} src={ require('../images/pressV2/22/01.jpg') } />
+
+                <img className="layer-2 transparent" width="50%" style={{ marginLeft: '32%' }} src={ require('../images/pressV2/22/02.png') } />
+
+                <img className="parallax layer-2 transparent" width="50%" style={{ marginLeft: '32%', marginTop: '2%' }} src={ require('../images/pressV2/22/02.png') } />
+
+                <img className="parallax transparent lazyload layer-2" width="36%" style={{ marginTop: '0%' }} src={ require('../images/pressV2/22/03.gif') } data-src={ require('../images/pressV2/22/03.png') } />
+
+                <img className="lazyload layer-1" width="85%" style={{ marginTop: '-15%' }} src={ require('../images/pressV2/22/04.gif') } data-src={ require('../images/pressV2/22/04.jpg') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Buro 24/7</p>
+                <p>
+                  <a href="https://www.buro247.ru/fashion/fashionshows/novoe-imya-ab-screenwear.html" target="_blank">buro247.ru/fashion/fashionshows/novoe-imya-ab-screenwear.html</a>
+                </p>
+
+                <img className="" width="42%" style={{ }} src={ require('../images/pressV2/23/01.png') } />
+
+                <img className="parallax transparent layer-2" width="30%" style={{ marginTop: '10%', marginLeft: '40%' }} src={ require('../images/pressV2/23/02.png') } />
+
+                <img className="lazyload parallax transparent layer-2" width="85%" style={{ marginTop: '30%', marginLeft: '0%' }} src={ require('../images/pressV2/23/03.gif') } data-src={ require('../images/pressV2/23/03.png') } />
+
+                <img className="parallax layer-2" width="20%" style={{ marginTop: '50%', marginLeft: '5%' }} src={ require('../images/pressV2/23/04.png') } />
+
+                <img className="lazyload layer-1" width="50%" style={{ marginTop: '-30%', marginLeft: '30%' }} src={ require('../images/pressV2/23/05.gif') } data-src={ require('../images/pressV2/23/05.jpg') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Calvert journal</p>
+                <p>
+                  <a href="http://www.calvertjournal.com/news/show/7143/check-out-this-contemplative-fashion-film-by-russian-director-nadia-bedzhan" target="_blank">calvertjournal.com/news/show/7143/check-out-this-contemplative-fashion-film-by-russian-director-nadia-bedzhan</a>
+                </p>
+
+                <img className="" width="20%" style={{ }} src={ require('../images/pressV2/24/01.png') } />
+
+                <img className="parallax transparent layer-2" width="85%" style={{ marginTop: '3%', marginLeft: '0%' }} src={ require('../images/pressV2/24/02.png') } />
+
+                <img className="lazyload layer-1" width="85%" style={{ marginTop: '9%', marginLeft: '0%' }} src={ require('../images/pressV2/24/03.gif') } data-src={ require('../images/pressV2/24/03.jpg') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Metal magazine</p>
+                <p>
+                  <a href="https://metalmagazine.eu/en/post/video/ab-screenwear-juxtaposing-skin-and-screen" target="_blank">metalmagazine.eu/en/post/video/ab-screenwear-juxtaposing-skin-and-screen</a>
+                </p>
+
+                <img className="layer-2 transparent" width="48%" style={{ }} src={ require('../images/pressV2/25/01.png') } />
+
+                <img className="parallax lazyload layer-1" width="100%" style={{ marginTop: '12%', marginLeft: '-6%' }} src={ require('../images/pressV2/25/02.gif') } data-src={ require('../images/pressV2/25/02.jpg') } />
+
+                <img className="parallax transparent layer-2" width="30%" style={{ marginTop: '54%', marginLeft: '30%' }} src={ require('../images/pressV2/25/03.png') } />
+                
+                <img className="transparent layer-2" width="90%" style={{ marginTop: '52%', marginLeft: '0%' }} src={ require('../images/pressV2/25/04.png') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Cosmopolitan magazine</p>
+                <p>
+                  print
+                </p>
+
+                <img className="parallax layer-2 transparent" width="72%" style={{ }} src={ require('../images/pressV2/26/01.png') } />
+
+                <img className="lazyload layer-1" width="90%" style={{ marginTop: '20%', marginLeft: '0%' }} src={ require('../images/pressV2/26/02.gif') } data-src={ require('../images/pressV2/26/02.jpg') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Elle magazine</p>
+                <p>
+                  print
+                </p>
+
+                <img className="parallax layer-2 transparent" width="34%" style={{ marginTop: '2.5%' }} src={ require('../images/pressV2/27/01.png') } />
+
+                <img className="lazyload layer-1" width="90%" style={{ marginTop: '20%', marginLeft: '0%' }} src={ require('../images/pressV2/27/02.gif') } data-src={ require('../images/pressV2/27/02.jpg') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Elle magazine</p>
+                <p>
+                  print
+                </p>
+
+                <img className="parallax layer-2 transparent" width="34%" style={{ marginTop: '2.5%' }} src={ require('../images/pressV2/28/01.png') } />
+
+                <img className="lazyload layer-1" width="90%" style={{ marginTop: '20%', marginLeft: '0%' }} src={ require('../images/pressV2/28/02.gif') } data-src={ require('../images/pressV2/28/02.jpg') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Nargis magazine</p>
+                <p>
+                  print
+                </p>
+
+                <img className="parallax layer-2 transparent" width="68%" style={{ marginTop: '2.5%' }} src={ require('../images/pressV2/29/01.png') } />
+
+                <img className="lazyload transparent layer-1" width="90%" style={{ marginTop: '-20%', marginLeft: '0%' }} src={ require('../images/pressV2/29/02.gif') } data-src={ require('../images/pressV2/29/02.jpg') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Kommersant style</p>
+                <p>
+                  print
+                </p>
+
+                <img className="layer-2 transparent" width="90%" style={{ marginTop: '2.5%' }} src={ require('../images/pressV2/30/01.png') } />
+
+                <img className="lazyload layer-1" width="70%" style={{ marginTop: '-5%', marginLeft: '-17%' }} src={ require('../images/pressV2/30/02.gif') } data-src={ require('../images/pressV2/30/02.jpg') } />
+
+                <img className="parallax transparent lazyload layer-2" width="62%" style={{ marginTop: '4%', marginLeft: '40%' }} src={ require('../images/pressV2/30/03.gif') } data-src={ require('../images/pressV2/30/03.png') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Coolhunting</p>
+                <p>
+                  <a href="http://coolhunting.com/style/abscreenwear-tech-fashion" target="_blank">coolhunting.com/style/abscreenwear-tech-fashion</a>
+                </p>
+
+                <img className="layer-2 transparent" width="46%" src={ require('../images/pressV2/31/01.png') } />
+
+                <img className="lazyload transparent parallax layer-2" width="34%" style={{ marginTop: '19%', marginLeft: '35%' }} src={ require('../images/pressV2/31/02.gif') } data-src={ require('../images/pressV2/31/02.png') } />
+
+                <img className="lazyload layer-1" width="90%" style={{ marginTop: '4%', marginLeft: '0%' }} src={ require('../images/pressV2/31/03.gif') } data-src={ require('../images/pressV2/31/03.jpg') } />
+
+              </div>
+
+              <div className="press-item">
+                
+                <p>Ladygunn</p>
+                <p>
+                  <a href="http://ladygunn.com/fashion-style/ab-screenwear" target="_blank">ladygunn.com/fashion-style/ab-screenwear</a>
+                </p>
+
+                <img className="parallax layer-1 transparent" width="60%" src={ require('../images/pressV2/32/01.png') } />
+
+                <img className="transparent parallax layer-2" width="90%" style={{ marginTop: '20%', marginLeft: '0%' }} src={ require('../images/pressV2/32/02.png') } />
+
+                <img className="lazyload transparent layer-1" width="90%" style={{ marginTop: '15%', marginLeft: '0%' }} src={ require('../images/pressV2/32/03.gif') } data-src={ require('../images/pressV2/32/03.jpg') } />
+
+              </div>
 
 
             </div>

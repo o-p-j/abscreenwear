@@ -16,13 +16,22 @@
   left: 8.5%;
 }
 
+.press .press-item p {
+  max-width: 90%;
+}
+
 
 .press .parallax {
   left: 0;
 }
 
 .press p {
-  margin: 0.25em 0;
+  margin: 0;
+  line-height: 1.5em;
+}
+
+.press p + img {
+  margin-top: 0.25em;
 }
 
 .press .text.fade:after {
