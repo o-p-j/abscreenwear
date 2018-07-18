@@ -15,25 +15,6 @@ class Press extends ParallaxPage {
 
       const press = 
             <div className="press-items">
-              
-              <div className="press-item"> 
-                <p>
-                  Su La Po
-                </p>
-                <p>
-                  <a href="http://su-la-po.com/content/2018/the-future-females-and-fashion" target="_blank">su-la-po.com/content/2018/the-future-females-and-fashion</a>
-                </p>
-                <img className="parallax transparent" width="70.5%" style={{ }} src={ require('../images/pressV2/01/sulapo.png') } />
-                <img className="lazyload" width="83%" src={ require('../images/pressV2/01/1.gif') } data-src={ require('../images/pressV2/01/1.jpg') } />
-                <img className="parallax layer-2" width="24%" style={{ marginLeft: '0%', marginTop: '14%' }} src={ require('../images/pressV2/01/thefuture.png') } />
-                <img className="parallax layer-1" width="18%" style={{ marginLeft: '35.5%', marginTop: '27%' }} src={ require('../images/pressV2/01/females.png') } />
-                <img className="parallax layer-2" width="27%" style={{ marginLeft: '6.5%', marginTop: '43%' }} src={ require('../images/pressV2/01/andfashion.png') } />
-                <img className="parallax layer-2" width="30%" style={{ left: 'auto', right: '8.5%', marginTop: '80%' }} src={ require('../images/pressV2/01/whatsnext.png') } />
-
-                <img className="parallax layer-1" width="44%" style={{ marginLeft: '1.5%', marginTop: '58%' }} src={ require('../images/pressV2/01/text.png') } />
-                <img className="parallax layer-2" width="44%" style={{ marginLeft: '1.5%', marginTop: '72%' }} src={ require('../images/pressV2/01/text.png') } />
-                <img className="parallax layer-1" width="44%" style={{ marginLeft: '1.5%', marginTop: '95%' }} src={ require('../images/pressV2/01/text.png') } />
-              </div>
 
               <div className="press-item">
                 <p>Harper’s Bazaar</p>
@@ -45,6 +26,26 @@ class Press extends ParallaxPage {
                 
                 <img width="24%" className="lazyload parallax layer-1" style={{ marginLeft: '46%', marginTop: '40%' }} src={ require('../images/pressV2/02/02.gif') } data-src={ require('../images/pressV2/02/02.png') } />
               </div>
+
+              <div className="press-item"> 
+                <p>
+                  Su La Po
+                </p>
+                <p>
+                  <a href="http://su-la-po.com/content/2018/the-future-females-and-fashion" target="_blank">su-la-po.com/content/2018/the-future-females-and-fashion</a>
+                </p>
+                <img className="parallax transparent" width="70.5%" style={{ }} src={ require('../images/pressV2/01/sulapo2.png') } />
+                <img className="lazyload" width="83%" src={ require('../images/pressV2/01/1.gif') } data-src={ require('../images/pressV2/01/1.jpg') } />
+                <img className="parallax layer-2" width="24%" style={{ marginLeft: '0%', marginTop: '14%' }} src={ require('../images/pressV2/01/thefuture.png') } />
+                <img className="parallax layer-1" width="18%" style={{ marginLeft: '35.5%', marginTop: '27%' }} src={ require('../images/pressV2/01/females.png') } />
+                <img className="parallax layer-2" width="27%" style={{ marginLeft: '6.5%', marginTop: '43%' }} src={ require('../images/pressV2/01/andfashion.png') } />
+                <img className="parallax layer-2" width="30%" style={{ left: 'auto', right: '8.5%', marginTop: '80%' }} src={ require('../images/pressV2/01/whatsnext.png') } />
+
+                <img className="parallax layer-1" width="44%" style={{ marginLeft: '1.5%', marginTop: '58%' }} src={ require('../images/pressV2/01/text.png') } />
+                <img className="parallax layer-2" width="44%" style={{ marginLeft: '1.5%', marginTop: '72%' }} src={ require('../images/pressV2/01/text.png') } />
+                <img className="parallax layer-1" width="44%" style={{ marginLeft: '1.5%', marginTop: '95%' }} src={ require('../images/pressV2/01/text.png') } />
+              </div>
+              
               <div className="press-item">
 
                 <p>Garage magazine</p>
